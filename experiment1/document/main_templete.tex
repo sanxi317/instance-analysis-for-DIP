@@ -128,12 +128,21 @@
 \zihao{5}{
 \setlength{\baselineskip}{16pt}\selectfont{
 \noindent {\heiti 摘\quad 要\quad }
-*中文摘要内容置于此处(英文摘要中要有这些内容)，字体为5号宋体。摘要贡献部分，要有数据支持，不要出现``...大大提高''、``...显著改善''等描述，正确的描述是``比{\ldots}提高X{\%}''、``在{\ldots}上改善X{\%}''。
+针对低剂量 CT（Low-Dose CT，LDCT）图像噪声较强、细节退化等问题，
+本文采用传统数字图像处理方法进行去噪与超分辨率重建。
+实验比较均值、高斯、自适应中值、非局部均值（Non-Local Means，NLM）和小波软阈值五种去噪方法，
+定量分析结果表明，在本实验设置下，NLM 综合表现最佳，峰值信噪比（PSNR）和结构相似性（SSIM）分别为 39.252 dB 和 0.95269，
+较原始 LDCT 分别提高 2.368 dB 和 0.04353。
+进一步以 NLM 去噪结果构造低分辨率输入，
+比较最近邻、双线性和双三次三种 4 倍插值方法，
+结果表明双三次插值取得最高 PSNR 28.005 dB 和 SSIM 0.88673。
+顺序实验表明，先去噪后超分优于先超分后去噪。
+综合实验结果，本文推荐采用“先 NLM 去噪、后双三次插值”的处理流程。
 \par}}
 \vspace {5mm}
 
 \zihao{5}{\noindent
-{\heiti 关键词 \quad }{*关键词（中文关键字与英文关键字对应且一致，应有5-7个关键词)；关键词；关键词*  }
+{\heiti 关键词 \quad }低剂量 CT；图像去噪；非局部均值；超分辨率重建；双三次插值；结构相似性
 }
 % \zihao{5-}{\heiti 中图法分类号\quad } TP\rm{\quad \quad \quad     }
 % {\heiti DOI号:\quad } *投稿时不提供DOI号
@@ -156,14 +165,13 @@
 %%%%%%%%%%%%%%%%%%%%英文摘要%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \zihao{5}{
 \setlength{\baselineskip}{18pt}\selectfont{
-{\bf Abstract}\quad (\textbf{500英文单词，内容包含中文摘要的内容}).
-字体为Times new Roman,字号5号* 
-\zihao{5}{\noindent Do not modify the amount of space before and after the artworks. One- or two-column format artworks are preferred. and Tables, create a new break line and paste the resized artworks where desired. Do not modify the amount of space before and after the artworks. One- or two-column format artworks are preferred. All Schemes, Equations, Figures, and Tables should be mentioned in the text consecutively and numbered with Arabic numerals, and appear below where they are mentioned for the first time in the main text. To insert Schemes, Equations, Figures, and Tables, create a new break line and paste the resized artworks where desired. Do not modify the amount of space before and after the artworks. One- or two-column format artworks are preferred.Do not modify the amount of space before and after the artworks. One- or two-column format artworks are preferred. and Tables, create a new break line and paste the resized artworks where desired. %Do not modify the amount of space before and after the artworks. One- or two-column format artworks are preferred. All Schemes, Equations, Figures, and Tables should be mentioned in the text consecutively and numbered with Arabic numerals, and appear below where they are mentioned for the first time in the main text.
+{\bf Abstract}\quad 
+\zihao{5}{\ To address the problems of strong noise and detail degradation in low-dose computed tomography (LDCT) images, this study employs traditional digital image processing methods for denoising and super-resolution reconstruction. Five denoising methods, including mean filtering, Gaussian filtering, adaptive median filtering, Non-Local Means (NLM), and wavelet soft-thresholding, are compared. Quantitative results show that, under the experimental settings of this study, NLM achieves the best overall performance, with a peak signal-to-noise ratio (PSNR) of 39.252 dB and a structural similarity index (SSIM) of 0.95269, representing improvements of 2.368 dB and 0.04353, respectively, over the original LDCT image. Furthermore, low-resolution inputs are constructed from the NLM-denoised results, and three 4× interpolation methods, namely nearest-neighbor, bilinear, and bicubic interpolation, are compared. The results show that bicubic interpolation achieves the highest PSNR of 28.005 dB and SSIM of 0.88673. The processing-order experiment further shows that denoising before super-resolution performs better than super-resolution before denoising. Based on the overall experimental results, the processing pipeline of “NLM denoising followed by bicubic interpolation” is recommended under the experimental conditions of this study. %Do not modify the amount of space before and after the artworks. One- or two-column format artworks are preferred. All Schemes, Equations, Figures, and Tables should be mentioned in the text consecutively and numbered with Arabic numerals, and appear below where they are mentioned for the first time in the main text.
 \par}}
 \vspace {5mm}
 
-{{\bf Keywords}\quad 中文关键字与英文关键字对应且一致，\textbf{不要用英文缩写});
-key word; key word; key word* *字体为5号Times new Roman * Key words\par}}
+{{\bf Keywords}\quad 
+low-dose computed tomography; image denoising; Non-Local Means; super-resolution reconstruction; bicubic interpolation; structural similarity}}
 
 
 
