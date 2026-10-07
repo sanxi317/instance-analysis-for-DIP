@@ -17,6 +17,16 @@ from PIL import Image
 from skimage.metrics import peak_signal_noise_ratio, structural_similarity
 
 
+# ---------- 中文支持 ----------
+plt.rcParams["font.sans-serif"] = [
+    "Noto Serif CJK SC",
+    "Noto Serif CJK JP",
+    "SimSun",
+    "DejaVu Sans",
+]
+plt.rcParams["axes.unicode_minus"] = False
+
+
 TASK_DIR = Path(__file__).resolve().parent
 PROJECT_DIR = TASK_DIR.parent
 RESULTS_DIR = TASK_DIR / "results"
@@ -56,7 +66,6 @@ def read_gray(path: Path) -> np.ndarray:
         raise FileNotFoundError(f"缺少输入文件：{path}")
     try:
         with Image.open(path) as image:
-            # 不静默把 RGB 截图转灰度，防止带画布的图片混入评价。
             if image.mode not in {"L", "I;16", "I", "F"}:
                 raise ValueError(f"要求单通道灰度图，实际 mode={image.mode}：{path}")
             array = np.asarray(image)
@@ -279,7 +288,7 @@ def metrics_lookup(rows: list[dict[str, str]]) -> dict[str, tuple[str, str]]:
 
 def panel_title(label: str, method: str, lookup: dict[str, tuple[str, str]]) -> str:
     if method == "FDCT":
-        return f"{label}\nGround Truth"
+        return f"{label}\n参考真值"
     psnr, ssim = lookup[method]
     return f"{label}\nPSNR {psnr} dB | SSIM {ssim}"
 
@@ -303,7 +312,7 @@ def plot_panels(
     )
     for axis, (label, method, image) in zip(axes.flat, panels):
         axis.imshow(image, cmap="gray", vmin=0, vmax=255, interpolation="nearest")
-        axis.set_title(panel_title(label, method, lookup), fontsize=8.5)
+        axis.set_title(panel_title(label, method, lookup), fontsize=7.5)
         axis.axis("off")
     unused_axes = list(axes.flat[len(panels) :])
     if empty_note and unused_axes:
@@ -313,7 +322,7 @@ def plot_panels(
             empty_note,
             ha="center",
             va="center",
-            fontsize=11,
+            fontsize=7.5,
             linespacing=1.5,
             transform=unused_axes[0].transAxes,
         )
@@ -321,38 +330,39 @@ def plot_panels(
         unused_axes = unused_axes[1:]
     for axis in unused_axes:
         axis.axis("off")
-    fig.suptitle(figure_title, fontsize=14)
+    fig.suptitle(figure_title, fontsize=10)
     fig.savefig(output, dpi=300, bbox_inches="tight", facecolor="white")
+    fig.savefig(output.with_suffix(".pdf"), bbox_inches="tight", facecolor="white")
     plt.close(fig)
 
 
 def plot_denoising_comparison(images: dict[str, np.ndarray], rows: list[dict[str, str]]) -> None:
     panels = [
-        ("Original LDCT", "LDCT", images["Original LDCT"]),
-        ("Mean", "Mean", images["Mean"]),
-        ("Gaussian", "Gaussian", images["Gaussian"]),
-        ("Adaptive Median", "Adaptive Median", images["Adaptive Median"]),
+        ("原始 LDCT", "LDCT", images["Original LDCT"]),
+        ("均值滤波", "Mean", images["Mean"]),
+        ("高斯滤波", "Gaussian", images["Gaussian"]),
+        ("自适应中值滤波", "Adaptive Median", images["Adaptive Median"]),
         ("NLM", "NLM", images["NLM"]),
-        ("Wavelet", "Wavelet", images["Wavelet"]),
-        ("FDCT", "FDCT", images["FDCT Ground Truth"]),
+        ("小波软阈值", "Wavelet", images["Wavelet"]),
+        ("FDCT 真值", "FDCT", images["FDCT Ground Truth"]),
     ]
     best = max(
         (row for row in rows if row["Category"] == "Denoising"),
         key=lambda row: (float(row["SSIM"]), float(row["PSNR_dB"])),
     )
     note = (
-        "Best denoising\n"
+        "最优去噪\n"
         f"{best['Method']}\n\n"
         f"PSNR {best['PSNR_dB']} dB\n"
         f"SSIM {best['SSIM']}\n\n"
-        "Reference: paired FDCT"
+        "参考：配对 FDCT"
     )
     plot_panels(
         panels,
         rows,
         RESULTS_DIR / "comparison_denoising.png",
         4,
-        "Denoising comparison against paired FDCT",
+        "五种去噪方法与 FDCT 真值对比",
         empty_note=note,
     )
 
@@ -360,28 +370,40 @@ def plot_denoising_comparison(images: dict[str, np.ndarray], rows: list[dict[str
 def plot_sr_comparison(images: dict[str, np.ndarray], rows: list[dict[str, str]]) -> None:
     panels = [
         ("NLM", "NLM", images["NLM"]),
-        ("NLM + Nearest", "NLM + Nearest", images["NLM + Nearest"]),
-        ("NLM + Bilinear", "NLM + Bilinear", images["NLM + Bilinear"]),
-        ("NLM + Bicubic", "NLM + Bicubic", images["NLM + Bicubic"]),
-        ("FDCT", "FDCT", images["FDCT Ground Truth"]),
+        ("NLM + 最近邻", "NLM + Nearest", images["NLM + Nearest"]),
+        ("NLM + 双线性", "NLM + Bilinear", images["NLM + Bilinear"]),
+        ("NLM + 双三次", "NLM + Bicubic", images["NLM + Bicubic"]),
+        ("FDCT 真值", "FDCT", images["FDCT Ground Truth"]),
     ]
-    plot_panels(panels, rows, RESULTS_DIR / "comparison_sr.png", 5, "4x interpolation reconstruction against paired FDCT")
+    plot_panels(
+        panels,
+        rows,
+        RESULTS_DIR / "comparison_sr.png",
+        5,
+        "三种插值 4 倍重建与 FDCT 真值对比",
+    )
 
 
 def plot_all_comparison(images: dict[str, np.ndarray], rows: list[dict[str, str]]) -> None:
     panels = [
-        ("Original LDCT", "LDCT", images["Original LDCT"]),
-        ("Mean", "Mean", images["Mean"]),
-        ("Gaussian", "Gaussian", images["Gaussian"]),
-        ("Adaptive Median", "Adaptive Median", images["Adaptive Median"]),
+        ("原始 LDCT", "LDCT", images["Original LDCT"]),
+        ("均值滤波", "Mean", images["Mean"]),
+        ("高斯滤波", "Gaussian", images["Gaussian"]),
+        ("自适应中值滤波", "Adaptive Median", images["Adaptive Median"]),
         ("NLM", "NLM", images["NLM"]),
-        ("Wavelet", "Wavelet", images["Wavelet"]),
-        ("NLM + Nearest", "NLM + Nearest", images["NLM + Nearest"]),
-        ("NLM + Bilinear", "NLM + Bilinear", images["NLM + Bilinear"]),
-        ("NLM + Bicubic", "NLM + Bicubic", images["NLM + Bicubic"]),
-        ("FDCT", "FDCT", images["FDCT Ground Truth"]),
+        ("小波软阈值", "Wavelet", images["Wavelet"]),
+        ("NLM + 最近邻", "NLM + Nearest", images["NLM + Nearest"]),
+        ("NLM + 双线性", "NLM + Bilinear", images["NLM + Bilinear"]),
+        ("NLM + 双三次", "NLM + Bicubic", images["NLM + Bicubic"]),
+        ("FDCT 真值", "FDCT", images["FDCT Ground Truth"]),
     ]
-    plot_panels(panels, rows, RESULTS_DIR / "comparison_all.png", 5, "Task4 qualitative and quantitative comparison")
+    plot_panels(
+        panels,
+        rows,
+        RESULTS_DIR / "comparison_all.png",
+        5,
+        "去噪与超分综合对比",
+    )
 
 
 def plot_roi_comparison(images: dict[str, np.ndarray], rows: list[dict[str, str]]) -> bool:
@@ -404,14 +426,14 @@ def plot_roi_comparison(images: dict[str, np.ndarray], rows: list[dict[str, str]
     )["Method"]
     keys = [
         ("LDCT", "LDCT", "Original LDCT"),
-        (f"Best: {best_denoising}", best_denoising, best_denoising),
-        ("Nearest", "NLM + Nearest", "NLM + Nearest"),
-        ("Bilinear", "NLM + Bilinear", "NLM + Bilinear"),
-        ("Bicubic", "NLM + Bicubic", "NLM + Bicubic"),
-        ("FDCT", "FDCT", "FDCT Ground Truth"),
+        (f"最优：{best_denoising}", best_denoising, best_denoising),
+        ("最近邻", "NLM + Nearest", "NLM + Nearest"),
+        ("双线性", "NLM + Bilinear", "NLM + Bilinear"),
+        ("双三次", "NLM + Bicubic", "NLM + Bicubic"),
+        ("FDCT 真值", "FDCT", "FDCT Ground Truth"),
     ]
     panels = [(label, method, images[key][y : y + height, x : x + width]) for label, method, key in keys]
-    plot_panels(panels, rows, RESULTS_DIR / "comparison_roi.png", 6, "Same ROI for local structure comparison")
+    plot_panels(panels, rows, RESULTS_DIR / "comparison_roi.png", 6, "同一 ROI 局部结构对比")
     return True
 
 
@@ -476,9 +498,13 @@ def main() -> None:
         RESULTS_DIR / "comparison_denoising.png",
         RESULTS_DIR / "comparison_sr.png",
         RESULTS_DIR / "comparison_all.png",
+        RESULTS_DIR / "comparison_denoising.pdf",
+        RESULTS_DIR / "comparison_sr.pdf",
+        RESULTS_DIR / "comparison_all.pdf",
     ]
     if roi_created:
         expected.append(RESULTS_DIR / "comparison_roi.png")
+        expected.append(RESULTS_DIR / "comparison_roi.pdf")
     missing_outputs = [str(path) for path in expected if not path.is_file() or path.stat().st_size == 0]
     if missing_outputs:
         raise OSError("输出生成失败：\n" + "\n".join(missing_outputs))

@@ -1,0 +1,32 @@
+Task4 输入检查
+================================================================================
+FDCT Ground Truth: path=/home/WJX/instance-analysis-for-DIP/experiment1/task2/images/fdct_ground_truth.png; shape=(512, 512); dtype=uint8; min=55; max=255
+Original LDCT: path=/home/WJX/instance-analysis-for-DIP/experiment1/task2/images/ldct_input.png; shape=(512, 512); dtype=uint8; min=55; max=255
+Mean: path=/home/WJX/instance-analysis-for-DIP/experiment1/task2/images/mean.png; shape=(512, 512); dtype=uint8; min=55; max=255
+Gaussian: path=/home/WJX/instance-analysis-for-DIP/experiment1/task2/images/gaussian.png; shape=(512, 512); dtype=uint8; min=55; max=255
+Adaptive Median: path=/home/WJX/instance-analysis-for-DIP/experiment1/task2/images/adaptive_median.png; shape=(512, 512); dtype=uint8; min=55; max=255
+NLM: path=/home/WJX/instance-analysis-for-DIP/experiment1/task2/images/nlm.png; shape=(512, 512); dtype=uint8; min=55; max=255
+Wavelet: path=/home/WJX/instance-analysis-for-DIP/experiment1/task2/images/wavelet.png; shape=(512, 512); dtype=uint8; min=54; max=255
+NLM + Nearest: path=/home/WJX/instance-analysis-for-DIP/experiment1/task3/output/nearest_image.png; shape=(512, 512); dtype=uint8; min=56; max=255
+NLM + Bilinear: path=/home/WJX/instance-analysis-for-DIP/experiment1/task3/output/bilinear_image.png; shape=(512, 512); dtype=uint8; min=56; max=255
+NLM + Bicubic: path=/home/WJX/instance-analysis-for-DIP/experiment1/task3/output/bicubic_image.png; shape=(512, 512); dtype=uint8; min=41; max=255
+
+DICOM/PNG 配对核验
+--------------------------------------------------------------------------------
+PNG 与 DICOM 统一预处理结果逐像素一致。
+Patient ID: Anonymous
+Image Position Patient: -180.66796875\-295.66796875\-67
+Image Orientation Patient: 1\0\0\0\1\0
+Pixel Spacing: 0.6640625\0.6640625
+Slice Thickness: 3
+Convolution Kernel: B30f
+Instance Number: 1
+
+Task3 方案
+--------------------------------------------------------------------------------
+Task3 实际流程为 512→128→512；直接使用三种 512×512 输出与 FDCT 比较。
+
+原始 DICOM 路径
+--------------------------------------------------------------------------------
+FDCT: /home/WJX/instance-analysis-for-DIP/experiment1/full_3mm/L067/full_3mm/L067_FD_3_1.CT.0002.0001.2015.12.22.18.12.07.5968.358090401.IMA
+LDCT: /home/WJX/instance-analysis-for-DIP/experiment1/quarter_3mm/L067/quarter_3mm/L067_QD_3_1.CT.0004.0001.2015.12.22.18.12.56.428910.358293547.IMA
