@@ -1,0 +1,81 @@
+{
+  "roi_xyxy": [
+    80,
+    150,
+    240,
+    310
+  ],
+  "crop_description": "Local structure only; no lesion annotation",
+  "files": [
+    {
+      "source": "task2/images/ldct_input.png",
+      "copy": "ldct.png",
+      "sha256": "9bbca872746a9ab63431a890d8889a05a1c49c2a7c6eb06b111764241c39ca59",
+      "crop": "ldct_crop.png",
+      "crop_sha256": "80a3c47daf4b0e8017f195de3fadf7f059c5aec8723b7e06f943823ffb2f8219"
+    },
+    {
+      "source": "task2/images/fdct_ground_truth.png",
+      "copy": "fdct.png",
+      "sha256": "8a3056b2b1aa142e30e680b524c0b60d1d1933787699b94205d81769ff210764",
+      "crop": "fdct_crop.png",
+      "crop_sha256": "ad1316212314cd75681b191b06dbfa3e2b97b0142fa82267de71630f941d792f"
+    },
+    {
+      "source": "task2/images/mean.png",
+      "copy": "mean.png",
+      "sha256": "86a980666e6b17771bd9ab9f3100a41478d159a23a886c7d235dbe55cc965b49",
+      "crop": "mean_crop.png",
+      "crop_sha256": "4fbc97b9648a04048e755b694274644a5cc879d727be953b24e560f4c70fd19b"
+    },
+    {
+      "source": "task2/images/gaussian.png",
+      "copy": "gaussian.png",
+      "sha256": "4f51db46e9a7cdce4a6326442c83383caed1a6395ddb49e5602f185f6bc581ef",
+      "crop": "gaussian_crop.png",
+      "crop_sha256": "a4dddee76b35fc67bd0a9096f554f8e280ad888169d08bc6560c1512505e9345"
+    },
+    {
+      "source": "task2/images/adaptive_median.png",
+      "copy": "adaptive_median.png",
+      "sha256": "c927d658aaa4dd8a4b7266a679adf2fc0abb893c6c5708d04b13e14c0bb2e5d2",
+      "crop": "adaptive_median_crop.png",
+      "crop_sha256": "92e54ff9d4c4832fba6748a7b752aabc8a8f410279395f905bbf4ce68b1008ff"
+    },
+    {
+      "source": "task2/images/nlm.png",
+      "copy": "nlm.png",
+      "sha256": "b66e9fdf14f47ef1f707305fe13a23d9193ac6e635fd6cf9acd1e0a6e7e81ed8",
+      "crop": "nlm_crop.png",
+      "crop_sha256": "9f35976079ed373af68d36e3677339543376648a22c2b08d5a60f96518efbd53"
+    },
+    {
+      "source": "task2/images/wavelet.png",
+      "copy": "wavelet.png",
+      "sha256": "5574628e139f0c3574ec3b44eb9b70f8cffcd40a6a7d64b88fecccd0f5b18641",
+      "crop": "wavelet_crop.png",
+      "crop_sha256": "552d6c38e1983fbc019af97dadb1913925daee5cf5330fae1056de2c3946a0a9"
+    },
+    {
+      "source": "task3/output/nearest_image.png",
+      "copy": "nearest.png",
+      "sha256": "c2e53df8c745d4fd356b5a1b4355ce21af480efb4a20d290051d680fedf8f71a",
+      "crop": "nearest_crop.png",
+      "crop_sha256": "f8beb8c452025465e90efd6ab9b69011bbb381a9923719b4c488229ec0002948"
+    },
+    {
+      "source": "task3/output/bilinear_image.png",
+      "copy": "bilinear.png",
+      "sha256": "9cc6f5a7622c16aa5e4f10a54727b01a2e118bfecc03091a41d9842c552a7c63",
+      "crop": "bilinear_crop.png",
+      "crop_sha256": "9abf98a7f6ba1a3d7ac071ba84e18ac3e929bb98dac88f8af2143a42d20e29e5"
+    },
+    {
+      "source": "task3/output/bicubic_image.png",
+      "copy": "bicubic.png",
+      "sha256": "a025389b3d85a0e9e15e514ce9f491c1d6793387e6db28a26966f533f84b9eb9",
+      "crop": "bicubic_crop.png",
+      "crop_sha256": "17030edd06d0c1e56ce34990a19bf7ce1150cd5e1a2cec835598c53446de025d"
+    }
+  ]
+}
