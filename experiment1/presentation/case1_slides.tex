@@ -32,8 +32,8 @@
 \setbeamertemplate{itemize item}{\color{Accent}\small\textbullet}
 \setbeamertemplate{footline}{%
   \hfill\usebeamercolor[fg]{normal text}\scriptsize
-  \ifnum\value{framenumber}>10 备用\,A\number\numexpr\value{framenumber}-10\relax
-  \else\insertframenumber/10\fi\hspace{5mm}\vspace{3mm}}
+  \ifnum\value{framenumber}>11 备用\,A\number\numexpr\value{framenumber}-11\relax
+  \else\insertframenumber/11\fi\hspace{5mm}\vspace{3mm}}
 \setbeamersize{text margin left=7mm,text margin right=7mm}
 \setbeameroption{hide notes}
 \setlength{\abovedisplayskip}{4pt}
@@ -237,6 +237,38 @@ SSIM & 0.82142 & 0.83767 & \textbf{0.86125} \\
 \end{tabular}\par}
 \source{统一以512×512 FDCT为参考。最近邻易呈锯齿，双线性较模糊，双三次本例指标最好；损失包含降采样。}
 \note{最近邻复制最近的像素，容易形成锯齿；双线性加权四个邻近像素，更平滑但会模糊；双三次使用十六个邻近像素，本例结果最好。注意本页先从512降到128，再放大四倍回到512，是模拟恢复实验。每个方向放大四倍，像素数变为十六倍，但插值不能找回真实丢失细节。}
+\end{frame}
+
+% 9: 35 seconds
+\begin{frame}
+\frametitle{降噪和超分处理顺序的影响}
+\textbf{实验设计：}两种流程（均采用 NLM 去噪 + 双三次插值）。
+\begin{itemize}
+\item \textbf{方案 A：}先降噪后超分：保留原尺寸细节后再放大。
+\item \textbf{方案 B：}先超分后降噪：放大后再平滑。
+\end{itemize}
+\vspace{2mm}
+{\small 评价指标：以双三次放大的 FDCT 为参考。}
+\vspace{2mm}
+\begin{columns}[T,onlytextwidth]
+\column{0.45\textwidth}
+{\small\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}lcc@{}}
+\toprule 
+方案 & PSNR/dB & SSIM \\
+\midrule
+A: 先降噪后超分 & \textbf{39.22} & \textbf{0.9693} \\
+B: 先超分后降噪 & 38.45 & 0.9639 \\
+\bottomrule
+\end{tabular}}
+\column{0.53\textwidth}
+\key{结论：先降噪后超分更优。}\par
+\vspace{2mm}
+{\small PSNR 提高 \textbf{0.77 dB}，SSIM 提高 \textbf{0.0054}。\par
+原因：若先超分，噪声会被插值放大并扩散，导致后续去噪极易抹平真实边缘。}
+\end{columns}
+\source{数据来源：task5 顺序影响实验。相同参数（NLM h=4，双三次插值），仅改变执行顺序。}
+\note{为了探究处理顺序的影响，我们控制变量对比了两种方案。方案A先降噪再超分，方案B先超分再降噪。结果显示，方案A的PSNR比B高0.77dB，SSIM高0.0054。原因是如果先超分，不仅图像被放大，噪声也被插值放大了，再去噪时就很容易把真实边缘和放大的噪声一起抹平。所以先去噪更好。}
 \end{frame}
 
 % 9: 45 seconds
