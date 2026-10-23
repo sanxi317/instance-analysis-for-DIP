@@ -1,0 +1,411 @@
+% !TeX program = xelatex
+% Main presentation: 10 slides, approximately 5 minutes.
+% Six backup slides follow \appendix; they are not part of the timed talk.
+\documentclass[11pt,aspectratio=169]{beamer}
+\usepackage[UTF8,fontset=none]{ctex}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Heros}
+\setsansfont{TeX Gyre Heros}
+\IfFontExistsTF{Noto Sans CJK SC}{%
+  \setCJKmainfont{Noto Sans CJK SC}
+  \setCJKsansfont{Noto Sans CJK SC}
+  \setCJKmonofont{Noto Sans CJK SC}
+}{%
+  \setCJKmainfont{FandolHei-Regular}[BoldFont=FandolHei-Bold]
+  \setCJKsansfont{FandolHei-Regular}[BoldFont=FandolHei-Bold]
+  \setCJKmonofont{FandolHei-Regular}[BoldFont=FandolHei-Bold]
+}
+\usepackage{amsmath,amssymb,booktabs,array,graphicx}
+\usefonttheme{professionalfonts}
+\graphicspath{{assets/}}
+\definecolor{Ink}{HTML}{153044}
+\definecolor{Accent}{HTML}{007F86}
+\definecolor{Muted}{HTML}{53636E}
+\setbeamercolor{normal text}{fg=Ink,bg=white}
+\setbeamercolor{frametitle}{fg=Ink,bg=white}
+\setbeamercolor{structure}{fg=Accent}
+\setbeamercolor{alerted text}{fg=Accent}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{frametitle}{\vspace{3mm}\insertframetitle\par\vspace{1mm}}
+\setbeamertemplate{itemize item}{\color{Accent}\small\textbullet}
+\setbeamertemplate{footline}{%
+  \hfill\usebeamercolor[fg]{normal text}\scriptsize
+  \ifnum\value{framenumber}>10 备用\,A\number\numexpr\value{framenumber}-10\relax
+  \else\insertframenumber/10\fi\hspace{5mm}\vspace{3mm}}
+\setbeamersize{text margin left=7mm,text margin right=7mm}
+\setbeameroption{hide notes}
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\newcommand{\key}[1]{{\color{Accent}\bfseries #1}}
+\newcommand{\source}[1]{\vfill{\fontsize{7.5}{9}\selectfont\color{Muted}#1\par}}
+\newcommand{\ctimage}[3]{%
+  \begin{minipage}[t]{#1}\centering
+    \includegraphics[width=\linewidth]{#2}\par\vspace{1mm}
+    {\small #3}\par
+  \end{minipage}}
+\hypersetup{pdftitle={DIP案例一：低剂量CT去噪与插值增强},
+  pdfauthor={李建辉、苏威贤、王妍、李定一},colorlinks=true,urlcolor=Accent}
+\title{低剂量CT去噪与插值增强}
+\author{李建辉、苏威贤、王妍、李定一}
+\date{}
+
+\begin{document}
+
+% 1: 10 seconds
+\begin{frame}
+\vspace{7mm}
+{\small\color{Accent}数字图像处理课程 · 案例一}\par
+\vspace{7mm}
+{\fontsize{25}{33}\selectfont\bfseries 低剂量 CT 去噪\par 与插值增强}\par
+\vspace{5mm}
+{\large 五种去噪 · 三种插值 · 统一评价}\par
+\vspace{8mm}
+李建辉\quad 苏威贤\quad 王妍\quad 李定一\par
+\vspace{5mm}
+代码与图像结果在：https://github.com/sanxi317/instance-analysis-for-DIP.git
+\source{课程知识依据：Gonzalez 与 Woods《数字图像处理》第4版}
+\note{大家好，我们讲解案例一：低剂量CT去噪与插值增强。我们使用传统图像处理方法，重点回答怎样减少噪声，同时尽量保留组织边缘。}
+\end{frame}
+
+% 2: 20 seconds
+\begin{frame}
+\frametitle{案例目标与配对图像}
+\begin{columns}[T,onlytextwidth]
+\column{0.41\textwidth}
+\textbf{输入：}低剂量 CT（LDCT）\par
+\vspace{2mm}
+\textbf{参考：}全剂量 CT（FDCT）\par
+\vspace{3mm}
+同一位置、同一灰度显示条件\par
+L067 的一张配对切片，$512\times512$\par
+\vspace{4mm}
+\key{目标：抑制噪声，观察边缘}\par
+\vspace{2mm}
+去噪 $\rightarrow$ 插值 $\rightarrow$ 图像与指标比较
+\column{0.56\textwidth}
+\ctimage{0.48\linewidth}{ldct.png}{LDCT：输入}\hfill
+\ctimage{0.48\linewidth}{fdct.png}{FDCT：高质量参考}
+\end{columns}
+\source{数据：AAPM 2016 Mayo；图像来自现有配对 DICOM 的肺窗结果。FDCT不等于完全无噪声图像。}
+\note{左图是低剂量输入，右图是全剂量参考。二者来自同一位置的配对切片。去噪的难点在于，噪声和真实边缘都可能表现为灰度快速变化，平滑过强会把细节一起抹掉。我们比较五种去噪方法，再比较三种插值方法。}
+\end{frame}
+
+% 3: 25 seconds
+\begin{frame}
+\frametitle{预处理：统一肺窗和灰度范围}
+\textbf{HU：CT值的单位；肺窗突出肺部组织的灰度差异。}\par
+\vspace{2mm}
+窗位 $L=-600$ HU，窗宽 $W=1500$ HU：
+\[
+ a=L-\frac{W}{2}=-1350,\qquad b=L+\frac{W}{2}=150
+\]
+截断后，线性映射到 $0\sim255$：
+\[
+ I=255\,\frac{\operatorname{clip}(H,a,b)-a}{b-a}
+\]
+{\small $H$ 是原始 HU 值；$I$ 是显示与处理用的灰度值。}\par
+\vspace{3mm}
+$-1350$ HU $\rightarrow 0$\qquad $-600$ HU $\rightarrow$ 约 $128$\qquad $150$ HU $\rightarrow255$\par
+\vspace{3mm}
+\key{LDCT与FDCT使用相同窗口，评价才具有可比性。}
+\source{教材对应：第3章灰度变换；SimpleITK读取获得HU值，随后截断、归一化和整数化。}
+\note{预处理先把CT值转换到统一肺窗。窗位是显示区间的中心，窗宽是区间长度，因此上下限是负1350和150 HU。超出区间的值截断，再映射到0到255。这样输入和参考使用同一把灰度尺，避免显示差异影响评价。}
+\end{frame}
+
+% 4: 25 seconds
+\begin{frame}
+\frametitle{五种去噪方法的区别}
+{\small
+\renewcommand{\arraystretch}{1.38}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.18\textwidth}>{\raggedright\arraybackslash}p{0.47\textwidth}>{\raggedright\arraybackslash}p{0.29\textwidth}@{}}
+\toprule
+方法 & 核心做法 & 本次选择的参数 \\
+\midrule
+均值 & 邻域像素等权平均 & $3\times3$ \\
+高斯 & 距离中心越近，平均权重越大 & $3\times3,\ \sigma=1$ \\
+自适应中值 & 排序取中值，按条件扩大窗口 & 最大窗口 $5\times5$ \\
+\textbf{非局部均值（NLM）} & \textbf{按图像块相似度加权平均} & $h=4$，块7，搜索窗21 \\
+小波软阈值 & 小波分解，收缩细节系数，再重建 & db1，2层，阈值4 \\
+\bottomrule
+\end{tabular}\par}
+\vspace{3mm}
+\key{平滑越强不一定越好：还要保留边缘与纹理。}\par
+{\small 参数按SSIM优先、PSNR次之选取；本次调参与评价使用同一切片。}
+\source{教材：第3章空间平滑、第5章自适应中值、第6章小波；NLM作为案例扩展方法。}
+\note{五种方法的区别在于怎样判断哪些像素或系数应当被平滑。均值和高斯做局部平均；自适应中值通过排序和窗口判断处理异常值；NLM根据相似图像块赋权；小波在变换域收缩细节系数。自适应中值典型适用于脉冲噪声，不保证对本例CT噪声最好。}
+\end{frame}
+
+% 5: 35 seconds
+\begin{frame}
+\frametitle{NLM：相似图像块贡献更大}
+\textbf{比较一块邻域，而不只比较两个像素的灰度。}
+\[
+ \widehat I(i)=\sum_{j\in\Omega_i}w_{ij}I(j),\qquad
+ w_{ij}=\frac{\exp(-d_{ij}^{\,2}/h^2)}{\displaystyle\sum_{k\in\Omega_i}\exp(-d_{ik}^{\,2}/h^2)}
+\]
+\begin{itemize}
+\item $i$：待处理像素；$\Omega_i$：搜索窗口；$j$：候选像素。
+\item $d_{ij}^{\,2}$：两块图像的灰度平方差距离；越小，权重越大。
+\item $h$：控制相似度权重衰减；权重归一化后总和为1。
+\end{itemize}
+{\small\textbf{关键调用（本次选定参数）：}}\par
+{\ttfamily\fontsize{9}{11}\selectfont
+\noindent\detokenize{nlm = cv2.fastNlMeansDenoising(}\\
+\hspace*{1.5em}\detokenize{ldct, None, h=4,}\\
+\hspace*{1.5em}\detokenize{templateWindowSize=7, searchWindowSize=21)}\par}
+\source{原理简化式：Buades等，CVPR 2005；调用取自任务二，ldct为统一肺窗uint8灰度图。}
+\note{NLM按图像块相似度决定权重，块距离越小，权重越大，归一化后权重总和为1。下面是本次选中参数的调用：h等于4，图像块7乘7，搜索窗21乘21。它在有限窗口内寻找结构相似的区域，减少不同结构之间的平均，同时抑制随机波动。}
+\end{frame}
+
+% 6: 50 seconds
+\begin{frame}
+\frametitle{PSNR与SSIM：同时比较误差和结构}
+{\small\textbf{PSNR：峰值信噪比}（Peak Signal-to-Noise Ratio）\par}
+\[
+ \mathrm{MSE}=\frac1N\sum_{k=1}^{N}(x_k-y_k)^2,\qquad
+ \mathrm{PSNR}=10\log_{10}\frac{255^2}{\mathrm{MSE}}
+\]
+{\small $x$：参考；$y$：结果；$N$：像素数；MSE：均方误差。\par
+\key{PSNR越高，通常像素误差越小。}}\par
+\vspace{1mm}
+{\small\textbf{SSIM：结构相似性指数}（Structural Similarity Index）\par}
+\[
+ \mathrm{SSIM}(x,y)=
+ \frac{2\mu_x\mu_y+C_1}{\mu_x^2+\mu_y^2+C_1}
+ \cdot
+ \frac{2\sigma_{xy}+C_2}{\sigma_x^2+\sigma_y^2+C_2}
+\]
+{\small $\mu$：局部均值；$\sigma^2$：局部方差；$\sigma_{xy}$：局部协方差。\par
+$C_1,C_2$ 防止分母过小；局部窗口计算后取平均。\par
+\key{SSIM越接近1，亮度、对比度和结构越相似。}}\par
+\source{输入须同尺寸、对应位置、同灰度范围；本次峰值255。PSNR单位dB；SSIM：Wang等，2004。}
+\note{PSNR全称是Peak Signal-to-Noise Ratio，中文是峰值信噪比。先算对应像素的均方误差，再转换成对数指标，255是灰度峰值，误差小则分数高。SSIM全称是Structural Similarity Index，中文是结构相似性指数。它用局部均值、方差和协方差比较亮度、对比度与结构，再取平均。比较时尺寸、位置和灰度范围要一致；两项指标结合图像观察，不能直接当诊断准确率。}
+\end{frame}
+
+% 7: 25 seconds
+\begin{frame}
+\frametitle{去噪结果：本切片NLM综合最好}
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+{\small\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}lrr@{}}
+\toprule 方法 & PSNR/dB & SSIM \\
+\midrule
+原始LDCT & 36.884 & 0.90915 \\
+均值 & 35.105 & 0.94158 \\
+高斯 & 36.120 & 0.94220 \\
+自适应中值 & 36.768 & 0.92422 \\
+\textbf{NLM} & \textbf{39.252} & \textbf{0.95269} \\
+小波软阈值 & 37.668 & 0.93691 \\
+\bottomrule
+\end{tabular}}
+\column{0.49\textwidth}
+\ctimage{0.31\linewidth}{ldct_crop.png}{LDCT}\hfill
+\ctimage{0.31\linewidth}{nlm_crop.png}{NLM}\hfill
+\ctimage{0.31\linewidth}{fdct_crop.png}{FDCT}\par
+\vspace{4mm}
+{\small 相同坐标局部图；观察组织边缘与纹理。}\par
+\vspace{3mm}
+\key{NLM相对原始LDCT：}\par
+PSNR $+2.368$ dB\par
+SSIM $+0.04353$
+\end{columns}
+\source{参考：原尺寸512×512 FDCT；数值来自task4/results/metrics.csv。局部图未标注病灶。}
+\note{表中各方法都与同尺寸FDCT比较。NLM的PSNR和SSIM在本次候选中最高，分别是39.252和0.95269。均值滤波虽然提高了SSIM，但PSNR下降，说明两个指标关注的方面不同。我们的结论限定在这张切片和本次参数搜索范围内。}
+\end{frame}
+
+% 8: 35 seconds
+\begin{frame}
+\frametitle{三种插值：补像素，不等于补真实细节}
+{\small 本次插值恢复实验：NLM $512\times512\ \xrightarrow{\text{区域降采样}}\ 128\times128\ \xrightarrow{\text{插值}\times4}\ 512\times512$\par}
+\vspace{3mm}
+\ctimage{0.215\linewidth}{nearest_crop.png}{最近邻：取最近1点}\hfill
+\ctimage{0.215\linewidth}{bilinear_crop.png}{双线性：邻近4点}\hfill
+\ctimage{0.215\linewidth}{bicubic_crop.png}{双三次：邻近16点}\hfill
+\ctimage{0.215\linewidth}{fdct_crop.png}{FDCT：参考}\par
+\vspace{2mm}
+{\small\centering\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+方法 & 最近邻 & 双线性 & 双三次 \\
+\midrule
+PSNR/dB & 24.605 & 26.186 & \textbf{27.901} \\
+SSIM & 0.82142 & 0.83767 & \textbf{0.86125} \\
+\bottomrule
+\end{tabular}\par}
+\source{统一以512×512 FDCT为参考。最近邻易呈锯齿，双线性较模糊，双三次本例指标最好；损失包含降采样。}
+\note{最近邻复制最近的像素，容易形成锯齿；双线性加权四个邻近像素，更平滑但会模糊；双三次使用十六个邻近像素，本例结果最好。注意本页先从512降到128，再放大四倍回到512，是模拟恢复实验。每个方向放大四倍，像素数变为十六倍，但插值不能找回真实丢失细节。}
+\end{frame}
+
+% 9: 45 seconds
+\begin{frame}
+\frametitle{理论解释与关键代码}
+\begin{columns}[T,onlytextwidth]
+\column{0.44\textwidth}
+\key{NLM：平均噪声，少混合结构}\par
+\vspace{2mm}
+{\small 可找到相似结构时，加权平均能减小随机波动；\par
+结构越相似，越少把其他结构混入。\par
+相比固定邻域平均，有助于保边。}\par
+\vspace{4mm}
+\key{双三次：更细致估计灰度变化}\par
+\vspace{2mm}
+{\small $4\times4$邻域与三次核能表达较复杂的局部变化，兼顾连续性与清晰度。\par
+仍可能过冲或振铃，不生成真实细节。}\par
+\column{0.53\textwidth}
+\textbf{任务三已有恢复流程}\par
+\vspace{2mm}
+$512\times512\rightarrow128\times128\rightarrow512\times512$\par
+\vspace{4mm}
+{\ttfamily\fontsize{9}{11}\selectfont
+\noindent\detokenize{low_resolution_image = cv2.resize(}\\
+\hspace*{1.5em}\detokenize{nlm_image, (128, 128),}\\
+\hspace*{1.5em}\detokenize{interpolation=cv2.INTER_AREA)}\\[2mm]
+\detokenize{bicubic_image = cv2.resize(}\\
+\hspace*{1.5em}\detokenize{low_resolution_image, (512, 512),}\\
+\hspace*{1.5em}\detokenize{interpolation=cv2.INTER_CUBIC)}\par}
+\end{columns}
+\source{机制解释不构成普遍最优证明。代码摘自task3/main.py，仅换行排版；理论：NLM原论文与三次插值核。}
+\note{理论上，NLM的优势是相似块加权。平均能降低随机波动，而相似度筛选能减少不同结构的混合，这是噪声和结构偏差的折中。双三次使用更大邻域和三次核，能更细致地估计局部灰度变化；但它也可能过冲，不能恢复真实缺失细节。右边代码对应已有的512降到128，再双三次恢复到512。这些机制解释本例优势，不能证明两者普遍最优。}
+\end{frame}
+
+% 10: 30 seconds
+\begin{frame}
+\frametitle{最终结论}
+\begin{enumerate}
+\item \textbf{去噪：}本切片、本次搜索范围内，NLM综合指标最好。
+\vspace{3mm}
+\item \textbf{插值：}双三次在本次比较中最好，但只估计新增像素。
+\vspace{3mm}
+\item \textbf{方案：}本次采用NLM去噪后，进行双三次插值恢复。
+\end{enumerate}
+\vspace{3mm}
+{\small 仅使用一张切片，且无可靠结节标注；结论用于方法比较。}\par
+\vspace{3mm}
+\key{实验支持本例结论；理论说明优势及适用条件。}
+\source{Gonzalez与Woods，第4版：第2、3、5、6章；NLM和SSIM作为案例补充。谢谢。}
+\note{最终结论是：在已比较的方法和参数中，NLM去噪、双三次插值分别取得最好结果，本次采用这两步组合。去噪要平衡噪声和结构偏差，插值只估计新像素。这次只有一张切片，没有可靠结节标注，结论用于方法比较。理论帮助理解结果，但实际效果仍需实验评价。谢谢。}
+\end{frame}
+
+% The normal entry point contains only the ten timed slides.
+% case1_with_backup.tex defines DIPWithBackup to include the extra slides.
+\ifdefined\DIPWithBackup
+\appendix
+
+\begin{frame}
+\frametitle{备用A1：均值与高斯的权重}
+共同形式（空间域邻域加权）：
+\[
+\widehat I(x,y)=\sum_{s,t\in\mathcal N} w(s,t)I(x+s,y+t),\qquad\sum_{s,t}w(s,t)=1
+\]
+\vspace{2mm}
+均值：$k\times k$窗口内 $w=1/k^2$，本例 $k=3$。
+\[
+w_{\mathrm{Gaussian}}(s,t)=\frac1Z\exp\!\left[-\frac{s^2+t^2}{2\sigma^2}\right]
+\]
+{\small $s,t$：距中心的像素偏移；$Z$：使权重和为1的归一化常数；$\sigma$：空间权重尺度。}\par
+\vspace{3mm}
+\key{两者都是低通平滑；噪声与真实边缘都可能被削弱。}
+\source{教材第3.4、3.5节。高斯滤波的空间尺度σ与NLM的相似度尺度h含义不同。}
+\end{frame}
+
+\begin{frame}
+\frametitle{备用A2：自适应中值的两阶段判断}
+$z$：中心像素；$z_{\min},z_{\max},z_{\mathrm{med}}$：窗口的最小值、最大值和中值。
+\vspace{3mm}
+\textbf{阶段A：}是否满足 $z_{\min}<z_{\mathrm{med}}<z_{\max}$？
+\begin{itemize}
+\item 满足：进入阶段B。
+\item 不满足：扩大窗口；达到最大窗口时输出中值。
+\end{itemize}
+\vspace{2mm}
+\textbf{阶段B：}是否满足 $z_{\min}<z<z_{\max}$？
+\begin{itemize}
+\item 满足：保留中心像素 $z$。
+\item 不满足：用 $z_{\mathrm{med}}$ 替换。
+\end{itemize}
+\source{教材第5.3节；本次窗口3×3起步，最大5×5。典型针对脉冲噪声，不等于对CT噪声总是最优。}
+\end{frame}
+
+\begin{frame}
+\frametitle{备用A3：小波软阈值}
+\textbf{小波分解 $\rightarrow$ 保留近似系数、收缩细节系数 $\rightarrow$ 逆变换}\par
+\vspace{3mm}
+对每个细节系数 $c$：
+\[
+T_\lambda(c)=\operatorname{sgn}(c)\max(|c|-\lambda,0)
+\]
+\begin{itemize}
+\item $|c|\le\lambda$：变为0；$|c|>\lambda$：幅度减少 $\lambda$。
+\item $\lambda=4$ 时：$3\rightarrow0$，$8\rightarrow4$，$-8\rightarrow-4$。
+\item 本例：db1小波、2层分解，低频近似系数不做阈值处理。
+\end{itemize}
+\vspace{2mm}
+\key{细节子带既有噪声，也有边缘；阈值过大会损伤结构。}
+\source{教材第6.10节；软阈值来源：Donoho，IEEE TIT 1995。阈值作用于灰度域小波系数，不是HU值。}
+\end{frame}
+
+\begin{frame}
+\frametitle{备用A4：双线性插值与四倍放大}
+在相邻四点组成的单位网格中，$a,b\in[0,1]$为横纵相对距离：
+\[
+\begin{aligned}
+I(a,b)={}&(1-a)(1-b)I_{00}+a(1-b)I_{10}\\
+        &+(1-a)bI_{01}+abI_{11}
+\end{aligned}
+\]
+{\small $I_{00},I_{10},I_{01},I_{11}$为四角像素值；四个权重之和为1。}\par
+\vspace{3mm}
+最近邻使用最近一点；双三次用$4\times4$邻域的三次核加权。\par
+\vspace{3mm}
+\key{宽、高各乘4 $\Rightarrow$ 像素总数乘16。}\par
+更多采样位置不代表获得更多真实采集信息。
+\source{教材第2.4节“图像插值”、第4.5节“重采样与插值”；源坐标到目标坐标的映射由OpenCV实现。}
+\end{frame}
+
+\begin{frame}
+\frametitle{备用A5：教材与主要来源}
+{\small
+\textbf{教材：}Gonzalez, R. C. 与 Woods, R. E.\par
+\textit{Digital Image Processing}, 4th ed., Pearson, 2018.\par
+\vspace{2mm}
+第2.4节：采样与插值；第3.4--3.5节：空间滤波；\par
+第5.3节：自适应中值；第6.10节：小波变换。\par
+\href{https://www.imageprocessingplace.com/downloads_V3/dip4e_downloads/dip4e_sample_book_material/dip4e_detailed_TOC.pdf}{作者网站：第4版详细目录}\par
+\vspace{3mm}
+\textbf{补充方法与指标：}\par
+Buades等，\textit{A non-local algorithm for image denoising}, CVPR 2005.\par
+\href{https://doi.org/10.1109/CVPR.2005.38}{DOI: 10.1109/CVPR.2005.38}\par
+Donoho，\textit{De-noising by soft-thresholding}, IEEE TIT, 1995.\par
+\href{https://doi.org/10.1109/18.382009}{DOI: 10.1109/18.382009}\par
+Wang等，\textit{Image quality assessment: from error visibility to structural similarity}, IEEE TIP, 2004.\par
+\href{https://doi.org/10.1109/TIP.2003.819861}{DOI: 10.1109/TIP.2003.819861}\par
+}
+\source{案例任务：案例一.pdf；数值：task4/results/metrics.csv；关键调用：task2与task3源码。}
+\end{frame}
+
+\begin{frame}
+\frametitle{备用A6：NLM的偏差与方差解释}
+{\small 简化模型：$Y_j=f_j+\varepsilon_j$；$f_j$为真实灰度，$\varepsilon_j$为噪声。\par
+假设权重固定，噪声独立、零均值、同方差$\sigma_n^2$，且$\sum_jw_j=1$。}\par
+\[
+\widehat f_i=\sum_jw_jY_j
+\]
+\[
+\operatorname{MSE}(\widehat f_i)=
+\underbrace{\left[\sum_jw_j(f_j-f_i)\right]^2}_{\text{偏差平方}}
++\underbrace{\sigma_n^2\sum_jw_j^2}_{\text{噪声方差}}
+\]
+\begin{itemize}
+\item 相似结构使$f_j$接近$f_i$，有助于减小偏差。
+\item 若$m$个相似像素等权平均，噪声方差变为$\sigma_n^2/m$。
+\end{itemize}
+{\small 实际NLM权重依赖带噪图像，CT噪声也未必符合这些假设；\par
+此式用于解释机制，不是本实验的精确误差公式或最优性证明。}
+\source{由加权估计的偏差--方差分解推导；NLM依据：Buades、Coll、Morel。}
+\end{frame}
+
+\fi
+\end{document}

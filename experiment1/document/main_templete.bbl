@@ -1,4 +1,4 @@
-\begin{thebibliography}{5}
+\begin{thebibliography}{9}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -11,31 +11,60 @@
   \let\eprint\href
 \fi
 
-\bibitem[ボハンデ(1928)]{Bohan1928}
-ボハンデ.
-\newblock 過去及び現在に於ける英国と会\allowbreak[J].
-\newblock 日本時報, 1928, 17: 5-9.
+\bibitem[Yu et~al.(2009)Yu, Liu, Leng, Kofler, Ramirez-Giraldo, Qu, Christner, Fletcher, and McCollough]{yu2009dose}
+YU L, LIU X, LENG S, et~al.
+\newblock Radiation dose reduction in computed tomography: techniques and future perspective\allowbreak[J/OL].
+\newblock Imaging Medicine, 2009, 1\allowbreak (1): 65-84.
+\newblock \url{https://doi.org/10.2217/iim.09.5}.
 
-\bibitem[陈晋镳\ 等(1980)陈晋镳, 张惠民, 朱士兴, 赵震, and 王振刚]{chen1980zhongguo}
-陈晋镳, 张惠民, 朱士兴, 等.
-\newblock 蓟县震旦亚界研究\allowbreak[M]//\allowbreak
-中国地质科学院天津地质矿产研究所.
-\newblock 中国震旦亚界.
-\newblock 天津: 天津科学技术出版社, 1980: 56-114.
+\bibitem[Gonzalez et~al.(2018)Gonzalez and Woods]{gonzalez2018digital}
+GONZALEZ R~C, WOODS R~E.
+\newblock Digital image processing, global edition\allowbreak[M/OL].
+\newblock 4th ed.
+\newblock Pearson, 2018.
+\newblock \url{https://www.pearson.com/en-gb/subject-catalog/p/Gonzalez-Digital-Image-Processing-e-Book-Global-Edition-4th-Edition/P200000004313?view=educator}.
 
-\bibitem[Bravo et~al.(1990)Bravo and Olavarria]{bravo1990comparative}
-BRAVO H, OLAVARRIA J.
-\newblock Comparative study of visual inter and intrahemispheric cortico-cortical connections in five native chilean rodents\allowbreak[J].
-\newblock Anatomy and embryology, 1990, 181\allowbreak (1): 67-73.
+\bibitem[Keys(1981)]{keys1981cubic}
+KEYS R~G.
+\newblock Cubic convolution interpolation for digital image processing\allowbreak[J/OL].
+\newblock IEEE Transactions on Acoustics, Speech, and Signal Processing, 1981, 29\allowbreak (6): 1153-1160.
+\newblock \url{https://doi.org/10.1109/TASSP.1981.1163711}.
 
-\bibitem[牛志明\ 等(2013)牛志明, 斯温兰德, and 雷光春]{niu2013zonghe}
-牛志明, 斯温兰德, 雷光春.
-\newblock 综合湿地管理国际研讨会论文集\allowbreak[C].
-\newblock 北京: 海洋出版社, 2013.
+\bibitem[Hwang et~al.(1995)Hwang and Haddad]{hwang1995adaptive}
+HWANG H, HADDAD R~A.
+\newblock Adaptive median filters: new algorithms and results\allowbreak[J/OL].
+\newblock IEEE Transactions on Image Processing, 1995, 4\allowbreak (4): 499-502.
+\newblock \url{https://doi.org/10.1109/83.370679}.
 
-\bibitem[袁训来\ 等(2012)袁训来, 陈哲, and 肖书海]{yuan2012lana}
-袁训来, 陈哲, 肖书海.
-\newblock 蓝田生物群: 一个认识多细胞生物起源和早期演化的新窗口 -- 篇一\allowbreak[J].
-\newblock 科学通报, 2012, 57\allowbreak (34): 3219.
+\bibitem[Buades et~al.(2005)Buades, Coll, and Morel]{buades2005nlm}
+BUADES A, COLL B, MOREL J~M.
+\newblock A non-local algorithm for image denoising\allowbreak[C/OL]//\allowbreak
+2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR'05): Vol.~2.
+\newblock IEEE, 2005: 60-65.
+\newblock \url{https://doi.org/10.1109/CVPR.2005.38}.
+
+\bibitem[Donoho(1995)]{donoho1995denoising}
+DONOHO D~L.
+\newblock De-noising by soft-thresholding\allowbreak[J/OL].
+\newblock IEEE Transactions on Information Theory, 1995, 41\allowbreak (3): 613-627.
+\newblock \url{https://doi.org/10.1109/18.382009}.
+
+\bibitem[McCollough et~al.(2017)McCollough, Bartley, Carter, Chen, Drees, Edwards, Holmes, Huang, Khan, Leng, McMillan, Michalak, Nunez, Yu, and Fletcher]{mccollough2017dataset}
+MCCOLLOUGH C~H, BARTLEY A~C, CARTER R~E, et~al.
+\newblock Low-dose ct for the detection and classification of metastatic liver lesions: Results of the 2016 low dose ct grand challenge\allowbreak[J/OL].
+\newblock Medical Physics, 2017, 44\allowbreak (10): e339-e352.
+\newblock \url{https://doi.org/10.1002/mp.12345}.
+
+\bibitem[{National Electrical Manufacturers Association}(2026)]{dicom2026ct}
+{National Electrical Manufacturers Association}.
+\newblock Dicom ps3.3 2026d: Information object definitions, section c.8.2 ct modules\allowbreak[S/OL].
+\newblock National Electrical Manufacturers Association, 2026\allowbreak[2026-10-08].
+\newblock \url{https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.2.html}.
+
+\bibitem[Wang et~al.(2004)Wang, Bovik, Sheikh, and Simoncelli]{wang2004ssim}
+WANG Z, BOVIK A~C, SHEIKH H~R, et~al.
+\newblock Image quality assessment: from error visibility to structural similarity\allowbreak[J/OL].
+\newblock IEEE Transactions on Image Processing, 2004, 13\allowbreak (4): 600-612.
+\newblock \url{https://doi.org/10.1109/TIP.2003.819861}.
 
 \end{thebibliography}
