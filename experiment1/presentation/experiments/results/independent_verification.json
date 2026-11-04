@@ -1,0 +1,387 @@
+{
+  "audited_utc": "2026-10-13T00:58:05.076298+00:00",
+  "audit_scope": "Independent saved-PNG metrics and input/provenance checks; no generation, resizing, denoising, or experiment rerun",
+  "python_executable": "/home/sanxi/.pyenv/versions/3.11.9/bin/python3.11",
+  "packages": {
+    "numpy": "2.4.6",
+    "skimage": "0.26.0",
+    "SimpleITK": "2.5.6"
+  },
+  "all_passed": true,
+  "checks": [
+    {
+      "check": "generation_script_sha256",
+      "passed": true
+    },
+    {
+      "check": "output_reference_fdct4",
+      "passed": true,
+      "mode": "L",
+      "shape": [
+        2048,
+        2048
+      ],
+      "dtype": "uint8",
+      "sha256": "d0006efbd7b49df53bd1ed8168a58809ad4ae9798a263b997c6ce683b0748678",
+      "min": 50,
+      "max": 255
+    },
+    {
+      "check": "output_nlm_native",
+      "passed": true,
+      "mode": "L",
+      "shape": [
+        512,
+        512
+      ],
+      "dtype": "uint8",
+      "sha256": "2c6a8db02d9068a385fa576e958eadb97d4784ea943fe36f3da429308cffef0c",
+      "min": 55,
+      "max": 255
+    },
+    {
+      "check": "output_nlm4_nearest",
+      "passed": true,
+      "mode": "L",
+      "shape": [
+        2048,
+        2048
+      ],
+      "dtype": "uint8",
+      "sha256": "e5879b267a1b88d28fedd07cbc197373cfcf837fe735e8fb48f669e9a3a6e166",
+      "min": 55,
+      "max": 255
+    },
+    {
+      "check": "output_nlm4_bilinear",
+      "passed": true,
+      "mode": "L",
+      "shape": [
+        2048,
+        2048
+      ],
+      "dtype": "uint8",
+      "sha256": "839946748a05abd6cb6432671493af666a68cff0e49b810f48a9fcc6bb3cec31",
+      "min": 55,
+      "max": 255
+    },
+    {
+      "check": "output_order_A_nlm_then_bicubic",
+      "passed": true,
+      "mode": "L",
+      "shape": [
+        2048,
+        2048
+      ],
+      "dtype": "uint8",
+      "sha256": "022cb488bef7e5c6bc669e36ac6cfab5ed06969e4af8edeb76684b75e717d610",
+      "min": 50,
+      "max": 255
+    },
+    {
+      "check": "output_order_B_bicubic_then_nlm",
+      "passed": true,
+      "mode": "L",
+      "shape": [
+        2048,
+        2048
+      ],
+      "dtype": "uint8",
+      "sha256": "b4f451717674ae8629fe8086cf0e74c8dfb539c19ba7a68bf4280b343eaeca3f",
+      "min": 53,
+      "max": 255
+    },
+    {
+      "check": "metrics_NLM + Nearest",
+      "passed": true,
+      "psnr_error": 0.0,
+      "ssim_error": 0.0
+    },
+    {
+      "check": "csv_matches_manifest_NLM + Nearest",
+      "passed": true
+    },
+    {
+      "check": "metrics_NLM + Bilinear",
+      "passed": true,
+      "psnr_error": 0.0,
+      "ssim_error": 0.0
+    },
+    {
+      "check": "csv_matches_manifest_NLM + Bilinear",
+      "passed": true
+    },
+    {
+      "check": "metrics_NLM + Bicubic",
+      "passed": true,
+      "psnr_error": 0.0,
+      "ssim_error": 0.0
+    },
+    {
+      "check": "csv_matches_manifest_NLM + Bicubic",
+      "passed": true
+    },
+    {
+      "check": "metrics_A: NLM then Bicubic",
+      "passed": true,
+      "psnr_error": 0.0,
+      "ssim_error": 0.0
+    },
+    {
+      "check": "csv_matches_manifest_A: NLM then Bicubic",
+      "passed": true
+    },
+    {
+      "check": "metrics_B: Bicubic then NLM",
+      "passed": true,
+      "psnr_error": 0.0,
+      "ssim_error": 0.0
+    },
+    {
+      "check": "csv_matches_manifest_B: Bicubic then NLM",
+      "passed": true
+    },
+    {
+      "check": "input_png_ldct",
+      "passed": true,
+      "shape": [
+        512,
+        512
+      ],
+      "mode": "L",
+      "sha256": "9bbca872746a9ab63431a890d8889a05a1c49c2a7c6eb06b111764241c39ca59"
+    },
+    {
+      "check": "input_png_fdct",
+      "passed": true,
+      "shape": [
+        512,
+        512
+      ],
+      "mode": "L",
+      "sha256": "8a3056b2b1aa142e30e680b524c0b60d1d1933787699b94205d81769ff210764"
+    },
+    {
+      "check": "dicom_sha_fdct",
+      "passed": true,
+      "sha256": "b1573a886f5dd78ecaa314140aeeeb70736a160a6fe0ef7af6c0483f87d4c370"
+    },
+    {
+      "check": "dicom_to_input_png_fdct",
+      "passed": true,
+      "different_pixels": 0,
+      "protocol": "float32 HU -> clip [-1350,150] -> divide by 1500 -> multiply by 255 -> np.rint -> uint8"
+    },
+    {
+      "check": "dicom_sha_ldct",
+      "passed": true,
+      "sha256": "e0f5dd5d1de40291d9f3a74a6f5150435adcd908ab71c58ca84b4dd4fd9f1f8a"
+    },
+    {
+      "check": "dicom_to_input_png_ldct",
+      "passed": true,
+      "different_pixels": 0,
+      "protocol": "float32 HU -> clip [-1350,150] -> divide by 1500 -> multiply by 255 -> np.rint -> uint8"
+    },
+    {
+      "check": "paired_dicom_geometry",
+      "passed": true,
+      "geometries": [
+        {
+          "size": [
+            512,
+            512,
+            1
+          ],
+          "spacing": [
+            0.6640625,
+            0.6640625,
+            1.0
+          ],
+          "origin": [
+            -180.66796875,
+            -295.66796875,
+            -67.0
+          ],
+          "direction": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "size": [
+            512,
+            512,
+            1
+          ],
+          "spacing": [
+            0.6640625,
+            0.6640625,
+            1.0
+          ],
+          "origin": [
+            -180.66796875,
+            -295.66796875,
+            -67.0
+          ],
+          "direction": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      ]
+    },
+    {
+      "check": "native_nlm_equals_existing_task2_pixels",
+      "passed": true
+    },
+    {
+      "check": "native_nlm_equals_presentation_input_pixels",
+      "passed": true
+    },
+    {
+      "check": "order_A_and_NLM_bicubic_same_saved_image",
+      "passed": true,
+      "image": "order_A_nlm_then_bicubic.png"
+    },
+    {
+      "check": "crop_direct_nearest_crop",
+      "passed": true,
+      "sha256": "2fd88690b463053658cbf70ab98893457b30466080df17837ee7c0b3c28e6593",
+      "shape": [
+        640,
+        640
+      ]
+    },
+    {
+      "check": "crop_direct_bilinear_crop",
+      "passed": true,
+      "sha256": "9f6cae9f1e97d873f0d31fb7b4f05e7f94df02a7e46e2d3e6b38a05dbd9a369e",
+      "shape": [
+        640,
+        640
+      ]
+    },
+    {
+      "check": "crop_direct_bicubic_crop",
+      "passed": true,
+      "sha256": "987bc7217f4241870cfbb5587beb7c158eb14b0abece3d67f1823057d94efb01",
+      "shape": [
+        640,
+        640
+      ]
+    },
+    {
+      "check": "crop_order_B_crop",
+      "passed": true,
+      "sha256": "739d967707abdbfd70d6ffec424ae316c185a0509f60ceb472e39df1c53f6cc9",
+      "shape": [
+        640,
+        640
+      ]
+    },
+    {
+      "check": "crop_reference_fdct4_crop",
+      "passed": true,
+      "sha256": "7c8eeaf4a9964ff84ce5caa33f5bc7f4016d1960b831a0350dd8d1126b9ded1d",
+      "shape": [
+        640,
+        640
+      ]
+    }
+  ],
+  "independent_metrics": [
+    {
+      "category": "interpolation",
+      "method": "NLM + Nearest",
+      "image": "nlm4_nearest.png",
+      "mse": 28.51549530029297,
+      "PSNR_dB": 33.57999441397217,
+      "SSIM": 0.9360161419023948,
+      "csv_psnr_error": 0.0,
+      "csv_ssim_error": 0.0,
+      "passed": true
+    },
+    {
+      "category": "interpolation",
+      "method": "NLM + Bilinear",
+      "image": "nlm4_bilinear.png",
+      "mse": 8.591842412948608,
+      "PSNR_dB": 38.789940580401854,
+      "SSIM": 0.9702545104764096,
+      "csv_psnr_error": 0.0,
+      "csv_ssim_error": 0.0,
+      "passed": true
+    },
+    {
+      "category": "interpolation",
+      "method": "NLM + Bicubic",
+      "image": "order_A_nlm_then_bicubic.png",
+      "mse": 7.741853475570679,
+      "PSNR_dB": 39.24235413382946,
+      "SSIM": 0.9694765537618492,
+      "csv_psnr_error": 0.0,
+      "csv_ssim_error": 0.0,
+      "passed": true
+    },
+    {
+      "category": "order",
+      "method": "A: NLM then Bicubic",
+      "image": "order_A_nlm_then_bicubic.png",
+      "mse": 7.741853475570679,
+      "PSNR_dB": 39.24235413382946,
+      "SSIM": 0.9694765537618492,
+      "csv_psnr_error": 0.0,
+      "csv_ssim_error": 0.0,
+      "passed": true
+    },
+    {
+      "category": "order",
+      "method": "B: Bicubic then NLM",
+      "image": "order_B_bicubic_then_nlm.png",
+      "mse": 9.258704423904419,
+      "PSNR_dB": 38.465301410233565,
+      "SSIM": 0.9640231972808714,
+      "csv_psnr_error": 0.0,
+      "csv_ssim_error": 0.0,
+      "passed": true
+    }
+  ],
+  "rankings": {
+    "highest_psnr": "NLM + Bicubic",
+    "highest_ssim": "NLM + Bilinear"
+  },
+  "order_A_minus_B": {
+    "PSNR_dB": 0.7770527235958937,
+    "SSIM": 0.005453356480977778
+  },
+  "reference_limit": "Bicubic-upsampled FDCT is a constructed reference, not acquired 2048x2048 ground truth",
+  "normalization_diagnostics": [
+    {
+      "input": "fdct",
+      "alternate_float64_reordered_normalization_different_pixels": 610,
+      "maximum_uint8_difference": 1,
+      "reason": "Floating-point arithmetic order/precision near integer-rounding ties; alternate formula is not the actual saved-input protocol."
+    },
+    {
+      "input": "ldct",
+      "alternate_float64_reordered_normalization_different_pixels": 518,
+      "maximum_uint8_difference": 1,
+      "reason": "Floating-point arithmetic order/precision near integer-rounding ties; alternate formula is not the actual saved-input protocol."
+    }
+  ]
+}

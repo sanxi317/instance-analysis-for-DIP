@@ -1,0 +1,6 @@
+category,method,image,PSNR_dB,SSIM
+interpolation,NLM + Nearest,nlm4_nearest.png,33.57999441397217,0.9360161419023948
+interpolation,NLM + Bilinear,nlm4_bilinear.png,38.789940580401854,0.9702545104764096
+interpolation,NLM + Bicubic,order_A_nlm_then_bicubic.png,39.24235413382946,0.9694765537618492
+order,A: NLM then Bicubic,order_A_nlm_then_bicubic.png,39.24235413382946,0.9694765537618492
+order,B: Bicubic then NLM,order_B_bicubic_then_nlm.png,38.465301410233565,0.9640231972808714

@@ -1,0 +1,9 @@
+Loaded the paired 512x512 lung-window inputs
+Saved-order A computed; computing interpolation before denoising (B)
+Both orders computed; calculating metrics
+NLM + Nearest: PSNR=33.579994, SSIM=0.93601614
+NLM + Bilinear: PSNR=38.789941, SSIM=0.97025451
+NLM + Bicubic: PSNR=39.242354, SSIM=0.96947655
+A: NLM then Bicubic: PSNR=39.242354, SSIM=0.96947655
+B: Bicubic then NLM: PSNR=38.465301, SSIM=0.96402320
+Completed and saved execution evidence in /home/sanxi/course/DIP/experiment1/presentation/experiments/results

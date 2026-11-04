@@ -1,0 +1,243 @@
+{
+  "experiment_label": "2026-10-13 lecture supplement",
+  "started_utc": "2026-10-13T00:55:55.966252+00:00",
+  "finished_utc": "2026-10-13T00:56:03.591140+00:00",
+  "elapsed_seconds": 7.62491662800312,
+  "command": [
+    "/home/sanxi/.pyenv/versions/3.11.9/bin/python3.11",
+    "presentation/experiments/run_order_comparison.py"
+  ],
+  "script_sha256": "170ad93e32cb148dd9bcb4a8c5e22b1d3d63a7a35500c0d843d03bbd7e2a2bd4",
+  "python": "3.11.9 (main, Jul 23 2026, 14:40:19) [GCC 15.2.0]",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+  "packages": {
+    "numpy": "2.4.6",
+    "opencv": "5.0.0",
+    "skimage": "0.26.0"
+  },
+  "cv_threads": 2,
+  "inputs": {
+    "ldct": {
+      "file": "ldct.png",
+      "sha256": "9bbca872746a9ab63431a890d8889a05a1c49c2a7c6eb06b111764241c39ca59"
+    },
+    "fdct": {
+      "file": "fdct.png",
+      "sha256": "8a3056b2b1aa142e30e680b524c0b60d1d1933787699b94205d81769ff210764"
+    }
+  },
+  "dicom_validation": {
+    "available": true,
+    "exact_png_match": true,
+    "geometries_match": true,
+    "fdct_sha256": "b1573a886f5dd78ecaa314140aeeeb70736a160a6fe0ef7af6c0483f87d4c370",
+    "ldct_sha256": "e0f5dd5d1de40291d9f3a74a6f5150435adcd908ab71c58ca84b4dd4fd9f1f8a",
+    "SimpleITK_version": "2.5.6"
+  },
+  "native_nlm_matches_saved_task2": true,
+  "parameters": {
+    "h": 4,
+    "templateWindowSize": 7,
+    "searchWindowSize": 21
+  },
+  "scale_per_axis": 4,
+  "normalization": {
+    "wl_hu": -600,
+    "ww_hu": 1500,
+    "uint8_quantization": "np.rint"
+  },
+  "reference": {
+    "description": "FDCT upsampled with INTER_CUBIC, not acquired high-resolution GT",
+    "file": "reference_fdct4.png",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_range": 255
+  },
+  "order_A": "up4(denoise_nlm(ldct))",
+  "order_B": "denoise_nlm(up4(ldct))",
+  "outputs": {
+    "reference_fdct4": {
+      "file": "reference_fdct4.png",
+      "shape": [
+        2048,
+        2048
+      ],
+      "dtype": "uint8",
+      "min": 50,
+      "max": 255,
+      "sha256": "d0006efbd7b49df53bd1ed8168a58809ad4ae9798a263b997c6ce683b0748678"
+    },
+    "nlm_native": {
+      "file": "nlm_native.png",
+      "shape": [
+        512,
+        512
+      ],
+      "dtype": "uint8",
+      "min": 55,
+      "max": 255,
+      "sha256": "2c6a8db02d9068a385fa576e958eadb97d4784ea943fe36f3da429308cffef0c"
+    },
+    "nlm4_nearest": {
+      "file": "nlm4_nearest.png",
+      "shape": [
+        2048,
+        2048
+      ],
+      "dtype": "uint8",
+      "min": 55,
+      "max": 255,
+      "sha256": "e5879b267a1b88d28fedd07cbc197373cfcf837fe735e8fb48f669e9a3a6e166"
+    },
+    "nlm4_bilinear": {
+      "file": "nlm4_bilinear.png",
+      "shape": [
+        2048,
+        2048
+      ],
+      "dtype": "uint8",
+      "min": 55,
+      "max": 255,
+      "sha256": "839946748a05abd6cb6432671493af666a68cff0e49b810f48a9fcc6bb3cec31"
+    },
+    "order_A_nlm_then_bicubic": {
+      "file": "order_A_nlm_then_bicubic.png",
+      "shape": [
+        2048,
+        2048
+      ],
+      "dtype": "uint8",
+      "min": 50,
+      "max": 255,
+      "sha256": "022cb488bef7e5c6bc669e36ac6cfab5ed06969e4af8edeb76684b75e717d610"
+    },
+    "order_B_bicubic_then_nlm": {
+      "file": "order_B_bicubic_then_nlm.png",
+      "shape": [
+        2048,
+        2048
+      ],
+      "dtype": "uint8",
+      "min": 53,
+      "max": 255,
+      "sha256": "b4f451717674ae8629fe8086cf0e74c8dfb539c19ba7a68bf4280b343eaeca3f"
+    }
+  },
+  "crops": {
+    "direct_nearest_crop": {
+      "file": "direct_nearest_crop.png",
+      "sha256": "2fd88690b463053658cbf70ab98893457b30466080df17837ee7c0b3c28e6593",
+      "roi_xyxy": [
+        320,
+        600,
+        960,
+        1240
+      ],
+      "shape": [
+        640,
+        640
+      ]
+    },
+    "direct_bilinear_crop": {
+      "file": "direct_bilinear_crop.png",
+      "sha256": "9f6cae9f1e97d873f0d31fb7b4f05e7f94df02a7e46e2d3e6b38a05dbd9a369e",
+      "roi_xyxy": [
+        320,
+        600,
+        960,
+        1240
+      ],
+      "shape": [
+        640,
+        640
+      ]
+    },
+    "direct_bicubic_crop": {
+      "file": "direct_bicubic_crop.png",
+      "sha256": "987bc7217f4241870cfbb5587beb7c158eb14b0abece3d67f1823057d94efb01",
+      "roi_xyxy": [
+        320,
+        600,
+        960,
+        1240
+      ],
+      "shape": [
+        640,
+        640
+      ]
+    },
+    "order_B_crop": {
+      "file": "order_B_crop.png",
+      "sha256": "739d967707abdbfd70d6ffec424ae316c185a0509f60ceb472e39df1c53f6cc9",
+      "roi_xyxy": [
+        320,
+        600,
+        960,
+        1240
+      ],
+      "shape": [
+        640,
+        640
+      ]
+    },
+    "reference_fdct4_crop": {
+      "file": "reference_fdct4_crop.png",
+      "sha256": "7c8eeaf4a9964ff84ce5caa33f5bc7f4016d1960b831a0350dd8d1126b9ded1d",
+      "roi_xyxy": [
+        320,
+        600,
+        960,
+        1240
+      ],
+      "shape": [
+        640,
+        640
+      ]
+    }
+  },
+  "metrics": [
+    {
+      "category": "interpolation",
+      "method": "NLM + Nearest",
+      "image": "nlm4_nearest.png",
+      "PSNR_dB": 33.57999441397217,
+      "SSIM": 0.9360161419023948
+    },
+    {
+      "category": "interpolation",
+      "method": "NLM + Bilinear",
+      "image": "nlm4_bilinear.png",
+      "PSNR_dB": 38.789940580401854,
+      "SSIM": 0.9702545104764096
+    },
+    {
+      "category": "interpolation",
+      "method": "NLM + Bicubic",
+      "image": "order_A_nlm_then_bicubic.png",
+      "PSNR_dB": 39.24235413382946,
+      "SSIM": 0.9694765537618492
+    },
+    {
+      "category": "order",
+      "method": "A: NLM then Bicubic",
+      "image": "order_A_nlm_then_bicubic.png",
+      "PSNR_dB": 39.24235413382946,
+      "SSIM": 0.9694765537618492
+    },
+    {
+      "category": "order",
+      "method": "B: Bicubic then NLM",
+      "image": "order_B_bicubic_then_nlm.png",
+      "PSNR_dB": 38.465301410233565,
+      "SSIM": 0.9640231972808714
+    }
+  ],
+  "limitations": [
+    "single L067 slice, no lesion annotation",
+    "reference interpolation may influence interpolation ranking",
+    "same NLM pixel windows cover different physical extents in A and B",
+    "not an exhaustive search of all denoiser/interpolator combinations"
+  ]
+}
