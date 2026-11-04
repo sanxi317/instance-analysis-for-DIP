@@ -1,145 +1,153 @@
+<<<<<<< Updated upstream
 This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025/Debian) (preloaded format=xelatex 2026.7.30)  8 OCT 2026 12:17
+=======
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.10.6)  7 OCT 2026 11:50
+>>>>>>> Stashed changes
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/sanxi/course/DIP/experiment1/document/main_templete.tex
-(/home/sanxi/course/DIP/experiment1/document/main_templete.tex
-LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
+**/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex
+(/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
 (./CjC.cls
 Document Class: CjC 2019/01/01 v0.1 CjC LaTeX Chinese template class
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count271
-\c@section=\count272
-\c@subsection=\count273
-\c@subsubsection=\count274
-\c@paragraph=\count275
-\c@subparagraph=\count276
-\c@figure=\count277
-\c@table=\count278
-\abovecaptionskip=\skip49
-\belowcaptionskip=\skip50
-\bibindent=\dimen148
+\c@part=\count187
+\c@section=\count188
+\c@subsection=\count189
+\c@subsubsection=\count190
+\c@paragraph=\count191
+\c@subparagraph=\count192
+\c@figure=\count193
+\c@table=\count194
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
 ) (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 ) (/usr/share/texlive/texmf-dist/tex/latex/sttools/flushend.sty
-Package: flushend 2025/06/18 v4.3 Balancing columns in twocolumn mode (ST)
-\flushend@@lastskip@a=\skip51
-\flushend@@lastskip@b=\skip52
-\flushend@@lastnode=\count279
-\var@@loop@iter=\count280
-\var@@temp@spread=\dimen149
-\var@@temp@a=\dimen150
-\var@@temp@loop=\dimen151
-\flushend@@page@rule=\dimen152
-\flushend@@varbox@lastpage=\box53
-\flushend@@varbox@a=\box54
-\flushend@@varbox@c=\box55
-\flushend@@tempbox@a=\box56
-\flushend@@tempbox@c=\box57
-\flushend@@floatbox=\box58
-\@viper=\box59
-\hold@viper=\box60
+Package: flushend 2021/10/04 v4.0 Balancing columns in twocolumn mode
+\flushend@@lastskip@a=\skip50
+\flushend@@lastskip@b=\skip51
+\flushend@@lastnode=\count195
+\var@@loop@iter=\count196
+\var@@temp@spread=\dimen141
+\var@@temp@a=\dimen142
+\var@@temp@loop=\dimen143
+\flushend@@page@rule=\dimen144
+\flushend@@varbox@lastpage=\box51
+\flushend@@varbox@a=\box52
+\flushend@@varbox@c=\box53
+\flushend@@tempbox@a=\box54
+\flushend@@tempbox@c=\box55
+\flushend@@floatbox=\box56
+\@viper=\box57
+\hold@viper=\box58
 \atColsBreak=\toks17
 \atColsEnd=\toks18
-\oldbreak@skip=\dimen153
+\oldbreak@skip=\dimen145
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks19
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: xetex.def on input line 106.
- (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/xetex.def
-File: xetex.def 2025/11/01 v5.0p Graphics/color driver for xetex
+Package graphics Info: Driver file: pdftex.def on input line 107.
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen154
-\Gin@req@width=\dimen155
+\Gin@req@height=\dimen146
+\Gin@req@width=\dimen147
 ) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
 ) (./picins.sty Option `picins' Version 3.0 Sep. 1992, TH Darmstadt/HRZ
-\@BILD=\box61
-\@TEXT=\box62
-\d@breite=\dimen156
-\d@hoehe=\dimen157
-\d@xoff=\dimen158
-\d@yoff=\dimen159
-\d@shad=\dimen160
-\d@dash=\dimen161
-\d@boxl=\dimen162
-\d@pichskip=\dimen163
-\d@tmp=\dimen164
-\d@tmpa=\dimen165
-\d@bskip=\dimen166
-\hsiz@=\dimen167
-\p@getot@l=\dimen168
-\c@breite=\count281
-\c@hoehe=\count282
-\c@xoff=\count283
-\c@yoff=\count284
-\c@pos=\count285
-\c@shad=\count286
-\c@dash=\count287
-\c@boxl=\count288
-\c@zeilen=\count289
-\@changemode=\count290
-\c@piccaption=\count291
-\c@piccaptionpos=\count292
-\c@picpos=\count293
-\c@whole=\count294
-\c@half=\count295
-\c@tmp=\count296
-\c@tmpa=\count297
-\c@tmpb=\count298
-\c@tmpc=\count299
-\c@tmpd=\count300
-\d@leftskip=\skip53
-\ptoti=\dimen169
-\ptotii=\dimen170
-\env@box=\box63
-\d@envdp=\dimen171
-\c@hsize=\count301
-\c@envdp=\count302
-\d@envb=\dimen172
+\@BILD=\box59
+\@TEXT=\box60
+\d@breite=\dimen148
+\d@hoehe=\dimen149
+\d@xoff=\dimen150
+\d@yoff=\dimen151
+\d@shad=\dimen152
+\d@dash=\dimen153
+\d@boxl=\dimen154
+\d@pichskip=\dimen155
+\d@tmp=\dimen156
+\d@tmpa=\dimen157
+\d@bskip=\dimen158
+\hsiz@=\dimen159
+\p@getot@l=\dimen160
+\c@breite=\count197
+\c@hoehe=\count198
+\c@xoff=\count199
+\c@yoff=\count266
+\c@pos=\count267
+\c@shad=\count268
+\c@dash=\count269
+\c@boxl=\count270
+\c@zeilen=\count271
+\@changemode=\count272
+\c@piccaption=\count273
+\c@piccaptionpos=\count274
+\c@picpos=\count275
+\c@whole=\count276
+\c@half=\count277
+\c@tmp=\count278
+\c@tmpa=\count279
+\c@tmpb=\count280
+\c@tmpc=\count281
+\c@tmpd=\count282
+\d@leftskip=\skip52
+\ptoti=\dimen161
+\ptotii=\dimen162
+\env@box=\box61
+\d@envdp=\dimen163
+\c@hsize=\count283
+\c@envdp=\count284
+\d@envb=\dimen164
 ) (/usr/share/texlive/texmf-dist/tex/latex/ccaption/ccaption.sty
 Package: ccaption 2011/08/07 v3.2c Extended captioning and new floats
-\@contcwidth=\skip54
-\@contindw=\skip55
-\abovelegendskip=\skip56
-\belowlegendskip=\skip57
-\c@newflo@tctr=\count303
+\@contcwidth=\skip53
+\@contindw=\skip54
+\abovelegendskip=\skip55
+\belowlegendskip=\skip56
+\c@newflo@tctr=\count285
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
-Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
-\calc@Acount=\count304
-\calc@Bcount=\count305
-\calc@Adimen=\dimen173
-\calc@Bdimen=\dimen174
-\calc@Askip=\skip58
-\calc@Bskip=\skip59
-LaTeX Info: Redefining \setlength on input line 86.
-LaTeX Info: Redefining \addtolength on input line 87.
-\calc@Ccount=\count306
-\calc@Cskip=\skip60
+Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count286
+\calc@Bcount=\count287
+\calc@Adimen=\dimen165
+\calc@Bdimen=\dimen166
+\calc@Askip=\skip57
+\calc@Bskip=\skip58
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count288
+\calc@Cskip=\skip59
 )
-\CjC@linespace=\skip61
+\CjC@linespace=\skip60
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <10.53937> not available
+(Font)              size <10.95> substituted on input line 110.
+
 ) (./ctex.sty (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2026-01-19 L3 programming layer (loader) 
- (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
-File: l3backend-xetex.def 2025-10-09 L3 backend support: XeTeX
-\g__graphics_track_int=\count307
-\g__pdfannot_backend_int=\count308
-\g__pdfannot_backend_link_int=\count309
+Package: expl3 2024-01-22 L3 programming layer (loader) 
+ (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count289
+\l__pdf_internal_box=\box62
 ))
 Package: ctex 2022/07/14 v2.5.10 Chinese adapter in LaTeX (CTEX)
  (/usr/share/texlive/texmf-dist/tex/latex/ctex/ctexhook.sty
@@ -151,241 +159,131 @@ Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
-LaTeX Encoding Info:    Redeclaring text command \capitalcedilla (encoding TS1) on input line 49.
-LaTeX Encoding Info:    Redeclaring text command \capitalogonek (encoding TS1) on input line 52.
-LaTeX Encoding Info:    Redeclaring text command \capitalgrave (encoding TS1) on input line 55.
-LaTeX Encoding Info:    Redeclaring text command \capitalacute (encoding TS1) on input line 56.
-LaTeX Encoding Info:    Redeclaring text command \capitalcircumflex (encoding TS1) on input line 57.
-LaTeX Encoding Info:    Redeclaring text command \capitaltilde (encoding TS1) on input line 58.
-LaTeX Encoding Info:    Redeclaring text command \capitaldieresis (encoding TS1) on input line 59.
-LaTeX Encoding Info:    Redeclaring text command \capitalhungarumlaut (encoding TS1) on input line 60.
-LaTeX Encoding Info:    Redeclaring text command \capitalring (encoding TS1) on input line 61.
-LaTeX Encoding Info:    Redeclaring text command \capitalcaron (encoding TS1) on input line 62.
-LaTeX Encoding Info:    Redeclaring text command \capitalbreve (encoding TS1) on input line 63.
-LaTeX Encoding Info:    Redeclaring text command \capitalmacron (encoding TS1) on input line 64.
-LaTeX Encoding Info:    Redeclaring text command \capitaldotaccent (encoding TS1) on input line 65.
-LaTeX Encoding Info:    Redeclaring text command \t (encoding TS1) on input line 66.
-LaTeX Encoding Info:    Redeclaring text command \capitaltie (encoding TS1) on input line 67.
-LaTeX Encoding Info:    Redeclaring text command \newtie (encoding TS1) on input line 68.
-LaTeX Encoding Info:    Redeclaring text command \capitalnewtie (encoding TS1) on input line 69.
-LaTeX Encoding Info:    Redeclaring text symbol \textcapitalcompwordmark (encoding TS1) on input line 70.
-LaTeX Encoding Info:    Redeclaring text symbol \textascendercompwordmark (encoding TS1) on input line 71.
-LaTeX Encoding Info:    Redeclaring text symbol \textquotestraightbase (encoding TS1) on input line 72.
-LaTeX Encoding Info:    Redeclaring text symbol \textquotestraightdblbase (encoding TS1) on input line 73.
-LaTeX Encoding Info:    Redeclaring text symbol \texttwelveudash (encoding TS1) on input line 74.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreequartersemdash (encoding TS1) on input line 75.
-LaTeX Encoding Info:    Redeclaring text symbol \textleftarrow (encoding TS1) on input line 76.
-LaTeX Encoding Info:    Redeclaring text symbol \textrightarrow (encoding TS1) on input line 77.
-LaTeX Encoding Info:    Redeclaring text symbol \textblank (encoding TS1) on input line 78.
-LaTeX Encoding Info:    Redeclaring text symbol \textdollar (encoding TS1) on input line 79.
-LaTeX Encoding Info:    Redeclaring text symbol \textquotesingle (encoding TS1) on input line 80.
-LaTeX Encoding Info:    Redeclaring text command \textasteriskcentered (encoding TS1) on input line 81.
-LaTeX Encoding Info:    Redeclaring text symbol \textdblhyphen (encoding TS1) on input line 92.
-LaTeX Encoding Info:    Redeclaring text symbol \textfractionsolidus (encoding TS1) on input line 93.
-LaTeX Encoding Info:    Redeclaring text symbol \textzerooldstyle (encoding TS1) on input line 94.
-LaTeX Encoding Info:    Redeclaring text symbol \textoneoldstyle (encoding TS1) on input line 95.
-LaTeX Encoding Info:    Redeclaring text symbol \texttwooldstyle (encoding TS1) on input line 96.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreeoldstyle (encoding TS1) on input line 97.
-LaTeX Encoding Info:    Redeclaring text symbol \textfouroldstyle (encoding TS1) on input line 98.
-LaTeX Encoding Info:    Redeclaring text symbol \textfiveoldstyle (encoding TS1) on input line 99.
-LaTeX Encoding Info:    Redeclaring text symbol \textsixoldstyle (encoding TS1) on input line 100.
-LaTeX Encoding Info:    Redeclaring text symbol \textsevenoldstyle (encoding TS1) on input line 101.
-LaTeX Encoding Info:    Redeclaring text symbol \texteightoldstyle (encoding TS1) on input line 102.
-LaTeX Encoding Info:    Redeclaring text symbol \textnineoldstyle (encoding TS1) on input line 103.
-LaTeX Encoding Info:    Redeclaring text symbol \textlangle (encoding TS1) on input line 104.
-LaTeX Encoding Info:    Redeclaring text symbol \textminus (encoding TS1) on input line 105.
-LaTeX Encoding Info:    Redeclaring text symbol \textrangle (encoding TS1) on input line 106.
-LaTeX Encoding Info:    Redeclaring text symbol \textmho (encoding TS1) on input line 107.
-LaTeX Encoding Info:    Redeclaring text symbol \textbigcircle (encoding TS1) on input line 108.
-LaTeX Encoding Info:    Redeclaring text command \textcircled (encoding TS1) on input line 109.
-LaTeX Encoding Info:    Redeclaring text symbol \textohm (encoding TS1) on input line 115.
-LaTeX Encoding Info:    Redeclaring text symbol \textlbrackdbl (encoding TS1) on input line 116.
-LaTeX Encoding Info:    Redeclaring text symbol \textrbrackdbl (encoding TS1) on input line 117.
-LaTeX Encoding Info:    Redeclaring text symbol \textuparrow (encoding TS1) on input line 118.
-LaTeX Encoding Info:    Redeclaring text symbol \textdownarrow (encoding TS1) on input line 119.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciigrave (encoding TS1) on input line 120.
-LaTeX Encoding Info:    Redeclaring text symbol \textborn (encoding TS1) on input line 121.
-LaTeX Encoding Info:    Redeclaring text symbol \textdivorced (encoding TS1) on input line 122.
-LaTeX Encoding Info:    Redeclaring text symbol \textdied (encoding TS1) on input line 123.
-LaTeX Encoding Info:    Redeclaring text symbol \textleaf (encoding TS1) on input line 124.
-LaTeX Encoding Info:    Redeclaring text symbol \textmarried (encoding TS1) on input line 125.
-LaTeX Encoding Info:    Redeclaring text symbol \textmusicalnote (encoding TS1) on input line 126.
-LaTeX Encoding Info:    Redeclaring text symbol \texttildelow (encoding TS1) on input line 127.
-LaTeX Encoding Info:    Redeclaring text symbol \textdblhyphenchar (encoding TS1) on input line 128.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciibreve (encoding TS1) on input line 129.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciicaron (encoding TS1) on input line 130.
-LaTeX Encoding Info:    Redeclaring text symbol \textacutedbl (encoding TS1) on input line 131.
-LaTeX Encoding Info:    Redeclaring text symbol \textgravedbl (encoding TS1) on input line 132.
-LaTeX Encoding Info:    Redeclaring text symbol \textdagger (encoding TS1) on input line 133.
-LaTeX Encoding Info:    Redeclaring text symbol \textdaggerdbl (encoding TS1) on input line 134.
-LaTeX Encoding Info:    Redeclaring text symbol \textbardbl (encoding TS1) on input line 135.
-LaTeX Encoding Info:    Redeclaring text symbol \textperthousand (encoding TS1) on input line 136.
-LaTeX Encoding Info:    Redeclaring text symbol \textbullet (encoding TS1) on input line 137.
-LaTeX Encoding Info:    Redeclaring text symbol \textcelsius (encoding TS1) on input line 138.
-LaTeX Encoding Info:    Redeclaring text symbol \textdollaroldstyle (encoding TS1) on input line 139.
-LaTeX Encoding Info:    Redeclaring text symbol \textcentoldstyle (encoding TS1) on input line 140.
-LaTeX Encoding Info:    Redeclaring text symbol \textflorin (encoding TS1) on input line 141.
-LaTeX Encoding Info:    Redeclaring text symbol \textcolonmonetary (encoding TS1) on input line 142.
-LaTeX Encoding Info:    Redeclaring text symbol \textwon (encoding TS1) on input line 143.
-LaTeX Encoding Info:    Redeclaring text symbol \textnaira (encoding TS1) on input line 144.
-LaTeX Encoding Info:    Redeclaring text symbol \textguarani (encoding TS1) on input line 145.
-LaTeX Encoding Info:    Redeclaring text symbol \textpeso (encoding TS1) on input line 146.
-LaTeX Encoding Info:    Redeclaring text symbol \textlira (encoding TS1) on input line 147.
-LaTeX Encoding Info:    Redeclaring text symbol \textrecipe (encoding TS1) on input line 148.
-LaTeX Encoding Info:    Redeclaring text symbol \textinterrobang (encoding TS1) on input line 149.
-LaTeX Encoding Info:    Redeclaring text symbol \textinterrobangdown (encoding TS1) on input line 150.
-LaTeX Encoding Info:    Redeclaring text symbol \textdong (encoding TS1) on input line 151.
-LaTeX Encoding Info:    Redeclaring text symbol \texttrademark (encoding TS1) on input line 152.
-LaTeX Encoding Info:    Redeclaring text symbol \textpertenthousand (encoding TS1) on input line 153.
-LaTeX Encoding Info:    Redeclaring text symbol \textpilcrow (encoding TS1) on input line 154.
-LaTeX Encoding Info:    Redeclaring text symbol \textbaht (encoding TS1) on input line 155.
-LaTeX Encoding Info:    Redeclaring text symbol \textnumero (encoding TS1) on input line 156.
-LaTeX Encoding Info:    Redeclaring text symbol \textdiscount (encoding TS1) on input line 157.
-LaTeX Encoding Info:    Redeclaring text symbol \textestimated (encoding TS1) on input line 158.
-LaTeX Encoding Info:    Redeclaring text symbol \textopenbullet (encoding TS1) on input line 159.
-LaTeX Encoding Info:    Redeclaring text symbol \textservicemark (encoding TS1) on input line 160.
-LaTeX Encoding Info:    Redeclaring text symbol \textlquill (encoding TS1) on input line 161.
-LaTeX Encoding Info:    Redeclaring text symbol \textrquill (encoding TS1) on input line 162.
-LaTeX Encoding Info:    Redeclaring text symbol \textcent (encoding TS1) on input line 163.
-LaTeX Encoding Info:    Redeclaring text symbol \textsterling (encoding TS1) on input line 164.
-LaTeX Encoding Info:    Redeclaring text symbol \textcurrency (encoding TS1) on input line 165.
-LaTeX Encoding Info:    Redeclaring text symbol \textyen (encoding TS1) on input line 166.
-LaTeX Encoding Info:    Redeclaring text symbol \textbrokenbar (encoding TS1) on input line 167.
-LaTeX Encoding Info:    Redeclaring text symbol \textsection (encoding TS1) on input line 168.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciidieresis (encoding TS1) on input line 169.
-LaTeX Encoding Info:    Redeclaring text symbol \textcopyright (encoding TS1) on input line 170.
-LaTeX Encoding Info:    Redeclaring text symbol \textordfeminine (encoding TS1) on input line 171.
-LaTeX Encoding Info:    Redeclaring text symbol \textcopyleft (encoding TS1) on input line 172.
-LaTeX Encoding Info:    Redeclaring text symbol \textlnot (encoding TS1) on input line 173.
-LaTeX Encoding Info:    Redeclaring text symbol \textcircledP (encoding TS1) on input line 174.
-LaTeX Encoding Info:    Redeclaring text symbol \textregistered (encoding TS1) on input line 175.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciimacron (encoding TS1) on input line 176.
-LaTeX Encoding Info:    Redeclaring text symbol \textdegree (encoding TS1) on input line 177.
-LaTeX Encoding Info:    Redeclaring text symbol \textpm (encoding TS1) on input line 178.
-LaTeX Encoding Info:    Redeclaring text symbol \texttwosuperior (encoding TS1) on input line 179.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreesuperior (encoding TS1) on input line 180.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciiacute (encoding TS1) on input line 181.
-LaTeX Encoding Info:    Redeclaring text symbol \textmu (encoding TS1) on input line 182.
-LaTeX Encoding Info:    Redeclaring text symbol \textparagraph (encoding TS1) on input line 183.
-LaTeX Encoding Info:    Redeclaring text symbol \textperiodcentered (encoding TS1) on input line 184.
-LaTeX Encoding Info:    Redeclaring text symbol \textreferencemark (encoding TS1) on input line 185.
-LaTeX Encoding Info:    Redeclaring text symbol \textonesuperior (encoding TS1) on input line 186.
-LaTeX Encoding Info:    Redeclaring text symbol \textordmasculine (encoding TS1) on input line 187.
-LaTeX Encoding Info:    Redeclaring text symbol \textsurd (encoding TS1) on input line 188.
-LaTeX Encoding Info:    Redeclaring text symbol \textonequarter (encoding TS1) on input line 189.
-LaTeX Encoding Info:    Redeclaring text symbol \textonehalf (encoding TS1) on input line 190.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreequarters (encoding TS1) on input line 191.
-LaTeX Encoding Info:    Redeclaring text symbol \texteuro (encoding TS1) on input line 192.
-LaTeX Encoding Info:    Redeclaring text symbol \texttimes (encoding TS1) on input line 193.
-LaTeX Encoding Info:    Redeclaring text symbol \textdiv (encoding TS1) on input line 194.
 ))
-\l__ctex_tmp_int=\count310
-\l__ctex_tmp_box=\box64
-\l__ctex_tmp_dim=\dimen175
-\g__ctex_section_depth_int=\count311
-\g__ctex_font_size_int=\count312
+\l__ctex_tmp_int=\count290
+\l__ctex_tmp_box=\box63
+\l__ctex_tmp_dim=\dimen167
+\g__ctex_section_depth_int=\count291
+\g__ctex_font_size_int=\count292
  (/usr/share/texlive/texmf-dist/tex/latex/ctex/config/ctexopts.cfg
 File: ctexopts.cfg 2022/07/14 v2.5.10 Option configuration file (CTEX)
-) (/usr/share/texlive/texmf-dist/tex/latex/ctex/engine/ctex-engine-xetex.def
-File: ctex-engine-xetex.def 2022/07/14 v2.5.10 XeLaTeX adapter (CTEX)
- (/usr/share/texlive/texmf-dist/tex/xelatex/xecjk/xeCJK.sty
-Package: xeCJK 2022/08/05 v3.9.1 Typesetting CJK scripts with XeLaTeX
- (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
-Package: xtemplate 2025-10-09 L3 Experimental prototype document functions
+) (/usr/share/texlive/texmf-dist/tex/latex/ctex/engine/ctex-engine-pdftex.def
+File: ctex-engine-pdftex.def 2022/07/14 v2.5.10 (pdf)LaTeX adapter (CTEX)
+ (/usr/share/texmf/tex/latex/CJK/CJKutf8.sty
+Package: CJKutf8 2021/10/16 4.8.5
+ (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifpdf.sty
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+ (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+)) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks20
+\inpenc@posthook=\toks21
+) (/usr/share/texmf/tex/latex/CJK/CJK.sty
+Package: CJK 2021/10/16 4.8.5
+ (/usr/share/texmf/tex/latex/CJK/mule/MULEenc.sty
+Package: MULEenc 2021/10/16 4.8.5
+) (/usr/share/texmf/tex/latex/CJK/CJK.enc
+File: CJK.enc 2021/10/16 4.8.5
+Now handling font encoding C00 ...
+... no UTF-8 mapping file for font encoding C00
+Now handling font encoding C05 ...
+... no UTF-8 mapping file for font encoding C05
+Now handling font encoding C09 ...
+... no UTF-8 mapping file for font encoding C09
+Now handling font encoding C10 ...
+... no UTF-8 mapping file for font encoding C10
+Now handling font encoding C20 ...
+... no UTF-8 mapping file for font encoding C20
+Now handling font encoding C19 ...
+... no UTF-8 mapping file for font encoding C19
+Now handling font encoding C40 ...
+... no UTF-8 mapping file for font encoding C40
+Now handling font encoding C42 ...
+... no UTF-8 mapping file for font encoding C42
+Now handling font encoding C43 ...
+... no UTF-8 mapping file for font encoding C43
+Now handling font encoding C50 ...
+... no UTF-8 mapping file for font encoding C50
+Now handling font encoding C52 ...
+... no UTF-8 mapping file for font encoding C52
+Now handling font encoding C49 ...
+... no UTF-8 mapping file for font encoding C49
+Now handling font encoding C60 ...
+... no UTF-8 mapping file for font encoding C60
+Now handling font encoding C61 ...
+... no UTF-8 mapping file for font encoding C61
+Now handling font encoding C63 ...
+... no UTF-8 mapping file for font encoding C63
+Now handling font encoding C64 ...
+... no UTF-8 mapping file for font encoding C64
+Now handling font encoding C65 ...
+... no UTF-8 mapping file for font encoding C65
+Now handling font encoding C70 ...
+... no UTF-8 mapping file for font encoding C70
+Now handling font encoding C31 ...
+... no UTF-8 mapping file for font encoding C31
+Now handling font encoding C32 ...
+... no UTF-8 mapping file for font encoding C32
+Now handling font encoding C33 ...
+... no UTF-8 mapping file for font encoding C33
+Now handling font encoding C34 ...
+... no UTF-8 mapping file for font encoding C34
+Now handling font encoding C35 ...
+... no UTF-8 mapping file for font encoding C35
+Now handling font encoding C36 ...
+... no UTF-8 mapping file for font encoding C36
+Now handling font encoding C37 ...
+... no UTF-8 mapping file for font encoding C37
+Now handling font encoding C80 ...
+... no UTF-8 mapping file for font encoding C80
+Now handling font encoding C81 ...
+... no UTF-8 mapping file for font encoding C81
+Now handling font encoding C01 ...
+... no UTF-8 mapping file for font encoding C01
+Now handling font encoding C11 ...
+... no UTF-8 mapping file for font encoding C11
+Now handling font encoding C21 ...
+... no UTF-8 mapping file for font encoding C21
+Now handling font encoding C41 ...
+... no UTF-8 mapping file for font encoding C41
+Now handling font encoding C62 ...
+... no UTF-8 mapping file for font encoding C62
 )
-\l__xeCJK_tmp_int=\count313
-\l__xeCJK_tmp_box=\box65
-\l__xeCJK_tmp_dim=\dimen176
-\l__xeCJK_tmp_skip=\skip62
-\g__xeCJK_space_factor_int=\count314
-\l__xeCJK_begin_int=\count315
-\l__xeCJK_end_int=\count316
-\c__xeCJK_CJK_class_int=\XeTeXcharclass1
-\c__xeCJK_FullLeft_class_int=\XeTeXcharclass2
-\c__xeCJK_FullRight_class_int=\XeTeXcharclass3
-\c__xeCJK_HalfLeft_class_int=\XeTeXcharclass4
-\c__xeCJK_HalfRight_class_int=\XeTeXcharclass5
-\c__xeCJK_NormalSpace_class_int=\XeTeXcharclass6
-\c__xeCJK_CM_class_int=\XeTeXcharclass7
-\c__xeCJK_HangulJamo_class_int=\XeTeXcharclass8
-\l__xeCJK_last_skip=\skip63
-\c__xeCJK_none_node=\count317
-\g__xeCJK_node_int=\count318
-\c__xeCJK_CJK_node_dim=\dimen177
-\c__xeCJK_CJK-space_node_dim=\dimen178
-\c__xeCJK_default_node_dim=\dimen179
-\c__xeCJK_CJK-widow_node_dim=\dimen180
-\c__xeCJK_normalspace_node_dim=\dimen181
-\c__xeCJK_default-space_node_skip=\skip64
-\l__xeCJK_ccglue_skip=\skip65
-\l__xeCJK_ecglue_skip=\skip66
-\l__xeCJK_punct_kern_skip=\skip67
-\l__xeCJK_indent_box=\box66
-\l__xeCJK_last_penalty_int=\count319
-\l__xeCJK_last_bound_dim=\dimen182
-\l__xeCJK_last_kern_dim=\dimen183
-\l__xeCJK_widow_penalty_int=\count320
-
-LaTeX template Info: Declaring template type 'xeCJK/punctuation' taking 0
-(template)           argument(s) on line 2396.
-
-\l__xeCJK_fixed_punct_width_dim=\dimen184
-\l__xeCJK_mixed_punct_width_dim=\dimen185
-\l__xeCJK_middle_punct_width_dim=\dimen186
-\l__xeCJK_fixed_margin_width_dim=\dimen187
-\l__xeCJK_mixed_margin_width_dim=\dimen188
-\l__xeCJK_middle_margin_width_dim=\dimen189
-\l__xeCJK_bound_punct_width_dim=\dimen190
-\l__xeCJK_bound_margin_width_dim=\dimen191
-\l__xeCJK_margin_minimum_dim=\dimen192
-\l__xeCJK_kerning_total_width_dim=\dimen193
-\l__xeCJK_same_align_margin_dim=\dimen194
-\l__xeCJK_different_align_margin_dim=\dimen195
-\l__xeCJK_kerning_margin_width_dim=\dimen196
-\l__xeCJK_kerning_margin_minimum_dim=\dimen197
-\l__xeCJK_bound_dim=\dimen198
-\l__xeCJK_reverse_bound_dim=\dimen199
-\l__xeCJK_margin_dim=\dimen256
-\l__xeCJK_minimum_bound_dim=\dimen257
-\l__xeCJK_kerning_margin_dim=\dimen258
-\g__xeCJK_family_int=\count321
-\l__xeCJK_fam_int=\count322
-\g__xeCJK_fam_allocation_int=\count323
-\l__xeCJK_verb_case_int=\count324
-\l__xeCJK_verb_exspace_skip=\skip68
- (/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.sty (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2025-10-09 L3 Experimental document command parser
+\CJK@indent=\box64
+) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 112.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+))) (/usr/share/texlive/texmf-dist/tex/latex/cjkpunct/CJKpunct.sty
+Package: CJKpunct 2016/05/14 4.8.4
+\CJKpunct@cnta=\count293
+\CJKpunct@cntb=\count294
+\CJKpunct@cntc=\count295
+\CJKpunct@cntd=\count296
+\CJKpunct@cnte=\count297
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2026 (decimal 8230)
+ (/usr/share/texlive/texmf-dist/tex/latex/cjkpunct/CJKpunct.spa)) (/usr/share/texmf/tex/latex/CJK/CJKspace.sty
+Package: CJKspace 2021/10/16 3.8.0
+) (/usr/share/texmf/tex/latex/CJK/UTF8/UTF8.bdg
+File: UTF8.bdg 2021/10/16 4.8.5
+) (/usr/share/texlive/texmf-dist/tex/latex/ctex/ctexspa.def
+File: ctexspa.def 2022/07/14 v2.5.10 Space info for CJKpunct (CTEX)
 )
-Package: fontspec 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
- (/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
-Package: fontspec-xetex 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
-\l__fontspec_script_int=\count325
-\l__fontspec_language_int=\count326
-\l__fontspec_strnum_int=\count327
-\l__fontspec_tmp_int=\count328
-\l__fontspec_tmpa_int=\count329
-\l__fontspec_tmpb_int=\count330
-\l__fontspec_tmpc_int=\count331
-\l__fontspec_em_int=\count332
-\l__fontspec_emdef_int=\count333
-\l__fontspec_strong_int=\count334
-\l__fontspec_strongdef_int=\count335
-\l__fontspec_tmpa_dim=\dimen259
-\l__fontspec_tmpb_dim=\dimen260
-\l__fontspec_tmpc_dim=\dimen261
- (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
-) (/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/usr/share/texlive/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg
-File: xeCJK.cfg 2022/08/05 v3.9.1 Configuration file for xeCJK package
-))
-\ccwd=\dimen262
-\l__ctex_ccglue_skip=\skip69
+\ccwd=\dimen168
+\l__ctex_ccglue_skip=\skip61
 )
-\l__ctex_ziju_dim=\dimen263
+\l__ctex_ziju_dim=\dimen169
  (/usr/share/texlive/texmf-dist/tex/latex/zhnumber/zhnumber.sty
 Package: zhnumber 2022/07/14 v3.0 Typesetting numbers with Chinese glyphs
-\l__zhnum_scale_int=\count336
-\l__zhnum_tmp_int=\count337
+\l__zhnum_scale_int=\count298
+\l__zhnum_tmp_int=\count299
  (/usr/share/texlive/texmf-dist/tex/latex/zhnumber/zhnumber-utf8.cfg
 File: zhnumber-utf8.cfg 2022/07/14 v3.0 Chinese numerals with UTF8 encoding
 )) (/usr/share/texlive/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-chinese.def
@@ -399,92 +297,91 @@ File: ctex-c5size.clo 2022/07/14 v2.5.10 c5size option (CTEX)
 ) (/usr/share/texlive/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-fandol.def
 File: ctex-fontset-fandol.def 2022/07/14 v2.5.10 Fandol fonts definition (CTEX)
 
-Package fontspec Info: 
-(fontspec)             Script 'CJK' not explicitly supported within font
-(fontspec)             'FandolSong-Regular'. Check the typeset output, and if
-(fontspec)             it is okay then ignore this warning. Otherwise a
-(fontspec)             different font should be chosen.
 
+/usr/share/texlive/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-fandol.def:103: Critical Package ctex Error: CTeX fontset `fandol' is unavailable in current
+(ctex)                         mode.
 
-Package fontspec Info: 
-(fontspec)             Font family 'FandolSong-Regular(0)' created for font
-(fontspec)             'FandolSong-Regular' with options
-(fontspec)             [Script={CJK},Extension={.otf},BoldFont={FandolSong-Bold},ItalicFont={FandolKai-Regular}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"[FandolSong-Regular.otf]/OT:script=hani;language=dflt;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->"[FandolSong-Bold.otf]/OT:script=hani;language=dflt;"
-(fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->"[FandolKai-Regular.otf]/OT:script=hani;language=dflt;"
+Type <return> to continue.
+ ...                                              
+                                                  
+l.103   }
+         
+
+LaTeX does not know anything more about this error, sorry.
+
+Try typing <return> to proceed.
+If that doesn't work, type X <return> to quit.
+
+Reading the current file 'ctex-fontset-fandol' will stop.
+
 
 )) (/usr/share/texlive/texmf-dist/tex/latex/ctex/config/ctex.cfg
 File: ctex.cfg 2022/07/14 v2.5.10 Configuration file (CTEX)
 ) (/usr/share/texlive/texmf-dist/tex/latex/footmisc/footmisc.sty
-Package: footmisc 2025/05/09 v7.0b a miscellany of footnote facilities
-\FN@temptoken=\toks20
-\footnotemargin=\dimen264
-Package footmisc Info: Declaring symbol style bringhurst on input line 549.
-Package footmisc Info: Declaring symbol style chicago on input line 557.
-Package footmisc Info: Declaring symbol style wiley on input line 566.
-Package footmisc Info: Declaring symbol style lamport-robust on input line 577.
-Package footmisc Info: Declaring symbol style lamport* on input line 597.
-Package footmisc Info: Declaring symbol style lamport*-robust on input line 618.
+Package: footmisc 2023/07/05 v6.0f a miscellany of footnote facilities
+\FN@temptoken=\toks22
+\footnotemargin=\dimen170
+\@outputbox@depth=\dimen171
+Package footmisc Info: Declaring symbol style bringhurst on input line 696.
+Package footmisc Info: Declaring symbol style chicago on input line 704.
+Package footmisc Info: Declaring symbol style wiley on input line 713.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 724.
+Package footmisc Info: Declaring symbol style lamport* on input line 744.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 765.
 ) (/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
-\subfigtopskip=\skip70
-\subfigcapskip=\skip71
-\subfigcaptopadj=\dimen265
-\subfigbottomskip=\skip72
-\subfigcapmargin=\dimen266
-\subfiglabelskip=\skip73
-\c@subfigure=\count338
-\c@lofdepth=\count339
-\c@subtable=\count340
-\c@lotdepth=\count341
+\subfigtopskip=\skip62
+\subfigcapskip=\skip63
+\subfigcaptopadj=\dimen172
+\subfigbottomskip=\skip64
+\subfigcapmargin=\dimen173
+\subfiglabelskip=\skip65
+\c@subfigure=\count300
+\c@lofdepth=\count301
+\c@subtable=\count302
+\c@lotdepth=\count303
 
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
 (/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip74
-\subfig@bottom=\skip75
+\subfig@top=\skip66
+\subfig@bottom=\skip67
 ) (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip17
+\Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 ) (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
-Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
-\multirow@colwidth=\skip76
-\multirow@cntb=\count342
-\multirow@dima=\skip77
-\bigstrutjot=\dimen267
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip68
+\multirow@cntb=\count304
+\multirow@dima=\skip69
+\bigstrutjot=\dimen174
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
-\c@tracingmulticols=\count343
-\mult@box=\box67
-\multicol@leftmargin=\dimen268
-\c@unbalance=\count344
-\c@collectmore=\count345
-\doublecol@number=\count346
-\multicoltolerance=\count347
-\multicolpretolerance=\count348
-\full@width=\dimen269
-\page@free=\dimen270
-\premulticols=\dimen271
-\postmulticols=\dimen272
-\multicolsep=\skip78
-\multicolbaselineskip=\skip79
-\partial@page=\box68
-\last@line=\box69
-\mc@boxedresult=\box70
-\maxbalancingoverflow=\dimen273
-\mult@rightbox=\box71
-\mult@grightbox=\box72
-\mult@firstbox=\box73
-\mult@gfirstbox=\box74
+Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
+\c@tracingmulticols=\count305
+\mult@box=\box65
+\multicol@leftmargin=\dimen175
+\c@unbalance=\count306
+\c@collectmore=\count307
+\doublecol@number=\count308
+\multicoltolerance=\count309
+\multicolpretolerance=\count310
+\full@width=\dimen176
+\page@free=\dimen177
+\premulticols=\dimen178
+\postmulticols=\dimen179
+\multicolsep=\skip70
+\multicolbaselineskip=\skip71
+\partial@page=\box66
+\last@line=\box67
+\mc@boxedresult=\box68
+\maxbalancingoverflow=\dimen180
+\mult@rightbox=\box69
+\mult@grightbox=\box70
+\mult@firstbox=\box71
+\mult@gfirstbox=\box72
+\@tempa=\box73
+\@tempa=\box74
 \@tempa=\box75
 \@tempa=\box76
 \@tempa=\box77
@@ -519,6 +416,7 @@ Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
 \@tempa=\box106
 \@tempa=\box107
 \@tempa=\box108
+<<<<<<< Updated upstream
 \@tempa=\box109
 \@tempa=\box110
 \c@minrows=\count349
@@ -531,81 +429,96 @@ Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
 \colbreak@box=\box112
 \mc@col@check@num=\count352
 \g__mc_curr_col_int=\count353
+=======
+\c@minrows=\count311
+\c@columnbadness=\count312
+\c@finalcolumnbadness=\count313
+\last@try=\dimen181
+\multicolovershoot=\dimen182
+\multicolundershoot=\dimen183
+\mult@nat@firstbox=\box109
+\colbreak@box=\box110
+\mc@col@check@num=\count314
+) (/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+>>>>>>> Stashed changes
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2025/07/09 v2.17z AMS math features
-\@mathmargin=\skip80
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip72
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2024/11/17 v2.01 AMS text
+Package: amstext 2021/08/26 v2.01 AMS text
  (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks21
-\ex@=\dimen277
+\@emptytoks=\toks23
+\ex@=\dimen184
 )) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen278
+\pmbraise@=\dimen185
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count354
-LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count355
-\leftroot@=\count356
-LaTeX Info: Redefining \overline on input line 398.
-LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count357
-\DOTSCASE@=\count358
-LaTeX Info: Redefining \ldots on input line 495.
-LaTeX Info: Redefining \dots on input line 498.
-LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box113
-\strutbox@=\box114
-LaTeX Info: Redefining \big on input line 721.
-LaTeX Info: Redefining \Big on input line 722.
-LaTeX Info: Redefining \bigg on input line 723.
-LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen279
-LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count359
-LaTeX Info: Redefining \bmod on input line 904.
-LaTeX Info: Redefining \pmod on input line 909.
-LaTeX Info: Redefining \smash on input line 939.
-LaTeX Info: Redefining \relbar on input line 969.
-LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count360
-\dotsspace@=\muskip18
-\c@parentequation=\count361
-\dspbrk@lvl=\count362
-\tag@help=\toks22
-\row@=\count363
-\column@=\count364
-\maxfields@=\count365
-\andhelp@=\toks23
-\eqnshift@=\dimen280
-\alignsep@=\dimen281
-\tagshift@=\dimen282
-\tagwidth@=\dimen283
-\totwidth@=\dimen284
-\lineht@=\dimen285
-\@envbody=\toks24
-\multlinegap=\skip81
-\multlinetaggap=\skip82
-\mathdisplay@stack=\toks25
-LaTeX Info: Redefining \[ on input line 2950.
-LaTeX Info: Redefining \] on input line 2951.
+\inf@bad=\count315
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count316
+\leftroot@=\count317
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count318
+\DOTSCASE@=\count319
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box111
+\strutbox@=\box112
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen186
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count320
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count321
+\dotsspace@=\muskip17
+\c@parentequation=\count322
+\dspbrk@lvl=\count323
+\tag@help=\toks24
+\row@=\count324
+\column@=\count325
+\maxfields@=\count326
+\andhelp@=\toks25
+\eqnshift@=\dimen187
+\alignsep@=\dimen188
+\tagshift@=\dimen189
+\tagwidth@=\dimen190
+\totwidth@=\dimen191
+\lineht@=\dimen192
+\@envbody=\toks26
+\multlinegap=\skip73
+\multlinetaggap=\skip74
+\mathdisplay@stack=\toks27
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
 ) (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks26
-\thm@bodyfont=\toks27
-\thm@headfont=\toks28
-\thm@notefont=\toks29
-\thm@headpunct=\toks30
-\thm@preskip=\skip83
-\thm@postskip=\skip84
-\thm@headsep=\skip85
-\dth@everypar=\toks31
+\thm@style=\toks28
+\thm@bodyfont=\toks29
+\thm@headfont=\toks30
+\thm@notefont=\toks31
+\thm@headpunct=\toks32
+\thm@preskip=\skip75
+\thm@postskip=\skip76
+\thm@headsep=\skip77
+\dth@everypar=\toks33
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
@@ -617,65 +530,59 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )) (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen286
-\lightrulewidth=\dimen287
-\cmidrulewidth=\dimen288
-\belowrulesep=\dimen289
-\belowbottomsep=\dimen290
-\aboverulesep=\dimen291
-\abovetopsep=\dimen292
-\cmidrulesep=\dimen293
-\cmidrulekern=\dimen294
-\defaultaddspace=\dimen295
-\@cmidla=\count366
-\@cmidlb=\count367
-\@aboverulesep=\dimen296
-\@belowrulesep=\dimen297
-\@thisruleclass=\count368
-\@lastruleclass=\count369
-\@thisrulewidth=\dimen298
+\heavyrulewidth=\dimen193
+\lightrulewidth=\dimen194
+\cmidrulewidth=\dimen195
+\belowrulesep=\dimen196
+\belowbottomsep=\dimen197
+\aboverulesep=\dimen198
+\abovetopsep=\dimen199
+\cmidrulesep=\dimen256
+\cmidrulekern=\dimen257
+\defaultaddspace=\dimen258
+\@cmidla=\count327
+\@cmidlb=\count328
+\@aboverulesep=\dimen259
+\@belowrulesep=\dimen260
+\@thisruleclass=\count329
+\@lastruleclass=\count330
+\@thisrulewidth=\dimen261
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
+Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
  (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: xetex.def on input line 149.
+Package color Info: Driver file: pdftex.def on input line 149.
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count370
-\float@exts=\toks32
-\float@box=\box115
-\@float@everytoks=\toks33
-\@floatcapt=\box116
+\c@float@type=\count331
+\float@exts=\toks34
+\float@box=\box113
+\@float@everytoks=\toks35
+\@floatcapt=\box114
 ) (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
-\f@nch@headwidth=\skip86
-\f@nch@offset@elh=\skip87
-\f@nch@offset@erh=\skip88
-\f@nch@offset@olh=\skip89
-\f@nch@offset@orh=\skip90
-\f@nch@offset@elf=\skip91
-\f@nch@offset@erf=\skip92
-\f@nch@offset@olf=\skip93
-\f@nch@offset@orf=\skip94
-\f@nch@height=\skip95
-\f@nch@footalignment=\skip96
-\f@nch@widthL=\skip97
-\f@nch@widthC=\skip98
-\f@nch@widthR=\skip99
-\@temptokenb=\toks34
+Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
+\f@nch@headwidth=\skip78
+\f@nch@O@elh=\skip79
+\f@nch@O@erh=\skip80
+\f@nch@O@olh=\skip81
+\f@nch@O@orh=\skip82
+\f@nch@O@elf=\skip83
+\f@nch@O@erf=\skip84
+\f@nch@O@olf=\skip85
+\f@nch@O@orf=\skip86
 ) (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
  (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen299
-\captionmargin=\dimen300
-\caption@leftmargin=\dimen301
-\caption@rightmargin=\dimen302
-\caption@width=\dimen303
-\caption@indent=\dimen304
-\caption@parindent=\dimen305
-\caption@hangindent=\dimen306
+\caption@tempdima=\dimen262
+\captionmargin=\dimen263
+\caption@leftmargin=\dimen264
+\caption@rightmargin=\dimen265
+\caption@width=\dimen266
+\caption@indent=\dimen267
+\caption@parindent=\dimen268
+\caption@hangindent=\dimen269
 Package caption Info: Unknown document class (or package),
 (caption)             standard defaults will be used.
 Package caption Info: \@makecaption = \long macro:#1#2->\let \@conttempa \relax \ifdim \prevdepth >-99\p@ \vskip \abovecaptionskip \else \def \@conttempa {\vbox to\topskip {}}\fi \let \@contfnote \footnote \renewcommand {\footnote }[2][]{} \let \@contfmark \footnotemark \renewcommand {\footnotemark }[1][]{} \let \@contlabel \label \renewcommand {\label }[1]{} \sbox \@tempboxa {\@contnfont #1\@contdelim \@conttfont #2} \let \footnote \@contfnote \let \footnotemark \@contfmark \let \label \@contlabel \ifdim \wd \@tempboxa <\linewidth \centering \fi \if@contcw \centering \parbox {\@contcwidth }{\fi \if@conthang \sbox \@tempboxa {\@contnfont #1\@contdelim } \@contpre {\@contnfont #1\@contdelim }\@conttempa {\@contcstyle \hangindent =\wd \@tempboxa \hangafter =\@ne \@conttfont #2\par } \else \if@contindent \@contpre {\@contnfont #1\@contdelim }\@conttempa {\@contcstyle \hangindent =\@contindw \hangafter =\@ne \@conttfont #2\par } \else \@contpre {\@contnfont #1\@contdelim }\@conttempa {\@contcstyle \@conttfont #2\par } \fi \fi \@contpost \if@contcw \par } \fi \vskip \belowcaptionskip  on input line 1175.
@@ -685,34 +592,36 @@ Package caption Warning: Unknown document class (or package),
 (caption)                standard defaults will be used.
 See the caption package documentation for explanation.
 
-\c@caption@flags=\count371
-\c@continuedfloat=\count372
+\c@caption@flags=\count332
+\c@continuedfloat=\count333
 Package caption Info: float package is loaded.
 Package caption Info: picins package is loaded.
 Package caption Info: subfigure package is loaded.
 ) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
  (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: xetex.def on input line 274.
-LaTeX Info: Redefining \color on input line 762.
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+LaTeX Info: Redefining \color on input line 758.
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
-Package xcolor Info: Model `RGB' extended on input line 1365.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
 ) (/usr/share/texlive/texmf-dist/tex/latex/sttools/stfloats.sty
-Package: stfloats 2025/06/18 v3.4 Improve float mechanism and baselineskip settings
-\@dblbotnum=\count373
-\c@dblbotnumber=\count374
+Package: stfloats 2017/03/27 v3.3 Improve float mechanism and baselineskip settings
+\@dblbotnum=\count334
+\c@dblbotnumber=\count335
 ) (/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write3
  Excluding comment 'comment') (/usr/share/texlive/texmf-dist/tex/latex/sttools/cuted.sty
+<<<<<<< Updated upstream
 Package: cuted 2025/12/15 v2.10 Mixing onecolumn and twocolumn modes (ST)
 \At@ViperColsBreak=\toks35
 \preCutedStrip=\toks36
@@ -868,6 +777,70 @@ Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \extratabsurround=\skip108
 \backup@length=\skip109
 \ar@cellbox=\box135
+=======
+Package: cuted 2021/10/04 v2.0 Mixing onecolumn and twocolumn modes
+\At@ViperColsBreak=\toks36
+\preCutedStrip=\toks37
+\postCutedStrip=\toks38
+\cuted@@tempbox@a=\box115
+\cuted@@tempbox@c=\box116
+\cuted@@tempbox@var=\box117
+\cuted@@varbox@a=\box118
+\cuted@@varbox@c=\box119
+\cuted@@tempdim@spread=\dimen270
+\cuted@@tempdim@a=\dimen271
+\cuted@@tempdim@b=\dimen272
+\ht@hold@viper=\dimen273
+\ht@viper=\dimen274
+\var@@pagediscards@ht=\dimen275
+\stripsep=\skip87
+\viper@penalty=\count336
+) (./captionhack.sty) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf.sty
+Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)) (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)) (/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+ (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))) (./gbt7714.sty
+Package: gbt7714 2022/10/03 v2.1.5 GB/T 7714 BibTeX Style
+ (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+
+
+Package natbib Warning: The `cite' package should not be used
+(natbib)                with natbib. Use option `sort' instead.
+
+\bibhang=\skip88
+\bibsep=\skip89
+LaTeX Info: Redefining \cite on input line 694.
+LaTeX Info: Redefining \citenum on input line 708.
+\c@NAT@ctr=\count337
+)) (/usr/share/texmf/tex/latex/CJK/UTF8/UTF8.enc
+File: UTF8.enc 2021/10/16 4.8.5
+) (/usr/share/texmf/tex/latex/CJK/UTF8/UTF8.chr
+File: UTF8.chr 2021/10/16 4.8.5
+>>>>>>> Stashed changes
 )
 
 LaTeX Warning: Unused global option(s):
@@ -876,6 +849,7 @@ LaTeX Warning: Unused global option(s):
 (./main_templete.aux)
 \openout1 = `main_templete.aux'.
 
+<<<<<<< Updated upstream
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 89.
 LaTeX Font Info:    ... okay on input line 89.
 LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 89.
@@ -949,51 +923,194 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 89.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> TU/DejaVuSansMono(0)/b/n on input line 89.
+=======
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C00/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C05/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C09/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C10/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C20/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C19/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C40/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C42/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C43/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C50/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C52/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C49/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C60/mj/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C61/mj/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C63/mj/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C64/mj/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C65/mj/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C70/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C31/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C32/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C33/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C34/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C35/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C36/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C37/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C80/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C81/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C01/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C11/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C21/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count338
+\scratchdimen=\dimen276
+\scratchbox=\box120
+\nofMPsegments=\count339
+\nofMParguments=\count340
+\everyMPshowfont=\toks39
+\MPscratchCnt=\count341
+\MPscratchDim=\dimen277
+\MPnumerator=\count342
+\makeMPintoPDFobject=\count343
+\everyMPtoPDFconversion=\toks40
+)
+>>>>>>> Stashed changes
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: longtable package is loaded.
  (/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for C70+rm on input line 100.
+ (/usr/share/texlive/texmf-dist/tex/latex/ctex/fd/c70rm.fd
+File: c70rm.fd 2022/07/14 v2.5.10 Chinese font definition (CTEX)
+)
+Package CJKpunct Info: punctuation spaces for family 'rm' do not exist. Use family 'def' instead. on input line 100.
 
-Package fontspec Info: 
-(fontspec)             Script 'CJK' not explicitly supported within font
-(fontspec)             'FandolHei-Regular'. Check the typeset output, and if
-(fontspec)             it is okay then ignore this warning. Otherwise a
-(fontspec)             different font should be chosen.
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:112: Undefined control sequence.
+l.112 {\zihao{2} \heiti
+                        低剂量 CT 图像质量重建与超分辨率增强 }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:116: Undefined control sequence.
+l.116 {\zihao{4}\fangsong
+                          李建辉\quad  苏威贤 \quad 王妍 \quad 李�...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:130: Undefined control sequence.
+l.130 \noindent {\heiti
+                        摘\quad 要\quad }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:136: Undefined control sequence.
+l.136 {\heiti
+              关键词 \quad }{*关键词（中文关键字与英文关键�...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:179: Undefined control sequence.
+<argument> \heiti 
+                  引言
+l.179 \section{\heiti 引言}
+                             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:179: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  引言
+l.179 \section{\heiti 引言}
+                             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:179: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  引言
+l.179 \section{\heiti 引言}
+                             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:179: Undefined control sequence.
+<argument> ...me thesection\endcsname }\fi \heiti 
+                                                  引言}{\thepage }{}\prote...
+l.179 \section{\heiti 引言}
+                             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
 
-Package fontspec Info: 
-(fontspec)             Font family 'FandolHei-Regular(0)' created for font
-(fontspec)             'FandolHei-Regular' with options
-(fontspec)             [Script={CJK},Extension={.otf},BoldFont={FandolHei-Bold}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"[FandolHei-Regular.otf]/OT:script=hani;language=dflt;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->"[FandolHei-Bold.otf]/OT:script=hani;language=dflt;"
-
-
-Package fontspec Info: 
-(fontspec)             Script 'CJK' not explicitly supported within font
-(fontspec)             'FandolFang-Regular'. Check the typeset output, and if
-(fontspec)             it is okay then ignore this warning. Otherwise a
-(fontspec)             different font should be chosen.
-
-
-Package fontspec Info: 
-(fontspec)             Font family 'FandolFang-Regular(0)' created for font
-(fontspec)             'FandolFang-Regular' with options
-(fontspec)             [Script={CJK},Extension={.otf}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"[FandolFang-Regular.otf]/OT:script=hani;language=dflt;"
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Font Info:    Trying to load font information for U+msa on input line 199.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1008,6 +1125,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [1
 
 
+<<<<<<< Updated upstream
 ] [2]
 
 Package fontspec Info: 
@@ -1159,12 +1277,632 @@ Overfull \hbox (2.33975pt too wide) has occurred while \output is active
  []
 
 [29]) [30] (./main_templete.aux)
+=======
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}]
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:182: Undefined control sequence.
+<argument> \heiti 
+                  相关工作
+l.182 \section{\heiti 相关工作}
+                                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:182: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  相关工作
+l.182 \section{\heiti 相关工作}
+                                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:182: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  相关工作
+l.182 \section{\heiti 相关工作}
+                                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:182: Undefined control sequence.
+<argument> ...me thesection\endcsname }\fi \heiti 
+                                                  相关工作}{\thepage }{}...
+l.182 \section{\heiti 相关工作}
+                                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 188.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 188.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:194: Undefined control sequence.
+<argument> \heiti 
+                  实验方法与处理流程
+l.194 \section{\heiti 实验方法与处理流程}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:194: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  实验方法与处理流程
+l.194 \section{\heiti 实验方法与处理流程}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:194: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  实验方法与处理流程
+l.194 \section{\heiti 实验方法与处理流程}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:194: Undefined control sequence.
+<argument> ...me thesection\endcsname }\fi \heiti 
+                                                  实验方法与处理流�...
+l.194 \section{\heiti 实验方法与处理流程}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (5.78505pt too high) has occurred while \output is active []
+
+ [2]
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:241: Undefined control sequence.
+<argument> \heiti 
+                  实验设置与结果分析
+l.241 \section{\heiti 实验设置与结果分析}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:241: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  实验设置与结果分析
+l.241 \section{\heiti 实验设置与结果分析}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:241: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  实验设置与结果分析
+l.241 \section{\heiti 实验设置与结果分析}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:241: Undefined control sequence.
+<argument> ...me thesection\endcsname }\fi \heiti 
+                                                  实验设置与结果分�...
+l.241 \section{\heiti 实验设置与结果分析}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:243: Undefined control sequence.
+<argument> \heiti 
+                  实验设置
+l.243 \subsection{\heiti 实验设置}
+                                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:243: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  实验设置
+l.243 \subsection{\heiti 实验设置}
+                                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:243: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  实验设置}\__mark_debug...
+l.243 \subsection{\heiti 实验设置}
+                                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:243: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  实验设置}\__mark_debug...
+l.243 \subsection{\heiti 实验设置}
+                                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:243: Undefined control sequence.
+<argument> ...thesubsection\endcsname }\fi \heiti 
+                                                  实验设置}{\thepage }{}...
+l.243 \subsection{\heiti 实验设置}
+                                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (2.0025pt too wide) has occurred while \output is active
+[] 
+ []
+
+
+Overfull \vbox (5.78505pt too high) has occurred while \output is active []
+
+ [3]
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 251.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:255: Undefined control sequence.
+<argument> \heiti 
+                  去噪结果
+l.255 \subsection{\heiti 去噪结果}
+                                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:255: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  去噪结果
+l.255 \subsection{\heiti 去噪结果}
+                                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:255: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  去噪结果}\__mark_debug...
+l.255 \subsection{\heiti 去噪结果}
+                                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:255: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  去噪结果}\__mark_debug...
+l.255 \subsection{\heiti 去噪结果}
+                                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:255: Undefined control sequence.
+<argument> ...thesubsection\endcsname }\fi \heiti 
+                                                  去噪结果}{\thepage }{}...
+l.255 \subsection{\heiti 去噪结果}
+                                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `tab:denoising' on page 4 undefined on input line 257.
+
+
+LaTeX Warning: Reference `tab:denoising' on page 4 undefined on input line 277.
+
+
+LaTeX Warning: Reference `fig:denoising' on page 4 undefined on input line 281.
+
+<figures/comparison_denoising.pdf, id=263, 955.50513pt x 514.32103pt>
+File: figures/comparison_denoising.pdf Graphic file (type pdf)
+<use figures/comparison_denoising.pdf>
+Package pdftex.def Info: figures/comparison_denoising.pdf  used on input line 285.
+(pdftex.def)             Requested size: 464.91653pt x 250.24588pt.
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:290: Undefined control sequence.
+<argument> \heiti 
+                  超分辨率重建结果
+l.290 \subsection{\heiti 超分辨率重建结果}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:290: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  超分辨率重建结果
+l.290 \subsection{\heiti 超分辨率重建结果}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:290: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  超分辨率重建结果}\...
+l.290 \subsection{\heiti 超分辨率重建结果}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:290: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  超分辨率重建结果}\...
+l.290 \subsection{\heiti 超分辨率重建结果}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:290: Undefined control sequence.
+<argument> ...thesubsection\endcsname }\fi \heiti 
+                                                  超分辨率重建结果}{...
+l.290 \subsection{\heiti 超分辨率重建结果}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `tab:sr' on page 4 undefined on input line 292.
+
+
+Overfull \vbox (5.78505pt too high) has occurred while \output is active []
+
+ [4]
+
+LaTeX Warning: Reference `tab:sr' on page 5 undefined on input line 309.
+
+
+LaTeX Warning: Reference `fig:sr' on page 5 undefined on input line 313.
+
+<figures/comparison_sr.pdf, id=273, 1179.09479pt x 261.376pt>
+File: figures/comparison_sr.pdf Graphic file (type pdf)
+<use figures/comparison_sr.pdf>
+Package pdftex.def Info: figures/comparison_sr.pdf  used on input line 317.
+(pdftex.def)             Requested size: 464.91653pt x 103.06091pt.
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:322: Undefined control sequence.
+<argument> \heiti 
+                  降噪与超分的顺序影响
+l.322 ...on{\heiti 降噪与超分的顺序影响}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:322: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  降噪与超分的顺序�...
+l.322 ...on{\heiti 降噪与超分的顺序影响}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:322: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  降噪与超分的顺序�...
+l.322 ...on{\heiti 降噪与超分的顺序影响}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:322: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  降噪与超分的顺序�...
+l.322 ...on{\heiti 降噪与超分的顺序影响}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:322: Undefined control sequence.
+<argument> ...thesubsection\endcsname }\fi \heiti 
+                                                  降噪与超分的顺序�...
+l.322 ...on{\heiti 降噪与超分的顺序影响}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 327.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+Overfull \hbox (2.0025pt too wide) has occurred while \output is active
+[] 
+ []
+
+
+Overfull \vbox (5.78505pt too high) has occurred while \output is active []
+
+ [5 <./figures/comparison_denoising.pdf>]
+
+LaTeX Warning: Reference `tab:order' on page 6 undefined on input line 331.
+
+
+LaTeX Warning: Reference `tab:order' on page 6 undefined on input line 347.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:349: Undefined control sequence.
+<argument> \heiti 
+                  传统插值超分的固有局限
+l.349 ...\heiti 传统插值超分的固有局限}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:349: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  传统插值超分的固�...
+l.349 ...\heiti 传统插值超分的固有局限}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:349: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  传统插值超分的固�...
+l.349 ...\heiti 传统插值超分的固有局限}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:349: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  传统插值超分的固�...
+l.349 ...\heiti 传统插值超分的固有局限}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:349: Undefined control sequence.
+<argument> ...thesubsection\endcsname }\fi \heiti 
+                                                  传统插值超分的固�...
+l.349 ...\heiti 传统插值超分的固有局限}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:360: Undefined control sequence.
+<argument> \heiti 
+                  综合方案选择
+l.360 \subsection{\heiti 综合方案选择}
+                                            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:360: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  综合方案选择
+l.360 \subsection{\heiti 综合方案选择}
+                                            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:360: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  综合方案选择}\__mark...
+l.360 \subsection{\heiti 综合方案选择}
+                                            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:360: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  综合方案选择}\__mark...
+l.360 \subsection{\heiti 综合方案选择}
+                                            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:360: Undefined control sequence.
+<argument> ...thesubsection\endcsname }\fi \heiti 
+                                                  综合方案选择}{\thepa...
+l.360 \subsection{\heiti 综合方案选择}
+                                            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (5.78505pt too high) has occurred while \output is active []
+
+ [6 <./figures/comparison_sr.pdf>]
+
+LaTeX Warning: Reference `fig:all' on page 7 undefined on input line 370.
+
+<figures/comparison_all.pdf, id=439, 1187.114pt x 514.32103pt>
+File: figures/comparison_all.pdf Graphic file (type pdf)
+<use figures/comparison_all.pdf>
+Package pdftex.def Info: figures/comparison_all.pdf  used on input line 374.
+(pdftex.def)             Requested size: 464.91653pt x 201.42412pt.
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:379: Undefined control sequence.
+<argument> \heiti 
+                  结论
+l.379 \section{\heiti 结论}
+                             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:379: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  结论
+l.379 \section{\heiti 结论}
+                             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:379: Undefined control sequence.
+<argument> ...section \hskip 1em\relax \fi \heiti 
+                                                  结论
+l.379 \section{\heiti 结论}
+                             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/home/WJX/instance-analysis-for-DIP/experiment1/document/main_templete.tex:379: Undefined control sequence.
+<argument> ...me thesection\endcsname }\fi \heiti 
+                                                  结论}{\thepage }{}\prote...
+l.379 \section{\heiti 结论}
+                             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (2.0025pt too wide) has occurred while \output is active
+[] 
+ []
+
+
+Overfull \vbox (5.78505pt too high) has occurred while \output is active []
+
+ [7 <./figures/comparison_all.pdf>]
+Overfull \vbox (5.78505pt too high) has occurred while \output is active []
+
+ [8] (./main_templete.aux)
+>>>>>>> Stashed changes
  ***********
-LaTeX2e <2025-11-01>
+LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
  ***********
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.41063pt have occurred.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
+<<<<<<< Updated upstream
  14773 strings out of 469719
  345799 string characters out of 5466092
  793868 words of memory out of 5000000
@@ -1174,3 +1912,15 @@ Here is how much of TeX's memory you used:
  93i,11n,112p,1812b,735s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on main_templete.xdv (30 pages, 682444 bytes).
+=======
+ 12011 strings out of 474222
+ 207907 string characters out of 5748733
+ 1961975 words of memory out of 5000000
+ 33709 multiletter control sequences out of 15000+600000
+ 621785 words of font info for 248 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 80i,10n,83p,1385b,348s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+!pdfTeX error: pdflatex (file unisong20): Font unisong20 at 632 not found
+ ==> Fatal error occurred, no output PDF file produced!
+>>>>>>> Stashed changes
