@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from scipy.fft import fft2, ifft2
 from skimage.metrics import peak_signal_noise_ratio as psnr
 from skimage.metrics import structural_similarity as ssim
+from pathlib import Path
 
 # ==========================================
 # 1. 核心功能函数定义
@@ -20,8 +21,8 @@ def pad_psf(psf, img_shape):
     psf_padded = np.zeros(img_shape)
     kh, kw = psf.shape
     psf_padded[:kh, :kw] = psf
-    psf_padded = np.roll(psf_padded, -kh//2, axis=0)
-    psf_padded = np.roll(psf_padded, -kw//2, axis=1)
+    psf_padded = np.roll(psf_padded, -(kh//2), axis=0)
+    psf_padded = np.roll(psf_padded, -(kw//2), axis=1)
     return psf_padded
 
 def inverse_filter_full(img, psf, eps=1e-3):
@@ -33,7 +34,9 @@ def inverse_filter_limited(img, psf, D0):
     H = fft2(pad_psf(psf, img.shape))
     G = fft2(img)
     M, N = img.shape
-    U, V = np.meshgrid(np.arange(M), np.arange(N), indexing='ij')
+    u = np.fft.fftfreq(M) * M
+    v = np.fft.fftfreq(N) * N
+    U, V = np.meshgrid(u, v, indexing='ij')
     D = np.sqrt(U**2 + V**2)
     F_hat = np.zeros_like(G, dtype=complex)
     mask = D <= D0
@@ -60,16 +63,19 @@ def calculate_metrics(gt, pred):
 # 2. 实验执行代码
 # ==========================================
 if __name__ == "__main__":
-    gt_path = r"C:\Users\Sueye\Desktop\DIP\example 2\instance-analysis-for-DIP-main\experiment2\data\div2k_gt.png"
+    ROOT = Path(__file__).resolve().parents[2]
+
+    gt_path = ROOT / "data/div2k_gt.png"
+
     lq_paths = [
-        r"C:\Users\Sueye\Desktop\DIP\example 2\instance-analysis-for-DIP-main\experiment2\task1\output\div2k_15x15_reflect.png",
-        r"C:\Users\Sueye\Desktop\DIP\example 2\instance-analysis-for-DIP-main\experiment2\task1\output\div2k_19x19_reflect.png"
+        ROOT / "task1/output/div2k_15x15_reflect.png",
+        ROOT / "task1/output/div2k_19x19_reflect.png"
     ]
-    
-    save_dir = r"C:\Users\Sueye\Desktop\DIP\example 2\task2\out"
+
+    save_dir = Path(__file__).resolve().parent / "picture_fixed"
     os.makedirs(save_dir, exist_ok=True)
 
-    img_gt = cv2.imread(gt_path, cv2.IMREAD_GRAYSCALE) / 255.0
+    img_gt = cv2.imread(str(gt_path), cv2.IMREAD_GRAYSCALE) / 255.0
     if img_gt is None:
         print(f"错误：找不到 GT 图像 {gt_path}")
         exit()
@@ -90,7 +96,7 @@ if __name__ == "__main__":
             continue
 
         psf = get_gaussian_psf(psf_size, sigma=3.0)
-        img_lq = cv2.imread(lq_path, cv2.IMREAD_GRAYSCALE) / 255.0
+        img_lq = cv2.imread(str(lq_path), cv2.IMREAD_GRAYSCALE) / 255.0
 
         img_inv_full = inverse_filter_full(img_lq, psf)
         img_inv_D0_list = [inverse_filter_limited(img_lq, psf, d0) for d0 in D0_list]

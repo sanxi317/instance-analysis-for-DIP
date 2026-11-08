@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from scipy.fft import fft2, ifft2
 from skimage.metrics import peak_signal_noise_ratio as psnr
 from skimage.metrics import structural_similarity as ssim
+from pathlib import Path
 
 # ==========================================
 # 1. 核心功能函数定义
@@ -19,8 +20,8 @@ def pad_psf(psf, img_shape):
     psf_padded = np.zeros(img_shape)
     kh, kw = psf.shape
     psf_padded[:kh, :kw] = psf
-    psf_padded = np.roll(psf_padded, -kh//2, axis=0)
-    psf_padded = np.roll(psf_padded, -kw//2, axis=1)
+    psf_padded = np.roll(psf_padded, -(kh//2), axis=0)
+    psf_padded = np.roll(psf_padded, -(kw//2), axis=1)
     return psf_padded
 
 def wiener_filter(img, psf, K):
@@ -43,9 +44,13 @@ def calculate_metrics(gt, pred):
 # 2. 实验与绘图主程序
 # ==========================================
 if __name__ == "__main__":
-    gt_path = r"C:\Users\Sueye\Desktop\DIP\example 2\instance-analysis-for-DIP-main\experiment2\data\div2k_gt.png"
-    lq_path = r"C:\Users\Sueye\Desktop\DIP\example 2\instance-analysis-for-DIP-main\experiment2\task1\output\div2k_15x15_reflect.png"
-    save_dir = r"C:\Users\Sueye\Desktop\DIP\example 2\task2\out\param_tuning"
+    ROOT = Path(__file__).resolve().parents[2]
+
+    gt_path = ROOT / "data/div2k_gt.png"
+    lq_path = ROOT / "task1/output/div2k_15x15_reflect.png"
+
+    save_dir = Path(__file__).resolve().parent / "param_fixed"
+    os.makedirs(save_dir, exist_ok=True)
     os.makedirs(save_dir, exist_ok=True)
 
     plt.rcParams['font.sans-serif'] = ['SimHei']

@@ -1,0 +1,34 @@
+Dataset,PSF_Guess,Method,PSNR,SSIM,Source
+div2k_15x15_reflect,-,LQ,24.860642,0.643256,/home/WJX/instance-analysis-for-DIP/experiment2/task1/output/div2k_15x15_reflect.png
+div2k_15x15_reflect,-,Full Inverse,5.158611,0.003001,/home/WJX/instance-analysis-for-DIP/experiment2/task2/algorithm/picture_fixed/singles/div2k_15x15_reflect/Full_Inverse.png
+div2k_15x15_reflect,-,Limited Inverse D0=30,19.489147,0.367238,/home/WJX/instance-analysis-for-DIP/experiment2/task2/algorithm/picture_fixed/singles/div2k_15x15_reflect/Inv_D0_30.png
+div2k_15x15_reflect,-,Wiener,26.812218,0.778464,/home/WJX/instance-analysis-for-DIP/experiment2/task2/algorithm/picture_fixed/singles/div2k_15x15_reflect/Wiener_Filter.png
+div2k_15x15_reflect,-,CLS,26.378626,0.771712,/home/WJX/instance-analysis-for-DIP/experiment2/task2/algorithm/picture_fixed/singles/div2k_15x15_reflect/CLS_Filter.png
+div2k_15x15_reflect,-,Bicubic Down-Up,24.939368,0.661433,/home/WJX/instance-analysis-for-DIP/experiment2/task3/output/bicubic/div2k_15x15_reflect/bicubic_down_up.png
+div2k_19x19_reflect,-,LQ,24.775162,0.638992,/home/WJX/instance-analysis-for-DIP/experiment2/task1/output/div2k_19x19_reflect.png
+div2k_19x19_reflect,-,Full Inverse,5.301014,0.003933,/home/WJX/instance-analysis-for-DIP/experiment2/task2/algorithm/picture_fixed/singles/div2k_19x19_reflect/Full_Inverse.png
+div2k_19x19_reflect,-,Limited Inverse D0=20,18.518358,0.351581,/home/WJX/instance-analysis-for-DIP/experiment2/task2/algorithm/picture_fixed/singles/div2k_19x19_reflect/Inv_D0_20.png
+div2k_19x19_reflect,-,Wiener,26.815475,0.780468,/home/WJX/instance-analysis-for-DIP/experiment2/task2/algorithm/picture_fixed/singles/div2k_19x19_reflect/Wiener_Filter.png
+div2k_19x19_reflect,-,CLS,26.408079,0.773708,/home/WJX/instance-analysis-for-DIP/experiment2/task2/algorithm/picture_fixed/singles/div2k_19x19_reflect/CLS_Filter.png
+div2k_19x19_reflect,-,Bicubic Down-Up,24.852788,0.657173,/home/WJX/instance-analysis-for-DIP/experiment2/task3/output/bicubic/div2k_19x19_reflect/bicubic_down_up.png
+RealBlur,-,LQ,18.924600,0.573940,/home/WJX/instance-analysis-for-DIP/experiment2/task1/output/realblur_blur_gray.png
+RealBlur,-,Bicubic Down-Up,18.949968,0.575653,/home/WJX/instance-analysis-for-DIP/experiment2/task3/output/bicubic/RealBlur/bicubic_down_up.png
+RealBlur,-,NLM h=8,18.946923,0.582110,/home/WJX/instance-analysis-for-DIP/experiment2/task3/output/nlm/nlm_h8.png
+RealBlur,-,NLM h=13,18.933242,0.582684,/home/WJX/instance-analysis-for-DIP/experiment2/task3/output/nlm/nlm_h13.png
+RealBlur,-,NLM h=20,18.891670,0.580880,/home/WJX/instance-analysis-for-DIP/experiment2/task3/output/nlm/nlm_h20.png
+RealBlur,Test_Size_15x15_sigma3,Full Inverse,4.768733,0.002697,/home/WJX/instance-analysis-for-DIP/experiment2/task2/realblur/realblur_fixed/singles/Test_Size_15x15_sigma3/Full_Inverse.png
+RealBlur,Test_Size_15x15_sigma3,Limited Inverse D0=15,17.408590,0.467755,/home/WJX/instance-analysis-for-DIP/experiment2/task2/realblur/realblur_fixed/singles/Test_Size_15x15_sigma3/Inv_D0_15.png
+RealBlur,Test_Size_15x15_sigma3,Wiener,17.514596,0.446474,/home/WJX/instance-analysis-for-DIP/experiment2/task2/realblur/realblur_fixed/singles/Test_Size_15x15_sigma3/Wiener.png
+RealBlur,Test_Size_15x15_sigma3,CLS,16.352747,0.362657,/home/WJX/instance-analysis-for-DIP/experiment2/task2/realblur/realblur_fixed/singles/Test_Size_15x15_sigma3/CLS.png
+RealBlur,Test_Size_35x35_sigma3,Full Inverse,5.373096,0.007714,/home/WJX/instance-analysis-for-DIP/experiment2/task2/realblur/realblur_fixed/singles/Test_Size_35x35_sigma3/Full_Inverse.png
+RealBlur,Test_Size_35x35_sigma3,Limited Inverse D0=15,17.409169,0.467450,/home/WJX/instance-analysis-for-DIP/experiment2/task2/realblur/realblur_fixed/singles/Test_Size_35x35_sigma3/Inv_D0_15.png
+RealBlur,Test_Size_35x35_sigma3,Wiener,17.465064,0.448182,/home/WJX/instance-analysis-for-DIP/experiment2/task2/realblur/realblur_fixed/singles/Test_Size_35x35_sigma3/Wiener.png
+RealBlur,Test_Size_35x35_sigma3,CLS,16.333117,0.366989,/home/WJX/instance-analysis-for-DIP/experiment2/task2/realblur/realblur_fixed/singles/Test_Size_35x35_sigma3/CLS.png
+RealBlur,Test_Sigma_35x35_sigma5,Full Inverse,5.098805,0.010051,/home/WJX/instance-analysis-for-DIP/experiment2/task2/realblur/realblur_fixed/singles/Test_Sigma_35x35_sigma5/Full_Inverse.png
+RealBlur,Test_Sigma_35x35_sigma5,Limited Inverse D0=15,17.406119,0.459754,/home/WJX/instance-analysis-for-DIP/experiment2/task2/realblur/realblur_fixed/singles/Test_Sigma_35x35_sigma5/Inv_D0_15.png
+RealBlur,Test_Sigma_35x35_sigma5,Wiener,16.472557,0.399790,/home/WJX/instance-analysis-for-DIP/experiment2/task2/realblur/realblur_fixed/singles/Test_Sigma_35x35_sigma5/Wiener.png
+RealBlur,Test_Sigma_35x35_sigma5,CLS,12.441135,0.181236,/home/WJX/instance-analysis-for-DIP/experiment2/task2/realblur/realblur_fixed/singles/Test_Sigma_35x35_sigma5/CLS.png
+RealBlur,Test_Sigma_35x35_sigma7,Full Inverse,4.765358,0.003194,/home/WJX/instance-analysis-for-DIP/experiment2/task2/realblur/realblur_fixed/singles/Test_Sigma_35x35_sigma7/Full_Inverse.png
+RealBlur,Test_Sigma_35x35_sigma7,Limited Inverse D0=15,17.358384,0.447447,/home/WJX/instance-analysis-for-DIP/experiment2/task2/realblur/realblur_fixed/singles/Test_Sigma_35x35_sigma7/Inv_D0_15.png
+RealBlur,Test_Sigma_35x35_sigma7,Wiener,16.526268,0.400669,/home/WJX/instance-analysis-for-DIP/experiment2/task2/realblur/realblur_fixed/singles/Test_Sigma_35x35_sigma7/Wiener.png
+RealBlur,Test_Sigma_35x35_sigma7,CLS,9.280626,0.099540,/home/WJX/instance-analysis-for-DIP/experiment2/task2/realblur/realblur_fixed/singles/Test_Sigma_35x35_sigma7/CLS.png
