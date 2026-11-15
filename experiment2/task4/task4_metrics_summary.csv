@@ -1,0 +1,113 @@
+Dataset,PSF_Guess,Method,Parameter,PSNR,SSIM
+div2k_15x15_zero,-,LQ,-,24.6041,0.64109
+div2k_15x15_zero,-,Full Inverse,eps=1e-3,5.1595,0.00312
+div2k_15x15_zero,-,Limited Inverse D0=30,D0=30,19.4717,0.36735
+div2k_15x15_zero,-,Limited Inverse D0=60,D0=60,21.5333,0.44160
+div2k_15x15_zero,-,Limited Inverse D0=100,D0=100,23.4402,0.55896
+div2k_15x15_zero,-,Limited Inverse D0=150,D0=150,24.9227,0.67765
+div2k_15x15_zero,-,Limited Inverse D0=200,D0=200,23.1617,0.63961
+div2k_15x15_zero,-,Wiener,K=0.01,26.1401,0.77834
+div2k_15x15_zero,-,CLS,gamma=0.01,25.7427,0.77176
+div2k_15x15_zero,-,Bicubic Down-Up,factor=2,24.6903,0.65913
+div2k_15x15_reflect,-,LQ,-,24.8606,0.64326
+div2k_15x15_reflect,-,Full Inverse,eps=1e-3,5.1594,0.00305
+div2k_15x15_reflect,-,Limited Inverse D0=30,D0=30,19.4911,0.36749
+div2k_15x15_reflect,-,Limited Inverse D0=60,D0=60,21.5973,0.44233
+div2k_15x15_reflect,-,Limited Inverse D0=100,D0=100,23.6159,0.56049
+div2k_15x15_reflect,-,Limited Inverse D0=150,D0=150,25.2432,0.67637
+div2k_15x15_reflect,-,Limited Inverse D0=200,D0=200,22.2133,0.61640
+div2k_15x15_reflect,-,Wiener,K=0.01,26.8605,0.77884
+div2k_15x15_reflect,-,CLS,gamma=0.01,26.3865,0.77200
+div2k_15x15_reflect,-,Bicubic Down-Up,factor=2,24.9394,0.66143
+div2k_15x15_wrap,-,LQ,-,24.7464,0.64189
+div2k_15x15_wrap,-,Full Inverse,eps=1e-3,5.1600,0.00314
+div2k_15x15_wrap,-,Limited Inverse D0=30,D0=30,19.4913,0.36756
+div2k_15x15_wrap,-,Limited Inverse D0=60,D0=60,21.6001,0.44285
+div2k_15x15_wrap,-,Limited Inverse D0=100,D0=100,23.6472,0.56356
+div2k_15x15_wrap,-,Limited Inverse D0=150,D0=150,25.7065,0.69797
+div2k_15x15_wrap,-,Limited Inverse D0=200,D0=200,26.3784,0.70036
+div2k_15x15_wrap,-,Wiener,K=0.01,27.3507,0.78580
+div2k_15x15_wrap,-,CLS,gamma=0.01,27.6414,0.78499
+div2k_15x15_wrap,-,Bicubic Down-Up,factor=2,24.8275,0.65997
+div2k_19x19_zero,-,LQ,-,24.5196,0.63682
+div2k_19x19_zero,-,Full Inverse,eps=1e-3,5.2980,0.00399
+div2k_19x19_zero,-,Limited Inverse D0=20,D0=20,18.5089,0.35169
+div2k_19x19_zero,-,Limited Inverse D0=50,D0=50,20.9241,0.41336
+div2k_19x19_zero,-,Limited Inverse D0=80,D0=80,22.5647,0.49950
+div2k_19x19_zero,-,Limited Inverse D0=140,D0=140,24.7357,0.66092
+div2k_19x19_zero,-,Limited Inverse D0=180,D0=180,24.8786,0.70052
+div2k_19x19_zero,-,Wiener,K=0.01,26.1488,0.78042
+div2k_19x19_zero,-,CLS,gamma=0.01,25.7926,0.77392
+div2k_19x19_zero,-,Bicubic Down-Up,factor=2,24.6043,0.65486
+div2k_19x19_reflect,-,LQ,-,24.7752,0.63899
+div2k_19x19_reflect,-,Full Inverse,eps=1e-3,5.3010,0.00393
+div2k_19x19_reflect,-,Limited Inverse D0=20,D0=20,18.5199,0.35180
+div2k_19x19_reflect,-,Limited Inverse D0=50,D0=50,20.9723,0.41389
+div2k_19x19_reflect,-,Limited Inverse D0=80,D0=80,22.6814,0.50080
+div2k_19x19_reflect,-,Limited Inverse D0=140,D0=140,25.0619,0.66081
+div2k_19x19_reflect,-,Limited Inverse D0=180,D0=180,24.7820,0.68927
+div2k_19x19_reflect,-,Wiener,K=0.01,26.8635,0.78082
+div2k_19x19_reflect,-,CLS,gamma=0.01,26.4160,0.77401
+div2k_19x19_reflect,-,Bicubic Down-Up,factor=2,24.8528,0.65717
+div2k_19x19_wrap,-,LQ,-,24.6614,0.63763
+div2k_19x19_wrap,-,Full Inverse,eps=1e-3,5.2980,0.00401
+div2k_19x19_wrap,-,Limited Inverse D0=20,D0=20,18.5199,0.35183
+div2k_19x19_wrap,-,Limited Inverse D0=50,D0=50,20.9738,0.41428
+div2k_19x19_wrap,-,Limited Inverse D0=80,D0=80,22.6929,0.50220
+div2k_19x19_wrap,-,Limited Inverse D0=140,D0=140,25.3323,0.67511
+div2k_19x19_wrap,-,Limited Inverse D0=180,D0=180,26.6019,0.74058
+div2k_19x19_wrap,-,Wiener,K=0.01,27.3875,0.78751
+div2k_19x19_wrap,-,CLS,gamma=0.01,27.6827,0.78622
+div2k_19x19_wrap,-,Bicubic Down-Up,factor=2,24.7413,0.65571
+RealBlur,-,LQ,-,18.9246,0.57394
+RealBlur,-,Bicubic Down-Up,factor=2,18.9500,0.57565
+RealBlur,-,NLM,h=2,18.9285,0.57748
+RealBlur,-,NLM,h=4,18.9386,0.57986
+RealBlur,-,NLM,h=6,18.9454,0.58131
+RealBlur,-,NLM,h=8,18.9469,0.58211
+RealBlur,-,NLM,h=10,18.9440,0.58252
+RealBlur,-,NLM,h=12,18.9376,0.58266
+RealBlur,-,NLM,h=14,18.9285,0.58262
+RealBlur,-,NLM,h=16,18.9177,0.58227
+RealBlur,-,NLM,h=18,18.9050,0.58166
+RealBlur,-,NLM,h=20,18.8917,0.58088
+RealBlur,-,NLM,h=7,18.9467,0.58175
+RealBlur,-,NLM,h=9,18.9459,0.58232
+RealBlur,-,NLM,h=11,18.9412,0.58267
+RealBlur,-,NLM,h=13,18.9332,0.58268
+RealBlur,Gaussian 15x15 sigma=3.0,Full Inverse,eps=1e-3,4.7687,0.00270
+RealBlur,Gaussian 15x15 sigma=3.0,Limited Inverse D0=15,D0=15,17.3782,0.46802
+RealBlur,Gaussian 15x15 sigma=3.0,Limited Inverse D0=30,D0=30,18.7911,0.51214
+RealBlur,Gaussian 15x15 sigma=3.0,Limited Inverse D0=50,D0=50,18.6449,0.49759
+RealBlur,Gaussian 15x15 sigma=3.0,Limited Inverse D0=70,D0=70,17.8280,0.40182
+RealBlur,Gaussian 15x15 sigma=3.0,Limited Inverse D0=90,D0=90,15.5562,0.21721
+RealBlur,Gaussian 15x15 sigma=3.0,Wiener,K=0.01,17.4861,0.44633
+RealBlur,Gaussian 15x15 sigma=3.0,CLS,gamma=0.01,16.3276,0.36251
+RealBlur,Gaussian 35x35 sigma=3.0,Full Inverse,eps=1e-3,5.3720,0.00772
+RealBlur,Gaussian 35x35 sigma=3.0,Limited Inverse D0=15,D0=15,17.3787,0.46771
+RealBlur,Gaussian 35x35 sigma=3.0,Limited Inverse D0=30,D0=30,18.7930,0.51122
+RealBlur,Gaussian 35x35 sigma=3.0,Limited Inverse D0=50,D0=50,18.6091,0.49300
+RealBlur,Gaussian 35x35 sigma=3.0,Limited Inverse D0=70,D0=70,17.7601,0.39735
+RealBlur,Gaussian 35x35 sigma=3.0,Limited Inverse D0=90,D0=90,15.7457,0.23231
+RealBlur,Gaussian 35x35 sigma=3.0,Wiener,K=0.01,17.4367,0.44806
+RealBlur,Gaussian 35x35 sigma=3.0,CLS,gamma=0.01,16.3079,0.36688
+RealBlur,Gaussian 35x35 sigma=5.0,Full Inverse,eps=1e-3,5.0982,0.01005
+RealBlur,Gaussian 35x35 sigma=5.0,Limited Inverse D0=15,D0=15,17.3757,0.46018
+RealBlur,Gaussian 35x35 sigma=5.0,Limited Inverse D0=30,D0=30,18.6383,0.47773
+RealBlur,Gaussian 35x35 sigma=5.0,Limited Inverse D0=50,D0=50,15.2005,0.23341
+RealBlur,Gaussian 35x35 sigma=5.0,Limited Inverse D0=70,D0=70,7.9064,0.01964
+RealBlur,Gaussian 35x35 sigma=5.0,Limited Inverse D0=90,D0=90,5.0465,0.01381
+RealBlur,Gaussian 35x35 sigma=5.0,Wiener,K=0.01,16.4486,0.39991
+RealBlur,Gaussian 35x35 sigma=5.0,CLS,gamma=0.01,12.4293,0.18122
+RealBlur,Gaussian 35x35 sigma=7.0,Full Inverse,eps=1e-3,4.7654,0.00319
+RealBlur,Gaussian 35x35 sigma=7.0,Limited Inverse D0=15,D0=15,17.3281,0.44798
+RealBlur,Gaussian 35x35 sigma=7.0,Limited Inverse D0=30,D0=30,17.3634,0.38547
+RealBlur,Gaussian 35x35 sigma=7.0,Limited Inverse D0=50,D0=50,7.2193,0.03449
+RealBlur,Gaussian 35x35 sigma=7.0,Limited Inverse D0=70,D0=70,4.8339,0.01081
+RealBlur,Gaussian 35x35 sigma=7.0,Limited Inverse D0=90,D0=90,4.7636,0.00391
+RealBlur,Gaussian 35x35 sigma=7.0,Wiener,K=0.01,16.5003,0.40104
+RealBlur,Gaussian 35x35 sigma=7.0,CLS,gamma=0.01,9.2741,0.09961
+RealBlur,Radon Motion,Wiener,K=0.1,20.3334,0.60804
+RealBlur,Radon Motion,Wiener,K=0.01,18.2616,0.44308
+RealBlur,Radon Motion,Wiener,K=0.15,19.9452,0.61173
+RealBlur,Radon Motion,CLS,gamma=0.01,11.7265,0.14869

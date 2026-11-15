@@ -1,68 +1,35 @@
 import os
+import sys
 import cv2
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
-from scipy.fft import fft2, ifft2
-from skimage.metrics import peak_signal_noise_ratio as psnr
-from skimage.metrics import structural_similarity as ssim
 from pathlib import Path
 
-# ==========================================
-# 1. 核心功能函数定义
-# ==========================================
-def get_gaussian_psf(size, sigma=3.0):
-    ax = np.arange(-size // 2 + 1., size // 2 + 1.)
-    xx, yy = np.meshgrid(ax, ax)
-    kernel = np.exp(-(xx**2 + yy**2) / (2. * sigma**2))
-    return kernel / np.sum(kernel)
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
-def pad_psf(psf, img_shape):
-    psf_padded = np.zeros(img_shape)
-    kh, kw = psf.shape
-    psf_padded[:kh, :kw] = psf
-    psf_padded = np.roll(psf_padded, -(kh//2), axis=0)
-    psf_padded = np.roll(psf_padded, -(kw//2), axis=1)
-    return psf_padded
+from task2.algorithm.code import calculate_metrics, cls_filter, read_gray, wiener_filter
 
-def wiener_filter(img, psf, K):
-    H = fft2(pad_psf(psf, img.shape))
-    G = fft2(img)
-    return np.real(ifft2((np.conj(H) / (np.abs(H)**2 + K)) * G))
-
-def cls_filter(img, psf, gamma):
-    H = fft2(pad_psf(psf, img.shape))
-    G = fft2(img)
-    laplacian = np.array([[0, -1, 0], [-1, 4, -1], [0, -1, 0]])
-    P = fft2(pad_psf(laplacian, img.shape))
-    return np.real(ifft2((np.conj(H) / (np.abs(H)**2 + gamma * np.abs(P)**2)) * G))
-
-def calculate_metrics(gt, pred):
-    pred = np.clip(pred, 0, 1)
-    return psnr(gt, pred, data_range=1.0), ssim(gt, pred, data_range=1.0)
 
 # ==========================================
 # 2. 实验与绘图主程序
 # ==========================================
 if __name__ == "__main__":
-    ROOT = Path(__file__).resolve().parents[2]
-
     gt_path = ROOT / "data/div2k_gt.png"
     lq_path = ROOT / "task1/output/div2k_15x15_reflect.png"
 
     save_dir = Path(__file__).resolve().parent / "param_fixed"
     os.makedirs(save_dir, exist_ok=True)
-    os.makedirs(save_dir, exist_ok=True)
 
-    plt.rcParams['font.sans-serif'] = ['SimHei']
+    plt.rcParams['font.sans-serif'] = ["Noto Sans CJK SC", "Microsoft YaHei", "SimHei", "DejaVu Sans"]
     plt.rcParams['axes.unicode_minus'] = False
 
-    img_gt = cv2.imread(gt_path, cv2.IMREAD_GRAYSCALE) / 255.0
-    img_lq = cv2.imread(lq_path, cv2.IMREAD_GRAYSCALE) / 255.0
-    if img_gt is None or img_lq is None:
-        print("错误：找不到图像，请检查路径。")
-        exit()
+    img_gt = read_gray(gt_path)
+    img_lq = read_gray(lq_path)
 
-    psf = get_gaussian_psf(15, 3.0)
+    psf = np.load(ROOT / "task1/output/psf_15x15.npy").astype(np.float64)
     K_list = [0.0001, 0.001, 0.005, 0.01, 0.05, 0.1]
     gamma_list = [0.0001, 0.001, 0.005, 0.01, 0.05, 0.1]
     x_labels = [str(k) for k in K_list]
@@ -83,6 +50,18 @@ if __name__ == "__main__":
         cls_psnrs.append(p)
         cls_ssims.append(s)
         cls_imgs.append(img_c)
+
+    rows = []
+    for method, param_name, values, psnrs, ssims in (
+        ("Wiener", "K", K_list, wiener_psnrs, wiener_ssims),
+        ("CLS", "gamma", gamma_list, cls_psnrs, cls_ssims),
+    ):
+        for value, p, s in zip(values, psnrs, ssims):
+            rows.append({
+                "Method": method, "Parameter": param_name, "Value": value,
+                "PSNR": p, "SSIM": s,
+            })
+    pd.DataFrame(rows).to_csv(save_dir / "task2_parameter_metrics.csv", index=False)
 
     print("指标计算完成，开始生成图表...")
 

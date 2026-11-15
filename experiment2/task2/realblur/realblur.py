@@ -1,89 +1,38 @@
 import os
+import sys
 import cv2
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from scipy.fft import fft2, ifft2
-from skimage.metrics import peak_signal_noise_ratio as psnr
-from skimage.metrics import structural_similarity as ssim
 from pathlib import Path
 
-# ==========================================
-# 1. 核心功能函数定义
-# ==========================================
-def get_gaussian_psf(size, sigma):
-    """生成高斯模糊核 (PSF)"""
-    ax = np.arange(-size // 2 + 1., size // 2 + 1.)
-    xx, yy = np.meshgrid(ax, ax)
-    kernel = np.exp(-(xx**2 + yy**2) / (2. * sigma**2))
-    return kernel / np.sum(kernel)
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
-def pad_psf(psf, img_shape):
-    """将 PSF 填充到与原图同样大小"""
-    psf_padded = np.zeros(img_shape)
-    kh, kw = psf.shape
-    psf_padded[:kh, :kw] = psf
-    psf_padded = np.roll(psf_padded, -(kh//2), axis=0)
-    psf_padded = np.roll(psf_padded, -(kw//2), axis=1)
-    return psf_padded
+from task2.algorithm.code import (
+    calculate_metrics,
+    cls_filter,
+    get_gaussian_psf,
+    inverse_filter_full,
+    inverse_filter_limited,
+    read_gray,
+    wiener_filter,
+)
 
-def inverse_filter_full(img, psf, eps=1e-3):
-    """全逆滤波"""
-    H = fft2(pad_psf(psf, img.shape))
-    G = fft2(img)
-    return np.real(ifft2(G / (H + eps)))
-
-def inverse_filter_limited(img, psf, D0):
-    """理想低通受限逆滤波 (高频置零)"""
-    H = fft2(pad_psf(psf, img.shape))
-    G = fft2(img)
-    M, N = img.shape
-    u = np.fft.fftfreq(M) * M
-    v = np.fft.fftfreq(N) * N
-    U, V = np.meshgrid(u, v, indexing='ij')
-    D = np.sqrt(U**2 + V**2)
-    F_hat = np.zeros_like(G, dtype=complex)
-    mask = D <= D0
-    F_hat[mask] = G[mask] / (H[mask] + 1e-6)
-    return np.real(ifft2(F_hat))
-
-def wiener_filter(img, psf, K=0.01):
-    """维纳滤波"""
-    H = fft2(pad_psf(psf, img.shape))
-    G = fft2(img)
-    return np.real(ifft2((np.conj(H) / (np.abs(H)**2 + K)) * G))
-
-def cls_filter(img, psf, gamma=0.01):
-    """约束最小二乘复原 (CLS)"""
-    H = fft2(pad_psf(psf, img.shape))
-    G = fft2(img)
-    laplacian = np.array([[0, -1, 0], [-1, 4, -1], [0, -1, 0]])
-    P = fft2(pad_psf(laplacian, img.shape))
-    return np.real(ifft2((np.conj(H) / (np.abs(H)**2 + gamma * np.abs(P)**2)) * G))
-
-def calculate_metrics(gt, pred):
-    """计算 PSNR 和 SSIM"""
-    pred = np.clip(pred, 0, 1)
-    return psnr(gt, pred, data_range=1.0), ssim(gt, pred, data_range=1.0)
 
 # ==========================================
 # 2. RealBlur-J 分支实验（控制变量法）
 # ==========================================
 if __name__ == "__main__":
-    ROOT = Path(__file__).resolve().parents[2]
-
     lq_path = ROOT / "task1/output/realblur_blur_gray.png"
     gt_path = ROOT / "task1/output/realblur_gt_gray.png"
 
     save_dir = Path(__file__).resolve().parent / "realblur_fixed"
     os.makedirs(save_dir, exist_ok=True)
-    os.makedirs(save_dir, exist_ok=True)
 
-    img_gt = cv2.imread(gt_path, cv2.IMREAD_GRAYSCALE) / 255.0
-    img_lq = cv2.imread(lq_path, cv2.IMREAD_GRAYSCALE) / 255.0
-    if img_gt is None or img_lq is None:
-        print("错误：找不到图像，请检查路径。")
-        exit()
+    img_gt = read_gray(gt_path)
+    img_lq = read_gray(lq_path)
 
     print(f"图像尺寸: {img_gt.shape}")
 
@@ -93,17 +42,16 @@ if __name__ == "__main__":
 
     psf_configs = [
         # 【第一组：控制 sigma=3.0 不变，只改变 size】
-        # 证明：只要 size 包住了主瓣，单纯增大 size 对运动模糊的复原几乎没影响
         {"name": "Test_Size_15x15_sigma3", "size": 15, "sigma": 3.0, "D0_list": fixed_D0_list},
         {"name": "Test_Size_35x35_sigma3", "size": 35, "sigma": 3.0, "D0_list": fixed_D0_list},
          
-        # 【第二组：控制 size=35 足够大，只改变 sigma】
-        # 证明：sigma 决定了核的“能量扩散程度”，sigma 不匹配是导致去模糊失败的元凶
+        # 【第二组：固定 size=35，改变 sigma，与第一组的 35×35 核比较】
         {"name": "Test_Sigma_35x35_sigma5", "size": 35, "sigma": 5.0, "D0_list": fixed_D0_list},
         {"name": "Test_Sigma_35x35_sigma7", "size": 35, "sigma": 7.0, "D0_list": fixed_D0_list}
     ]
 
-    results_list = []
+    lq_p, lq_s = calculate_metrics(img_gt, img_lq)
+    results_list = [{"PSF_Guess": "-", "Method": "LQ", "PSNR": lq_p, "SSIM": lq_s}]
 
     for cfg in psf_configs:
         print(f"\n===== 使用假设核: {cfg['name']} =====")
@@ -113,8 +61,8 @@ if __name__ == "__main__":
         # 执行算法
         img_inv_full = inverse_filter_full(img_lq, psf)
         img_inv_list = [inverse_filter_limited(img_lq, psf, d0) for d0 in D0_list]
-        img_wiener = wiener_filter(img_lq, psf, K=0.01)
-        img_cls = cls_filter(img_lq, psf, gamma=0.01)
+        img_wiener = wiener_filter(img_lq, psf)
+        img_cls = cls_filter(img_lq, psf)
 
         # 收集指标
         results = {
@@ -154,12 +102,12 @@ if __name__ == "__main__":
         fig, axes = plt.subplots(2, 4, figsize=(20, 10))
         fig.suptitle(f"RealBlur-J Restoration (Guessed PSF: {cfg['name']})", fontsize=18)
 
-        # 挑选几个代表性的图展示：全逆、前两个半径的受限逆、维纳、CLS
-        plot_titles = ["LQ (Real Motion Blur)", "Full Inverse",
-                       f"Inv D0={D0_list[0]}", f"Inv D0={D0_list[2]}",
+        # 展示全逆、D0=30 和 D0=50 的受限逆、维纳、CLS
+        plot_titles = ["LQ (Real Blur)", "Full Inverse",
+                       f"Inv D0={D0_list[1]}", f"Inv D0={D0_list[2]}",
                        "Wiener (K=0.01)", "CLS (γ=0.01)",
                        "GT (Sharp)", "—"]
-        plot_images = [img_lq, img_inv_full, img_inv_list[0], img_inv_list[2],
+        plot_images = [img_lq, img_inv_full, img_inv_list[1], img_inv_list[2],
                        img_wiener, img_cls, img_gt, np.zeros_like(img_gt)]
 
         for i, ax in enumerate(axes.flat):
@@ -173,7 +121,7 @@ if __name__ == "__main__":
         plt.tight_layout()
         save_fig = os.path.join(save_dir, f"realblur_{cfg['name']}_compare.png")
         plt.savefig(save_fig, dpi=250)
-        plt.close()
+        plt.close(fig)
         print(f"  对比图及单张图已保存")
 
     # ==========================================

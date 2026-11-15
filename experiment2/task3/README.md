@@ -2,11 +2,13 @@
 
 ## 1. 任务说明
 
-本任务属于数字图像处理案例二“退化图像复原”，主要完成以下内容：
+《案例二》第 2 页要求设置双三次插值和 RealBlur-J 非局部均值去噪对照。Task 2 和 Task 3 并行使用 Task 1 准备的 GT、LQ 图像，Task 2 用 PSF 做频域复原，Task 3 处理同一批 LQ 作为对照。[Task 4](../task4/README.md) 汇合两路结果，给出作业所需的对比图和 PSNR、SSIM 汇总。
 
 - **双三次插值（Bicubic）**：对 DIV2K 和 RealBlur-J 退化图像进行 2 倍插值放大，作为不进行显式去模糊处理的对照方法。
 - **非局部均值去噪（NLM）**：对 RealBlur-J 退化图像进行去噪，比较不同滤波强度下的处理效果。
-- **综合对比**：对 Task 2 和 Task 3 的结果进行统一的 PSNR、SSIM 评价与视觉对比。
+- **综合预览**：按保存的 PNG 重算 Task 2 与 Task 3 的部分指标，便于单独核验。正式评价见 Task 4。
+
+课程第 3 页的 Radon 运动核估计属于[选做任务](../task3_extra/README.md)，用于探索 RealBlur-J 的 PSF 估计。
 
 ## 2. 文件说明
 
@@ -35,24 +37,24 @@ task3/
 
 ### 3.2 执行实验
 
-在仓库根目录运行：
+在 `experiment2` 目录运行：
 
 ```bash
-python experiment2/task3/task3.py
+python3 task3/task3.py
 ```
 
 完成 Task 3 后，可以运行综合对比脚本：
 
 ```bash
-python experiment2/task3/compare_task2_task3.py
+python3 task3/compare_task2_task3.py
 ```
 
-综合对比脚本依赖 Task 1 的 GT/LQ 图像、Task 2 的复原结果和 Task 3 的处理结果。当前综合对比使用 Task 2 修复后的输出。
+综合对比脚本读取 Task 1 的 GT/LQ、Task 2 的 `picture_fixed` 和 `realblur_fixed` 输出，以及 Task 3 的处理结果。
 
-综合指标表位于：
+预览指标表位于：
 
 ```text
-experiment2/task3/output/task2_comparison/task2_task3_metrics_recomputed.csv
+task3/output/task2_comparison/task2_task3_metrics_recomputed.csv
 ```
 
 ## 4. 实验方法
@@ -78,9 +80,11 @@ experiment2/task3/output/task2_comparison/task2_task3_metrics_recomputed.csv
 
 将 Task 3 的处理结果与 Task 2 的全逆滤波、受限逆滤波、Wiener 滤波及 CLS 复原结果进行比较。
 
-综合对比脚本从保存的 PNG 图像重新计算指标，因此可能与算法直接输出的浮点图像指标存在小幅差异。
+综合预览从保存的 8 位 PNG 图像重新计算指标。像素量化可使指标与 Task 4 的正式汇总略有差异。
 
 ## 5. 主要实验结果
+
+以下数值沿用本目录的 8 位 PNG 预览口径。
 
 ### 5.1 DIV2K
 
@@ -103,7 +107,7 @@ Bicubic Down-Up 相比 LQ 仅有小幅指标提升。相比之下，使用已知
 | NLM（h=13） | 18.93324 | 0.58268 |
 | NLM（h=20） | 18.89167 | 0.58088 |
 
-在测试的参数中，`h=8` 获得较高的 PSNR，`h=13` 获得较高的 SSIM。NLM 对图像结构相似性有一定改善，但无法直接恢复运动模糊造成的细节损失。
+在测试的参数中，`h=8` 的 PSNR 最高，`h=13` 的 SSIM 最高。NLM 平滑局部噪声，使这张图的 SSIM 从 0.57394 小幅升至 0.58268，运动拖尾仍然可见。
 
 ## 6. 注意事项
 

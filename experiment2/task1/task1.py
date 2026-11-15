@@ -8,9 +8,9 @@ import matplotlib.pyplot as plt
 
 # ========== 1. 路径与实验参数 ==========
 
-DATA_DIR = Path("data")
-OUT_DIR = Path("output")
-OUT_DIR.mkdir(parents=True, exist_ok=True)
+TASK_DIR = Path(__file__).resolve().parent
+DATA_DIR = TASK_DIR.parent / "data"
+OUT_DIR = TASK_DIR / "output"
 
 DIV2K_PATH = DATA_DIR / "div2k_gt.png"
 REAL_GT_PATH = DATA_DIR / "realblur_gt.png"
@@ -242,6 +242,7 @@ def process_realblur():
 # ========== 5. 主程序 ==========
 
 if __name__ == "__main__":
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
     process_div2k()
     process_realblur()
 

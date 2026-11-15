@@ -1,4 +1,3 @@
-import os
 import cv2
 import numpy as np
 import pandas as pd
@@ -7,6 +6,19 @@ from scipy.fft import fft2, ifft2
 from skimage.metrics import peak_signal_noise_ratio as psnr
 from skimage.metrics import structural_similarity as ssim
 from pathlib import Path
+
+
+WIENER_K = 0.01
+CLS_GAMMA = 0.01
+DIV2K_CUTOFFS = {15: (30, 60, 100, 150, 200), 19: (20, 50, 80, 140, 180)}
+DIV2K_MODES = ("zero", "reflect", "wrap")
+
+
+def read_gray(path):
+    img = cv2.imread(str(path), cv2.IMREAD_GRAYSCALE)
+    if img is None:
+        raise FileNotFoundError(f"无法读取图像: {path}")
+    return img / 255.0
 
 # ==========================================
 # 1. 核心功能函数定义
@@ -43,12 +55,12 @@ def inverse_filter_limited(img, psf, D0):
     F_hat[mask] = G[mask] / (H[mask] + 1e-6)
     return np.real(ifft2(F_hat))
 
-def wiener_filter(img, psf, K=0.01):
+def wiener_filter(img, psf, K=WIENER_K):
     H = fft2(pad_psf(psf, img.shape))
     G = fft2(img)
     return np.real(ifft2((np.conj(H) / (np.abs(H)**2 + K)) * G))
 
-def cls_filter(img, psf, gamma=0.01):
+def cls_filter(img, psf, gamma=CLS_GAMMA):
     H = fft2(pad_psf(psf, img.shape))
     G = fft2(img)
     laplacian = np.array([[0, -1, 0], [-1, 4, -1], [0, -1, 0]])
@@ -59,102 +71,65 @@ def calculate_metrics(gt, pred):
     pred = np.clip(pred, 0, 1)
     return psnr(gt, pred, data_range=1.0), ssim(gt, pred, data_range=1.0)
 
-# ==========================================
-# 2. 实验执行代码
-# ==========================================
-if __name__ == "__main__":
-    ROOT = Path(__file__).resolve().parents[2]
+def save_comparison(save_dir, name, results, d0_values):
+    single_dir = save_dir / "singles" / name
+    single_dir.mkdir(parents=True, exist_ok=True)
+    plot_entries = [("LQ", "LQ", "LQ (Degraded)"),
+                    ("Full Inv", "Full_Inverse", "Full Inverse")]
+    plot_entries.extend((f"Inv D0={d0}", f"Inv_D0_{d0}", f"Inv D0={d0}")
+                        for d0 in d0_values)
+    plot_entries.extend([("Wiener", "Wiener_Filter", "Wiener Filter"),
+                         ("CLS", "CLS_Filter", "CLS Filter")])
 
-    gt_path = ROOT / "data/div2k_gt.png"
+    fig, axes = plt.subplots(3, 3, figsize=(15, 15))
+    fig.suptitle(f"Restoration Results (Standard Inverse): {name}.png", fontsize=20)
+    for ax, (method, file_stem, title) in zip(axes.flat, plot_entries):
+        display = np.clip(results[method], 0, 1)
+        img_to_save = (display * 255).astype(np.uint8)
+        cv2.imwrite(str(single_dir / f"{file_stem}.png"), img_to_save)
+        ax.imshow(display, cmap="gray")
+        ax.set_title(title)
+        ax.axis("off")
 
-    lq_paths = [
-        ROOT / "task1/output/div2k_15x15_reflect.png",
-        ROOT / "task1/output/div2k_19x19_reflect.png"
-    ]
+    fig.tight_layout()
+    fig.savefig(save_dir / f"{name}_compare.png", dpi=300)
+    plt.close(fig)
 
+
+def main():
+    root = Path(__file__).resolve().parents[2]
+    task1_output = root / "task1" / "output"
     save_dir = Path(__file__).resolve().parent / "picture_fixed"
-    os.makedirs(save_dir, exist_ok=True)
+    save_dir.mkdir(parents=True, exist_ok=True)
+    img_gt = read_gray(root / "data" / "div2k_gt.png")
 
-    img_gt = cv2.imread(str(gt_path), cv2.IMREAD_GRAYSCALE) / 255.0
-    if img_gt is None:
-        print(f"错误：找不到 GT 图像 {gt_path}")
-        exit()
+    rows = []
+    for size, d0_values in DIV2K_CUTOFFS.items():
+        psf = np.load(task1_output / f"psf_{size}x{size}.npy").astype(np.float64)
+        for mode in DIV2K_MODES:
+            name = f"div2k_{size}x{size}_{mode}"
+            filename = f"{name}.png"
+            print(f"\n正在处理: {filename}")
+            img_lq = read_gray(task1_output / filename)
+            results = {
+                "LQ": img_lq,
+                "Full Inv": inverse_filter_full(img_lq, psf),
+                "Wiener": wiener_filter(img_lq, psf),
+                "CLS": cls_filter(img_lq, psf),
+            }
+            for d0 in d0_values:
+                results[f"Inv D0={d0}"] = inverse_filter_limited(img_lq, psf, d0)
 
-    results_list = []
+            for method, img in results.items():
+                p, s = calculate_metrics(img_gt, img)
+                print(f"  {method:12}: PSNR={p:.2f}, SSIM={s:.4f}")
+                rows.append({"Image": filename, "Method": method, "PSNR": p, "SSIM": s})
 
-    for lq_path in lq_paths:
-        filename = os.path.basename(lq_path)
-        print(f"\n正在处理: {filename} ...")
+            if mode == "reflect":
+                save_comparison(save_dir, name, results, d0_values)
 
-        if "15x15" in filename:
-            psf_size = 15
-            D0_list = [30, 60, 100, 150, 200]
-        elif "19x19" in filename:
-            psf_size = 19
-            D0_list = [20, 50, 80, 140, 180] 
-        else:
-            continue
+    pd.DataFrame(rows).to_csv(save_dir / "task2_metrics_summary.csv", index=False)
 
-        psf = get_gaussian_psf(psf_size, sigma=3.0)
-        img_lq = cv2.imread(str(lq_path), cv2.IMREAD_GRAYSCALE) / 255.0
 
-        img_inv_full = inverse_filter_full(img_lq, psf)
-        img_inv_D0_list = [inverse_filter_limited(img_lq, psf, d0) for d0 in D0_list]
-        img_wiener = wiener_filter(img_lq, psf, K=0.01)
-        img_cls = cls_filter(img_lq, psf, gamma=0.01)
-
-        results = {
-            "LQ": (img_lq, None),
-            "Full Inv": (img_inv_full, calculate_metrics(img_gt, img_inv_full)),
-            "Wiener": (img_wiener, calculate_metrics(img_gt, img_wiener)),
-            "CLS": (img_cls, calculate_metrics(img_gt, img_cls)),
-            "GT": (img_gt, None)
-        }
-        for i, d0 in enumerate(D0_list):
-            results[f"Inv D0={d0}"] = (img_inv_D0_list[i], calculate_metrics(img_gt, img_inv_D0_list[i]))
-
-        for method, (img, metrics) in results.items():
-            if metrics is not None:
-                print(f"  {method.ljust(12)}: PSNR={metrics[0]:.2f}, SSIM={metrics[1]:.4f}")
-                results_list.append({"Image": filename, "Method": method, "PSNR": metrics[0], "SSIM": metrics[1]})
-
-        # ==========================================
-        # 3. 保存单张图 (新增)
-        # ==========================================
-        single_dir = os.path.join(save_dir, "singles", os.path.splitext(filename)[0])
-        os.makedirs(single_dir, exist_ok=True)
-        
-        titles = ['LQ', 'Full_Inverse'] + [f'Inv_D0_{d0}' for d0 in D0_list] + ['Wiener_Filter', 'CLS_Filter']
-        images = [img_lq, img_inv_full] + img_inv_D0_list + [img_wiener, img_cls]
-        
-        for t, img in zip(titles, images):
-            img_to_save = (np.clip(img, 0, 1) * 255).astype(np.uint8)
-            cv2.imwrite(os.path.join(single_dir, f"{t}.png"), img_to_save)
-
-        # ==========================================
-        # 4. 可视化对比组合图 (3行3列)
-        # ==========================================
-        fig, axes = plt.subplots(3, 3, figsize=(15, 15))
-        fig.suptitle(f"Restoration Results (Standard Inverse): {filename}", fontsize=20)
-        
-        plot_titles = ['LQ (Degraded)', 'Full Inverse', f'Inv D0={D0_list[0]}', 
-                       f'Inv D0={D0_list[1]}', f'Inv D0={D0_list[2]}', f'Inv D0={D0_list[3]}', 
-                       f'Inv D0={D0_list[4]}', 'Wiener Filter', 'CLS Filter']
-        
-        plot_images = [img_lq, img_inv_full] + img_inv_D0_list + [img_wiener, img_cls]
-        
-        for i, ax in enumerate(axes.flat):
-            ax.imshow(np.clip(plot_images[i], 0, 1), cmap='gray')
-            ax.set_title(plot_titles[i])
-            ax.axis('off')
-            
-        plt.tight_layout()
-        save_fig_path = os.path.join(save_dir, f"{os.path.splitext(filename)[0]}_compare.png")
-        plt.savefig(save_fig_path, dpi=300)
-        plt.close()
-
-    if results_list:
-        df = pd.DataFrame(results_list)
-        csv_path = os.path.join(save_dir, "task2_metrics_summary.csv")
-        df.to_csv(csv_path, index=False)
-        print(f"\n全部处理完成！")
+if __name__ == "__main__":
+    main()

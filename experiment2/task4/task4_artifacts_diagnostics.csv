@@ -1,0 +1,45 @@
+Dataset,Method,clip_frac,border_psnr,inner_psnr,grad_ratio
+div2k_15x15_zero,LQ,0.00000,20.657,24.873,0.1575
+div2k_15x15_zero,Full Inverse,0.99948,5.246,5.156,53.9770
+div2k_15x15_zero,Limited Inv D0=150,0.00266,17.880,25.703,0.3885
+div2k_15x15_zero,Wiener,0.00225,17.323,27.494,0.4542
+div2k_15x15_zero,CLS,0.00466,15.663,27.762,0.6421
+div2k_15x15_zero,Bicubic Down-Up,0.00000,20.808,24.952,0.1445
+div2k_15x15_reflect,LQ,0.00000,24.570,24.873,0.1499
+div2k_15x15_reflect,Full Inverse,0.99947,5.247,5.156,53.9510
+div2k_15x15_reflect,Limited Inv D0=150,0.00308,20.163,25.653,0.3834
+div2k_15x15_reflect,Wiener,0.00222,20.473,27.494,0.4219
+div2k_15x15_reflect,CLS,0.00433,17.528,27.758,0.5953
+div2k_15x15_reflect,Bicubic Down-Up,0.00000,24.638,24.952,0.1377
+div2k_15x15_wrap,LQ,0.00000,22.421,24.873,0.1527
+div2k_15x15_wrap,Full Inverse,0.99945,5.246,5.157,54.0858
+div2k_15x15_wrap,Limited Inv D0=150,0.00122,23.407,25.831,0.3307
+div2k_15x15_wrap,Wiener,0.00056,24.754,27.497,0.3817
+div2k_15x15_wrap,CLS,0.00127,25.090,27.784,0.4919
+div2k_15x15_wrap,Bicubic Down-Up,0.00000,22.528,24.952,0.1402
+div2k_19x19_zero,LQ,0.00000,20.584,24.787,0.1525
+div2k_19x19_zero,Full Inverse,0.96616,5.384,5.295,49.6731
+div2k_19x19_zero,Limited Inv D0=140,0.00221,18.325,25.374,0.3368
+div2k_19x19_zero,Wiener,0.00227,17.263,27.532,0.4539
+div2k_19x19_zero,CLS,0.00463,15.712,27.813,0.6435
+div2k_19x19_zero,Bicubic Down-Up,0.00000,20.732,24.865,0.1396
+div2k_19x19_reflect,LQ,0.00000,24.493,24.787,0.1451
+div2k_19x19_reflect,Full Inverse,0.96696,5.475,5.294,50.8711
+div2k_19x19_reflect,Limited Inv D0=140,0.00247,20.838,25.361,0.3306
+div2k_19x19_reflect,Wiener,0.00224,20.306,27.533,0.4232
+div2k_19x19_reflect,CLS,0.00431,17.505,27.810,0.6026
+div2k_19x19_reflect,Bicubic Down-Up,0.00000,24.560,24.865,0.1329
+div2k_19x19_wrap,LQ,0.00000,22.347,24.787,0.1479
+div2k_19x19_wrap,Full Inverse,0.96467,5.386,5.295,47.5525
+div2k_19x19_wrap,Limited Inv D0=140,0.00116,23.075,25.454,0.2994
+div2k_19x19_wrap,Wiener,0.00054,24.796,27.533,0.3803
+div2k_19x19_wrap,CLS,0.00127,25.136,27.825,0.4962
+div2k_19x19_wrap,Bicubic Down-Up,0.00000,22.452,24.865,0.1354
+RealBlur,LQ,0.00000,17.195,19.134,0.1714
+RealBlur,Full Inverse (Gaussian 15x15 sigma=3.0),0.99871,4.679,4.777,37.8858
+RealBlur,Limited Inv D0=30 (Gaussian 15x15 sigma=3.0),0.00233,17.044,19.003,0.0827
+RealBlur,Wiener (Gaussian 15x15 sigma=3.0),0.02001,14.582,17.904,0.8326
+RealBlur,CLS (Gaussian 15x15 sigma=3.0),0.03980,12.778,16.892,1.5976
+RealBlur,Bicubic Down-Up,0.00000,17.212,19.161,0.1477
+RealBlur,NLM h=8,0.00000,17.192,19.161,0.1448
+RealBlur,Radon Wiener K=0.10 (optional),0.00652,17.173,20.806,0.2224
