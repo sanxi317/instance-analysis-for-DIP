@@ -1,0 +1,17 @@
+% 数据来源：task3_extra/output/gaussian_radon_comparison/all_metrics.csv
+\begin{table}[htbp]
+\centering
+\caption{固定 Wiener $K=0.10$ 时的 RealBlur-J 核模型对照}
+\label{tab:radon-fixed-k}
+\begin{tabular}{lrr}
+\toprule
+核模型 & PSNR（dB） & SSIM \\
+\midrule
+高斯 $ 15\times15$，$\sigma=3$ & 19.0753 & 0.55628 \\
+高斯 $ 35\times35$，$\sigma=3$ & 19.0726 & 0.55682 \\
+高斯 $ 35\times35$，$\sigma=5$ & 19.3640 & 0.55538 \\
+高斯 $ 35\times35$，$\sigma=7$ & 19.5253 & 0.54080 \\
+Radon 运动核 & 20.3334 & 0.60804 \\
+\bottomrule
+\end{tabular}
+\end{table}

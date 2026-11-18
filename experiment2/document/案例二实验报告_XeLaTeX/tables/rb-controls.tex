@@ -1,0 +1,16 @@
+% 数据来源：task4/task4_metrics_summary.csv
+\begin{table}[htbp]
+\centering
+\caption{RealBlur-J 输入与插值、去噪对照}
+\label{tab:rb-controls}
+\begin{tabular}{lrr}
+\toprule
+方法 & PSNR（dB） & SSIM \\
+\midrule
+LQ & 18.9246 & 0.57394 \\
+Bicubic Down-Up & 18.9500 & 0.57565 \\
+NLM $h=8$ & 18.9469 & 0.58211 \\
+NLM $h=13$ & 18.9332 & 0.58268 \\
+\bottomrule
+\end{tabular}
+\end{table}

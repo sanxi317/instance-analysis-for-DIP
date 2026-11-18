@@ -1,0 +1,18 @@
+% 数据来源：task4/task4_metrics_summary.csv
+\begin{table}[htbp]
+\centering
+\caption{DIV2K $ 15\times15$ 核的边界对照（PSNR（dB）/ SSIM）}
+\label{tab:div15}
+\begin{tabular}{lccc}
+\toprule
+方法 & 零填充 & 反射延拓 & 周期延拓 \\
+\midrule
+LQ & 24.60 / 0.6411 & 24.86 / 0.6433 & 24.75 / 0.6419 \\
+全逆滤波 & 5.16 / 0.0031 & 5.16 / 0.0030 & 5.16 / 0.0031 \\
+受限逆滤波 $D_0=150$ & 24.92 / 0.6776 & 25.24 / 0.6764 & 25.71 / 0.6980 \\
+Wiener $K=0.01$ & 26.14 / 0.7783 & 26.86 / 0.7788 & 27.35 / 0.7858 \\
+CLS $\gamma=0.01$ & 25.74 / 0.7718 & 26.39 / 0.7720 & 27.64 / 0.7850 \\
+Bicubic Down-Up & 24.69 / 0.6591 & 24.94 / 0.6614 & 24.83 / 0.6600 \\
+\bottomrule
+\end{tabular}
+\end{table}

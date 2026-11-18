@@ -1,0 +1,16 @@
+% 数据来源：task4/task4_metrics_summary.csv
+\begin{table}[htbp]
+\centering
+\caption{RealBlur-J 估计运动核的复原结果}
+\label{tab:radon}
+\begin{tabular}{lrr}
+\toprule
+方法 & PSNR（dB） & SSIM \\
+\midrule
+Wiener $K=0.01$ & 18.2616 & 0.44308 \\
+Wiener $K=0.10$ & 20.3334 & 0.60804 \\
+Wiener $K=0.15$ & 19.9452 & 0.61173 \\
+CLS $\gamma=0.01$ & 11.7265 & 0.14869 \\
+\bottomrule
+\end{tabular}
+\end{table}
