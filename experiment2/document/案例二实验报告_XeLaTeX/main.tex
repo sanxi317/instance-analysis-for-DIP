@@ -119,8 +119,10 @@ g=f*h+\eta,\qquad G(u,v)=H(u,v)F(u,v)+N(u,v).
 \subsection{实拍配对与未知核}
 RealBlur-J 组的 LQ 和 GT 均为 \(667\times763\)。读取数据集已配对的图像并灰度化、归一化。
 这里保留实拍退化，招牌文字和细线条用于观察拖尾与振铃。
-真实 PSF 未知，且相机或物体运动可能使不同位置具有不同退化。
-本实验将四种各向同性高斯核代入频域公式来模拟猜核。GT 用于定量比较，算法的频域滤波输入为 LQ 和指定 PSF。
+DIV2K 复原时已知生成 LQ 的 PSF，属于非盲复原。RealBlur-J 的真实 PSF 未知，处理时需要从 LQ 推断模糊，属于盲复原场景。
+同一张 LQ 可能由不同的清晰图与模糊核组合产生。仅凭数据拟合甚至可以用单位脉冲作为核、用 LQ 本身作为清晰图，
+因此估计核时需要对图像或运动轨迹加上先验。若模糊还随位置变化，待估参数进一步增加。
+主实验用四种各向同性高斯核模拟猜核，每次去卷积都将所猜的 PSF 当作已知量。配对 GT 用于评价和事后比较参数。
 
 \section{任务二：传统频域复原}
 \subsection{PSF 到频率响应}
@@ -131,7 +133,9 @@ RealBlur-J 组的 LQ 和 GT 均为 \(667\times763\)。读取数据集已配对�
 代码中的半径参数 \(D_0\) 以 FFT 频率格点计量。
 
 \subsection{全逆和受限逆滤波}
-理想逆滤波在 \(H\ne0\) 时给出 \(\widehat F=G/H=F+N/H\)。
+理想逆滤波在 \(H\ne0\) 时给出 \(\widehat F=G/H=F+N/H\)。复原误差的噪声功率谱为 \(S_N/|H|^2\)。
+模糊已削弱的频率通常具有较小的 \(|H|\)，除以 \(H\) 会把噪声连同残留细节一起放大。
+\(H=0\) 时，观测在该频率只含噪声，原图相应分量无法由观测直接确定。
 本实验的全逆使用 \(\widehat F=G/(H+10^{-3})\)。该小常数在零响应处提供非零分母，
 在 \(|H+10^{-3}|\) 很小时仍会出现很大的增益。
 受限逆采用未移位 FFT 的有符号频率格点计算圆盘掩膜，
@@ -156,8 +160,10 @@ RealBlur-J 四种假设核统一扫描 \(D_0=15,30,50,70,90\)。
 \ \simeq\ \frac{H^*G}{|H|^2+K}.
 \end{equation}
 \(S_N/S_F\) 是频率相关的噪声与信号功率谱之比，实现中用常数 \(K\) 近似。
-以信号功率除以噪声功率定义信噪比时，\(K\) 对应其倒数方向。
-\(K\) 较小时，估计趋近逆滤波。增大 \(K\) 会限制弱响应频段的补偿，也会衰减部分有用信号。
+若以 \(S_F/S_N\) 定义信噪比，代码中的 \(K\) 对应其倒数。假定的信噪比越高（\(K\) 越小），
+滤波越接近逆滤波，能加强更多细节，也更容易放大观测中的颗粒和伪影。
+假定的信噪比越低（\(K\) 越大），弱响应频段的噪声增益受到更强抑制。
+在核匹配时，原图分量的传递系数为 \(|H|^2/(|H|^2+K)\)。\(K\) 过大时，有用细节也会被压低，表现为边缘和纹理变软。
 
 \subsection{约束最小二乘复原}
 CLS 的二次正则形式在数据一致性之外惩罚图像的拉普拉斯响应。
@@ -169,11 +175,14 @@ p&=\begin{bmatrix}0&-1&0\\-1&4&-1\\0&-1&0\end{bmatrix},\\
 \widehat F_{\mathrm{CLS}}&=\frac{H^*G}{|H|^2+\gamma|P|^2}.&&
 \end{align}
 第一项约束重新模糊后的估计与观测接近，第二项抑制大幅灰度变化。
-\(\gamma|P|^2\) 随频率变化，增强该约束可减少噪声和振荡，同时可能使细纹理或尖锐边缘变软。
+在角频率 \((\omega_x,\omega_y)\) 处，\(P=4-2\cos\omega_x-2\cos\omega_y\)，直流分量的惩罚为零，较高频率通常受到更强的约束。
+增大 \(\gamma\) 可以减少噪声和振荡，但过大时会把真实笔画、边缘和细纹理也视为应压制的灰度变化，导致过度平滑。
 
 \section{任务三：对照实验}
 \subsection{双三次插值}
 双三次插值在两个方向利用三次插值核，通常根据 \(4\times4\) 邻域估计新位置的像素值\cite{keys1981cubic}。
+其输入是已经模糊的邻域，输出是同一图像在更密网格上的灰度估计，因此轮廓可显得连续，原有宽拖尾也会随图像放大。
+频域复原则利用 PSF 描述卷积造成的衰减，再用受约束的去卷积估计清晰图。两者分别回答新采样位置应填什么值、原观测由怎样的清晰图退化而来。
 直接 \(2\) 倍放大用于观察显示效果，输出的尺寸与原 GT 不同。图~\ref{fig:bicubic-x2} 给出 RealBlur-J 的显示对照。
 要计算同尺寸指标，另设 Down-Up 对照，先用 \texttt{INTER\_AREA} 把 LQ 的宽、高分别下采样至约一半，
 再用 \texttt{INTER\_CUBIC} 恢复原尺寸。这组结果测量重采样对灰度误差和结构指标的影响。
@@ -272,9 +281,9 @@ NLM 扫描中 \(h=8\) 的 PSNR 最高，\(h=13\) 的 SSIM 最高。
 \caption{RealBlur-J 招牌中心区域。频域主实验使用 \(15\times15,\ \sigma=3\) 高斯猜核，去噪展示 \(h=8\)}
 \label{fig:rbcrop}
 \end{figure}
-全逆结果几乎被噪声覆盖，受限逆保留了招牌的低频轮廓。
+全逆结果几乎被高频颗粒和伪影覆盖，受限逆保留了招牌的低频轮廓。
 采用 \(15\times15,\ \sigma=3\) 的高斯核后，Wiener 与 CLS 使笔画和招牌边沿出现亮暗重复轮廓。
-Bicubic 和 NLM 略微平滑了局部变化，招牌的运动拖尾仍可见。
+Bicubic Down-Up 的 PSNR 只比 LQ 增加约 0.03 dB。图中的 Bicubic 和 NLM 略微平滑了局部变化，招牌的运动拖尾仍可见。
 
 \Needspace{6\baselineskip}
 \section{任务五：实验分析}
@@ -305,6 +314,7 @@ CLS 两项指标在 \(\gamma=0.05\) 最高。升至 \(0.1\) 后 PSNR 和 SSIM �
 \subsection{空间不变假设与核失配}
 DIV2K 用已知高斯 PSF 合成数据，图像内部的退化与复原使用同一个核。周期组还满足 FFT 的边界假设。
 对实拍模糊，不同位置可能具有不同的轨迹和拖尾，单个全局 PSF 只能近似。
+一旦核随位置变化，整幅图便无法用同一个 \(H(u,v)\) 逐频率相乘来表示。
 若真实系统可局部以频率响应 \(H_t\) 近似，而复原采用 \(H_a\)，理想逆滤波的误差为
 \begin{equation}
 \widehat F-F=\left(\frac{H_t}{H_a}-1\right)F+\frac{N}{H_a}.
@@ -312,28 +322,73 @@ DIV2K 用已知高斯 PSF 合成数据，图像内部的退化与复原使用同
 第一项显示即使无噪声，错核也会引起与原图相关的误差。
 高斯核各向同性，真实运动核往往有方向性，两者的衰减频率和零点可不同。
 错误补偿使等效响应出现振荡，在笔画和边沿产生过冲、欠冲及重复轮廓。
-核未知的盲复原还需从观测中估计退化，清晰图与核的多种组合可能解释同一 LQ，通常需要额外的核或图像先验。
 
-\subsection{复原与插值的作用}
-去卷积根据 PSF 和噪声模型估计清晰图，修正受衰减的频率成分。双三次插值根据邻域估计新网格的灰度，
-可改善显示尺寸与连续性。Down-Up 的小幅指标改善可来自重采样平滑，与去卷积的模型反演不同。
-NLM 利用块自相似抑制局部噪声，本实验中的实拍拖尾仍然保留。
+
 \FloatBarrier
 
+\Needspace{13\baselineskip}
 \section{选做：Radon 运动核估计}
-近似匀速直线运动对应有方向的线状 PSF，傅里叶幅度沿运动方向的频率剖面具有条纹与谷值。
-程序在 LQ 的中心方形区域去均值并加 Hann 窗，增强对数幅度谱中相对背景较暗的条纹，
-在 \(0^\circ\) 至 \(179^\circ\) 的 Radon 投影上按变化强度寻找主方向，
-再在估计方向附近对平行频谱剖面取平均，用最显著谷值至频谱中心的距离近似第一零点。
-若边长为 \(n\)、距离为 \(d\) 个频率格点，则以 \(n/d\) 估计长度并构造归一化直线 PSF。
-显著谷值可能对应更高阶的零点，因而长度估计是启发式的。
-在同一 DIV2K 图像的七个合成设置上（表~\ref{tab:radon-synthetic}），所测角度的绝对误差均为 \(0^\circ\)，长度平均绝对误差约 1.30 像素，
-最大为 3.11 像素。使用估计核的 Wiener 结果在七组中均提高了 PSNR。
-\input{tables/radon-synthetic}
+\subsection{匀速运动与频谱暗纹}
+设曝光期间的相对运动近似匀速直线运动，轨迹长度为 \(L\) 像素。图像坐标 \(x\) 向右、\(y\) 向下，
+运动轴方向写作 \(\boldsymbol e_\alpha=(\cos\alpha,\sin\alpha)\)，角度从水平向右顺时针计量。
+一个点在曝光期间沿线段均匀分摊亮度。理想连续 PSF 及其傅里叶变换为
+\begin{align}
+h(\boldsymbol r)&=\frac1L\int_{-L/2}^{L/2}
+  \delta^{(2)}(\boldsymbol r-t\boldsymbol e_\alpha)\,\mathrm dt,\\
+H(\boldsymbol f)&=\frac1L\int_{-L/2}^{L/2}
+  \exp(-2\pi\mathrm i\,t\boldsymbol f\cdot\boldsymbol e_\alpha)\,\mathrm dt
+  =\operatorname{sinc}(L\boldsymbol f\cdot\boldsymbol e_\alpha),
+\end{align}
+其中 \(\operatorname{sinc}(z)=\sin(\pi z)/(\pi z)\)，\(\boldsymbol f\) 的单位为周期每像素。
+由此可知，\(H\) 在 \(\boldsymbol f\cdot\boldsymbol e_\alpha=m/L\)（\(m\) 为非零整数）处为零。
+这些频率点形成一组垂直于运动轴的平行直线。由式~\eqref{eq:degradation}，当噪声较弱时，LQ 幅度谱上可出现对应暗纹。
+暗纹的法向给出运动轴方向，法向上中心至第一条零线的距离理论上为 \(1/L\)。曝光积分只提供轴向信息，方向以 \(180^\circ\) 为周期。
 
-RealBlur-J 样本的估计方向与长度约为 \(29^\circ\) 和 26.95 像素。
-表~\ref{tab:radon} 显示同一个核在不同正则化设置下的表现。\(K=0.10\) 的 PSNR 最高，
-\(K=0.15\) 的 SSIM 最高，二者均相对原始 LQ 有改善。
+\subsection{角度搜索与长度估计}
+程序从 LQ 中心裁出边长为 \(n\) 的偶数方块，\(n\) 最大为 512。去均值后乘二维 Hann 窗，减弱裁块边界造成的频谱泄漏，
+再对中心化 FFT 计算对数幅度谱 \(S=\log(1+|\operatorname{FFT2}(\cdot)|)\)。
+用标准差 13 格点的高斯平滑估计局部背景，保留背景高于 \(S\) 的部分得到暗纹强度图 \(D\)，
+并限定在 \(10<r<0.40n\) 的环带内以排除中心和高频外围。
+
+对 \(D\) 做 Radon 变换，就是沿候选直线累加强度。以频谱中心为原点，按程序中投影角的约定写作
+\begin{equation}
+R(\rho,\theta)=\iint D(x,y)\,
+  \delta(\rho-x\cos\theta+y\sin\theta)\,\mathrm dx\,\mathrm dy .
+\end{equation}
+\(\rho\) 是直线到中心的有符号距离，\(\theta\) 是在纵轴朝上的坐标系中从水平向右逆时针量得的法线角。候选直线与暗纹平行时，
+暗纹上的响应集中在少数 \(\rho\) 处，投影曲线的起伏会变大。代码以 \(1^\circ\) 步长扫描 \(0^\circ\) 至 \(179^\circ\)，
+以 \(7<|\rho|<0.38n\) 内的投影标准差为得分，取得最高分的 \(\theta^*\)。
+换算到图像坐标后，运动轴角度为 \(\widehat\alpha=(180^\circ-\theta^*)\bmod 180^\circ\)。
+
+长度估计回到对数谱 \(S\)，沿暗纹法向 \(\widehat\alpha\) 做七条平行剖面的双线性采样，
+横向偏移取 \(-3,-2,\ldots,3\) 格点。先对七条剖面取平均，再用平滑剖面减去原剖面，把谷值转换为峰。
+平滑标准差为 9 格点，候选峰要求间距至少为 8 格点、显著性至少为 0.06，且 \(n/60\leq d\leq n/8\)。
+程序选显著性最高的候选峰。若它对应第一条零线，则 \(d/n\approx1/L\)，得到 \(\widehat L\approx n/d\)。
+无合格峰时无法据此构核。若误选第 \(m\) 阶暗纹，长度约低估为真实值的 \(1/m\)，纹理、噪声和运动偏离直线也会影响选峰。
+
+\Needspace{7\baselineskip}
+\subsection{构核与实验验证}
+代码沿估计方向在 \([-(\widehat L-1)/2,(\widehat L-1)/2]\) 上均匀采样，按双线性权重将每个采样点分配给周围四个像素，
+再把核归一化为单位和。将核中心移到 FFT 原点后，即可代入前述 Wiener 或 CLS 公式。
+合成验证从同一张 DIV2K GT 出发，使用七种已知直线核做周期卷积，不额外叠加噪声。
+表~\ref{tab:radon-synthetic} 中，所测角度误差均为 \(0^\circ\)，长度平均绝对误差约 1.30 像素，最大为 3.11 像素。
+七组使用估计核的 Wiener 相比各自 LQ 均提高了 PSNR。
+\input{tables/radon-synthetic}
+\FloatBarrier
+
+\Needspace{6\baselineskip}
+\subsection{RealBlur-J 的估计值与复原表现}
+图~\ref{fig:radon-diagnostics} 展示该样本的估计过程。对 \(512\times512\) 中心裁块，投影得分在 \(151^\circ\) 达到最大，
+换算得 \(\widehat\alpha=29^\circ\)。剖面最显著的合格暗纹距中心 19 格点，故 \(\widehat L=512/19\approx26.95\) 像素。
+\begin{figure}[H]
+\centering
+\includegraphics[width=.55\linewidth]{../../task3_extra/output/realblur/direction_diagnostics.png}\hfill
+\includegraphics[width=.43\linewidth]{../../task3_extra/output/realblur/length_diagnostics.png}
+\caption{RealBlur-J 的 Radon 估计诊断。左侧为对数谱、增强暗纹、Radon 投影及角度得分，右侧为暗纹显著性筛选所用的剖面谷值响应}
+\label{fig:radon-diagnostics}
+\end{figure}
+表~\ref{tab:radon} 显示同一个核在不同正则化设置下的表现。沿用主实验的 \(K=0.01\) 时，
+PSNR 和 SSIM 均低于 LQ。扫描中 \(K=0.10\) 的 PSNR 最高，\(K=0.15\) 的 SSIM 最高，二者均改善了 LQ 的两项指标。
 核估计只使用 LQ，GT 用于复原评价和事后参数扫描。真实核的角度和长度没有真值用于验证。
 \input{tables/radon}
 
